@@ -1,0 +1,82 @@
+.active {
+	background: linear-gradient(to right, #000000, #ff0000) !important;
+	-webkit-background-clip: text !important;
+	background-clip: text !important;
+	-webkit-text-fill-color: transparent !important;
+}
+
+.navbar {
+	position: sticky !important;
+	top: 0;
+	z-index: 1000;
+}
+
+.dropdown-menu li {
+	cursor: pointer;
+}
+
+/* Optional shimmer effect */
+.login-btn::before,
+.register-btn::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.1);
+	transition: all 0.5s ease;
+}
+
+.login-btn:hover::before,
+.register-btn:hover::before {
+	left: 100%;
+}
+
+.login-btn,
+.register-btn {
+	padding: 3px 16px;
+	border: none;
+	border-radius: 8px;
+	font-weight: 600;
+	cursor: pointer;
+	background: linear-gradient(to right, #000000, #ff0000);
+	color: white;
+	font-size: 0.95rem;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	position: relative;
+	overflow: hidden;
+}
+
+.login-btn {
+	background: transparent;
+	color: #000000;
+	border: 2px solid #fff;
+	margin-left: 20px;
+}
+
+.login-btn:hover {
+	background: #fff;
+	color: #000;
+}
+
+.register-btn {
+	background: #ffc107;
+	color: #000;
+}
+
+.register-btn:hover {
+	background: #ffeb3b;
+}
+
+/* 👇 Hover: simulate button being pressed */
+.login-btn:hover,
+.register-btn:hover {
+	transform: translateY(2px) scale(0.97);
+	box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* ========================================== */

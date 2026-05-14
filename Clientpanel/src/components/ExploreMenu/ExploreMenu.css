@@ -1,0 +1,247 @@
+.explore-menu-list::-webkit-scrollbar {
+	display: none;
+}
+
+.explore-menu-header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	gap: 10px; /* Space between the emoji and the title */
+}
+.explore-menu-title {
+	font-size: 1.8rem;
+	font-weight: 700;
+	color: #000;
+	letter-spacing: 1.5px;
+	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+	background: linear-gradient(145deg, #000000, #ff0000);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.explore-menu-description {
+	font-size: 1rem;
+	font-weight: 600;
+	font-style: italic;
+	color: white;
+	background: linear-gradient(145deg, #000000, #ff0000);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+.explore-menu-description::before {
+	content: "";
+	font-size: 1.2rem;
+	margin-right: 5px;
+}
+.explore-menu-description::after {
+	content: "";
+	color: #ff0000;
+	font-size: 1.2rem;
+	margin-left: 5px;
+}
+
+.explore-menu-list {
+	display: flex;
+	justify-content: space-between;
+	padding: 24px 16px;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	scrollbar-width: none;
+}
+
+/* 💥 Category Card with Animated Gradient Background */
+.explore-menu-item {
+	flex: 0 0 auto;
+	width: 140px;
+	backdrop-filter: blur(10px);
+	background-size: 300% 300%;
+	padding: 16px 8px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	gap: 10px 0px;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	cursor: pointer;
+	scroll-snap-align: center;
+	color: rgb(16, 12, 12);
+	box-shadow: 8px 8px 20px #cbd1d8, -8px -8px 20px #ffffff,
+		inset 2px 2px 4px #d1d9e6, inset -2px -2px 4px #ffffff;
+	border: 1px solid #e4e7ed;
+	border-top: 1px solid #eeee;
+	border-radius: 12px;
+}
+
+.explore-menu-item:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Image Wrapper */
+.menu-image-wrapper { 
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/* background: white; */
+	background: transparent;
+	border-radius: 50%;
+	padding: 5px;
+	background: transparent;
+	transition: border 0.3s, transform 0.3s;
+}
+.menu-image-wrapper img {
+	width: 100%;
+	height: 90px;
+	object-fit: contain;
+	/* border-radius: 50%; */
+	transition: transform 0.3s;
+}
+.menu-image-wrapper:hover img {
+	transform: scale(1.05);
+}
+
+/* Active State */
+.explore-menu-item.active .menu-image-wrapper {
+	border: 2px solid #fb7d00;
+	background: linear-gradient(135deg, #ff6a00, #ee0979); /* 🔥 Orange to Pink */
+	transform: scale(1.05);
+	overflow: hidden;
+}
+
+/* Active Text Color */
+.text-active {
+	/* color: rgb(61, 45, 43); */
+	font-weight: 700;
+	background: linear-gradient(145deg, #000000, #001df7);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	/* margin-bottom: 0.2rem; */
+}
+
+/* Item Label */
+.explore-menu-item p {
+	color: black;
+	font-weight: 600;
+	font-size: 15px;
+	margin: 0;
+	transition: color 0.2s;
+	background: linear-gradient(145deg, #000000, #ff0000);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.explore-menu-item:hover p {
+	/* color: rgb(135, 3, 3); */
+	font-weight: 700;
+	background: linear-gradient(145deg, #000000, #001df7);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+/* Scroll Arrows */
+.scroll-icon {
+	font-size: 24px;
+	cursor: pointer;
+	margin-left: 10px;
+	color: #747474;
+	transition: color 0.2s;
+}
+.scroll-icon:hover {
+	color: tomato;
+}
+
+/* Section Divider */
+.explore-menu hr {
+	margin: 20px;
+	height: 2px;
+	background: linear-gradient(145deg, #000000, #ff0000);
+	border: none;
+}
+
+/* 💡 Explore Section Background: Light */
+.explore-menu {
+	padding-top: 40px;
+	background: transparent; /* Or use #f9f9f9 */
+}
+
+/* 👇 Base styles already look good for mobile (default) */
+
+/* 📱 Small devices: phones (max-width: 600px) */
+@media (max-width: 600px) {
+	.explore-menu-list {
+		padding: 16px 12px;
+		gap: 12px;
+	}
+
+	.explore-menu-item {
+		width: 110px;
+		padding: 12px 6px;
+		gap: 6px;
+	}
+
+	.menu-image-wrapper img {
+		height: 70px;
+	}
+
+	.explore-menu-item p {
+		font-size: 13px;
+	}
+
+	.scroll-icon {
+		font-size: 20px;
+	}
+}
+
+/* 📱 Medium devices: tablets (601px to 900px) */
+@media (min-width: 601px) and (max-width: 900px) {
+	.explore-menu-list {
+		padding: 20px 14px;
+	}
+
+	.explore-menu-item {
+		width: 120px;
+		padding: 14px 8px;
+		gap: 8px;
+	}
+
+	.menu-image-wrapper img {
+		height: 80px;
+	}
+
+	.explore-menu-item p {
+		font-size: 14px;
+	}
+
+	.scroll-icon {
+		font-size: 22px;
+	}
+}
+
+/* 💻 Large devices: desktops (901px and above) */
+@media (min-width: 901px) {
+	.explore-menu-list {
+		padding: 24px 16px;
+	}
+
+	.explore-menu-item {
+		width: 140px;
+		padding: 16px 8px;
+	}
+
+	.menu-image-wrapper img {
+		height: 90px;
+	}
+
+	.explore-menu-item p {
+		font-size: 15px;
+	}
+
+	.scroll-icon {
+		font-size: 24px;
+	}
+}

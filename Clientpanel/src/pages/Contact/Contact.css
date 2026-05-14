@@ -1,0 +1,131 @@
+body {
+	margin: 0;
+	font-family: "Poppins", sans-serif;
+	background: #b5cef2;
+}
+
+.line-contact-section {
+	/* min-height: 100vh; */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 50px 20px;
+	margin-top: 20px;
+}
+
+.line-contact-container {
+	background: #ffffff;
+	padding: 40px;
+	border-radius: 16px;
+	max-width: 600px;
+	width: 100%;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	animation: fadeInSlide 0.6s ease-out;
+}
+
+.line-contact-title {
+	text-align: center;
+	font-size: 28px;
+	font-weight: 700;
+	margin-bottom: 30px;
+	background: linear-gradient(to right, #000000, #ff0000);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.line-form {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.line-input-group {
+	position: relative;
+}
+
+.line-input-group input,
+.line-input-group textarea {
+	width: 100%;
+	padding: 12px 12px 12px 0;
+	border: none;
+	border-bottom: 2px solid #ccc;
+	font-size: 16px;
+	background: linear-gradient(to right, #000000, #ff0000);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	outline: none;
+	transition: all 0.3s ease;
+}
+
+.line-input-group label {
+	position: absolute;
+	top: 12px;
+	left: 0;
+	font-size: 14px;
+	font-weight: 500;
+	background: linear-gradient(to right, #000000, #ff0000);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	transition: all 0.3s ease;
+	pointer-events: none;
+}
+
+.line-input-group input:focus ~ label,
+.line-input-group input:valid ~ label,
+.line-input-group textarea:focus ~ label,
+.line-input-group textarea:valid ~ label {
+	top: -10px;
+	font-size: 12px;
+	background: linear-gradient(to right, #000000, #ff0000);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.line-highlight {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 2px;
+	width: 0%;
+	background: linear-gradient(to right, #000000, #ff0000);
+	transition: width 0.3s ease;
+}
+
+.line-input-group input:focus ~ .line-highlight,
+.line-input-group textarea:focus ~ .line-highlight {
+	width: 100%;
+}
+
+.line-submit-btn {
+	background: linear-gradient(to right, #000000, #ff0000);
+	border: none;
+	color: white;
+	font-size: 16px;
+	padding: 14px;
+	border-radius: 8px;
+	cursor: pointer;
+	font-weight: 600;
+	transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.line-submit-btn:hover {
+	background: linear-gradient(to right, #0011ff, #000000);
+	transform: translateY(-2px);
+}
+
+/* Entry animation */
+@keyframes fadeInSlide {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
