@@ -53,16 +53,14 @@
 <table width="100%">
 
 <tr>
-<th colspan="4" align="center">
-💳 Test Card Or UPI For Indian Payments
-</th>
+<th colspan="4" align="center"> 💳 Test Card Or UPI for indian payments </th>
 </tr>
 
 <tr>
-<th align="center">💳 Card Network</th>
-<th align="center">💳 Card Number</th>
-<th align="center">🔐 CVV</th>
-<th align="center">📅 Expiry Date</th>
+<th align="center"> 💳 Card Network </th>
+<th align="center"> 💳 Card Number </th>
+<th align="center"> 🔐 CVV Number </th>
+<th align="center"> 📅 Expiry Date </th>
 </tr>
 
 <tr>
@@ -72,17 +70,17 @@
 <td align="center"> Any Future Date</td> 
 </tr> 
 
-<tr> <td align="center">Visa</td>
+<tr> <td align="center"> 💳 Visa Card </td>
 <td align="center"> 4386 2894 0766 0153 </td>
-<td align="center">Any Random CVV</td>
-<td align="center">Any Future Date</td>
+<td align="center"> Any Random CVV </td>
+<td align="center"> Any Future Date </td>
 </tr> 
 
 <tr>
-<th align="center">📲 UPI ID</th>
+<th align="center"> 📲 UPI ID</th>
 <td colspan="3" align="center"> success@razorpay success@razorpay </td>
 </tr> 
-</table> </td> </tr></table>
+</table> 
 
 
 
