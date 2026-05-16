@@ -37,13 +37,12 @@ Razorpay payments, cloud image storage, responsive UI and admin management syste
 
 <br/>
 <br/>
+<div align="left">
 
 ## 🚀 About The Project
-
 Foodies is a modern full-stack food ordering application where users can browse foods,
-place orders online and make secure payments using Razorpay.
-
-Admins can manage foods, orders and application content through a dedicated admin dashboard.
+place orders online and make secure payments using Razorpay. Admins can manage foods, orders and application content through a dedicated admin dashboard.
+</div>
 
 <table width="100%">
 <tr>
