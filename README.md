@@ -59,7 +59,7 @@
 | ------------------------------------------------------------------------------ |
 |                                 Test Card Or UPI for Indian Payments           |                                                |
 | ------------------------------------------------------------------------------ |
-|    Card Network     | Card Number           | CVV            | Expiry Date     |
+|    Card Network     | Card Number           | 🔐  CVV            | 📅  Expiry Date     |
 | ------------------- | --------------------- | -------------- | --------------- |
 | 💳 Mastercard       | `5267 3181 8797 5449` | Any Random CVV | Any Future Date |
 | 💳 Visa             | `4386 2894 0766 0153` | Any Random CVV | Any Future Date |
@@ -68,50 +68,54 @@
 
 </td>
 
-<table align="center" width="100%">
+
+
+
+
+<table width="100%">
 
 <tr>
-<td align="center">
+<td width="100%" align="center">
 
 # 💳 Razorpay Test Payment Details
 
-<img src="https://img.shields.io/badge/Test_Mode-Payments-0F172A?style=for-the-badge&logo=razorpay&logoColor=00C6FF" />
-
-<br/>
 <br/>
 
-<table align="center">
+<table width="100%">
 
 <tr>
-<th>💳 Card Network</th>
-<th>💳 Card Number</th>
-<th>🔐 CVV</th>
-<th>📅 Expiry Date</th>
+<th colspan="4" align="center">
+
+Test Card Or UPI For Indian Payments
+
+</th>
+</tr>
+
+<tr>
+<th align="center">💳 Card Network</th>
+<th align="center">💳 Card Number</th>
+<th align="center">🔐 CVV</th>
+<th align="center">📅 Expiry Date</th>
 </tr>
 
 <tr>
 <td align="center">Mastercard</td>
 <td align="center">
 
-```text
 5267 3181 8797 5449
-
-```text
+</td> <td align="center">Any Random CVV</td> <td align="center">Any Future Date</td> </tr> <tr> <td align="center">Visa</td> <td align="center">
+4386 2894 0766 0153
+</td> <td align="center">Any Random CVV</td> <td align="center">Any Future Date</td> </tr> <tr> <th align="center">📲 Enter the UPI ID</th> <td colspan="3" align="center">
 success@razorpay
-```
-
-</td>
-</tr>
-</table>
-
----
+success@razorpay
+</td> </tr> </table> </td> </tr> </table>
 
 
 
 
-<table width="100%">
-<tr>
-<td width="50%" align="center">
+
+
+
 
 
 ## 🛒 Client Panel
