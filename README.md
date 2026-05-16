@@ -42,9 +42,9 @@ Razorpay payments, cloud image storage, responsive UI and admin management syste
 <tr>
 <td width="50%" align="center">
 
-# 🛒 Client Panel
+## 🛒 Client Panel
 
-### Order your favorite food online 🍕
+#### Order your favorite food online 🍕
 
 <a href="https://client-online-food-ordering-system.vercel.app">
 <img src="https://img.shields.io/badge/🌐_Live_Demo-39FF14?style=for-the-badge" />
@@ -61,9 +61,9 @@ https://client-online-food-ordering-system.vercel.app
 
 <td width="50%" align="center">
 
-# ⚙️ Admin Panel
+## ⚙️ Admin Panel
 
-### Manage foods, users & orders 👨‍💼
+#### Manage foods, users & orders 👨‍💼
 
 <a href="https://admin-online-food-ordering-system.vercel.app">
 <img src="https://img.shields.io/badge/🌐_Live_Demo-8A2BE2?style=for-the-badge" />
