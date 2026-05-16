@@ -54,9 +54,7 @@
 
 <tr>
 <th colspan="4" align="center">
-
-Test Card Or UPI For Indian Payments
-
+💳 Test Card Or UPI For Indian Payments
 </th>
 </tr>
 
@@ -68,16 +66,23 @@ Test Card Or UPI For Indian Payments
 </tr>
 
 <tr>
-<td align="center">Mastercard</td>
-<td align="center">
+<td align="center"> 💳 Mastercard </td>
+<td align="center"> 5267 3181 8797 5449 </td> 
+<td align="center"> Any Random CVV </td>
+<td align="center"> Any Future Date</td> 
+</tr> 
 
-5267 3181 8797 5449
-</td> <td align="center">Any Random CVV</td> <td align="center">Any Future Date</td> </tr> <tr> <td align="center">Visa</td> <td align="center">
-4386 2894 0766 0153
-</td> <td align="center">Any Random CVV</td> <td align="center">Any Future Date</td> </tr> <tr> <th align="center">📲 Enter the UPI ID</th> <td colspan="3" align="center">
-success@razorpay
-success@razorpay
-</td> </tr> </table> </td> </tr> </table>
+<tr> <td align="center">Visa</td>
+<td align="center"> 4386 2894 0766 0153 </td>
+<td align="center">Any Random CVV</td>
+<td align="center">Any Future Date</td>
+</tr> 
+
+<tr>
+<th align="center">📲 UPI ID</th>
+<td colspan="3" align="center"> success@razorpay success@razorpay </td>
+</tr> 
+</table> </td> </tr></table>
 
 
 
