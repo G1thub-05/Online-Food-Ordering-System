@@ -94,10 +94,8 @@
 
 <br/>
 <br/>
-
-```bash
 https://client-online-food-ordering-system.vercel.app
-```
+
 
 </td>
 
@@ -114,9 +112,9 @@ https://client-online-food-ordering-system.vercel.app
 <br/>
 <br/>
 
-```bash
+
 https://admin-online-food-ordering-system.vercel.app
-```
+
 
 </td>
 </tr>
