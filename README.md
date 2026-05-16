@@ -48,47 +48,6 @@
 </br>
 
 
-<div align=""center>
-<table width="100%">
-
-<tr>
-<th colspan="4" align="center"> 💳 Razorpay Test Payment Details </th>
-</tr>
-
-<tr>
-<th align="center"> 💳 Card Network </th>
-<th align="center"> 💳 Card Number </th>
-<th align="center"> 🔐 CVV Number </th>
-<th align="center"> 📅 Expiry Date </th>
-</tr>
-
-<tr>
-<td align="justify"> 💳 Mastercard </td>
-<td align="center"> 5267 3181 8797 5449 </td> 
-<td align="center"> Any Random CVV </td>
-<td align="center"> Any Future Date</td> 
-</tr> 
-
-<tr> <td align="justify"> 💳 Visa Card </td>
-<td align="center"> 4386 2894 0766 0153 </td>
-<td align="center"> Any Random CVV </td>
-<td align="center"> Any Future Date </td>
-</tr> 
-
-<tr>
-<th align="justify"> 📲 UPI ID</th>
-<td colspan="3" align="center"> success@razorpay </td>
-</tr> 
-</table>
-</div>
-
-
-
-
-
-
-
-
 
 <div align="center">
 
