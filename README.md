@@ -42,6 +42,7 @@ Razorpay payments, cloud image storage, responsive UI and admin management syste
 <br/>
 
 <div align="left">
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=140&color=0:39FF14,50:00C6FF,100:8E2DE2&section=footer" />
 
 ## 🚀 About The Project
 Foodies is a modern full-stack food ordering application where users can browse foods,
@@ -438,6 +439,6 @@ If you like this project:
 
 <br/>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&height=140&color=0:39FF14,50:00C6FF,100:8E2DE2&section=footer" />
+
 
 </div>
