@@ -54,17 +54,7 @@
 
 ## 🏦 Test Card For Indian Payments
 
-|------------------------------------------------------------------------------------|
-|                        Test Card Or                     |
-|------------------------------------------------------------------------------------|
-|   Card Network      |       Card Number	     |       CVV	     |    Expiry Date   |
-|-------------------- | ---------------------- | --------------- | -----------------|
-|  💳 Mastercard	    |   5267 3181 8797 5449	 | Any Random CVV  |  Any future date  |
-| ------------------- | ---------------------- | --------------- | ----------------- |
-|  💳  Visa	          |   4386 2894 0766 0153	 | Any Random CVV  |  Any future date  |
-| ------------------- | ------------------------------------------------------------ |
-| 📲 Enter the UPI ID |                  success@razorpay                            |
-| ---------------------------------------------------------------------------------- |
+
 
 | ------------------------------------------------------------------------------ |
 |                                 Test Card Or UPI for Indian Payments           |                                                |
@@ -77,6 +67,34 @@
 | ------------------------------------------------------------------------------- |
 
 </td>
+
+<table align="center" width="100%">
+
+<tr>
+<td align="center">
+
+# 💳 Razorpay Test Payment Details
+
+<img src="https://img.shields.io/badge/Test_Mode-Payments-0F172A?style=for-the-badge&logo=razorpay&logoColor=00C6FF" />
+
+<br/>
+<br/>
+
+<table align="center">
+
+<tr>
+<th>💳 Card Network</th>
+<th>💳 Card Number</th>
+<th>🔐 CVV</th>
+<th>📅 Expiry Date</th>
+</tr>
+
+<tr>
+<td align="center">Mastercard</td>
+<td align="center">
+
+```text
+5267 3181 8797 5449
 
 ```text
 success@razorpay
