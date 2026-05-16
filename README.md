@@ -71,15 +71,8 @@
 
 
 
+## 💳 Razorpay Test Payment Details
 
-<table width="100%">
-
-<tr>
-<td width="100%" align="center">
-
-# 💳 Razorpay Test Payment Details
-
-<br/>
 
 <table width="100%">
 
