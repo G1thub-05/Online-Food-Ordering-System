@@ -6,17 +6,6 @@
   <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:00c6ff,50:0072ff,100:8e2de2&height=280&section=header&text=🍔%20Foodies&fontSize=62&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Modern%20Online%20Food%20Ordering%20System&descAlignY=58&descSize=20"/>
 </a>
 
-<!-- LIGHT MODE HEADER -->
-
-<a href="https://github.com/G1thub-05#gh-light-mode-only">
-  <img
-    width="100%"
-    src="https://capsule-render.vercel.app/api?type=waving&color=0:00c6ff,50:0072ff,100:8e2de2&height=280&section=header&text=🍔%20Foodies&fontSize=62&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=A%20modern%20full-stack%20food%20ordering%20platform%20with%20secure%20authentication,%20Razorpay%20payments,%20cloud%20storage,%20responsive%20UI%20and%20admin%20dashboard.&descAlignY=58&descSize=18"
-  />
-</a>
-
-
-
 <!-- DARK MODE HEADER -->
 
 <a href="https://github.com/G1thub-05#gh-dark-mode-only">
