@@ -187,18 +187,6 @@ JWT Authentication with OTP verification.
 
 ---
 
-# 🧠 Tech Stack
-
-<div align="center">
-<img src="https://skillicons.dev/icons?i=java,spring,mongodb,react,vite,nodejs,express,git,github,vercel,aws,docker&perline=6" />
-</div>
-
-<br/>
-
-<table width="100%">
-<tr>
-<td width="25%">
-
 ## 🖥️ Backend
 
 * Java 21
