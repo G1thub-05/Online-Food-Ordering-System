@@ -46,30 +46,6 @@
 </p>
 
 
-# 💳 Razorpay Test Payment Details
-
-<table width="100%">
-<tr>
-<td width="70%">
-
-## 🏦 Test Card For Indian Payments
-
-
-
-| ------------------------------------------------------------------------------ |
-|                                 Test Card Or UPI for Indian Payments           |                                                |
-| ------------------------------------------------------------------------------ |
-|    Card Network     | Card Number           | 🔐  CVV            | 📅  Expiry Date     |
-| ------------------- | --------------------- | -------------- | --------------- |
-| 💳 Mastercard       | `5267 3181 8797 5449` | Any Random CVV | Any Future Date |
-| 💳 Visa             | `4386 2894 0766 0153` | Any Random CVV | Any Future Date |
-| 📲 Enter the UPI ID |                         success@razorpay                 |
-| ------------------------------------------------------------------------------- |
-
-</td>
-
-
-
 
 ## 💳 Razorpay Test Payment Details
 
