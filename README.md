@@ -242,21 +242,21 @@ Before running this project, make sure the following tools and accounts are avai
 
 ### Step 1
 
-```bash
+
 cd My_Online-Food-Delivery-Project/Clientpanel
-```
+
 
 ### Step 2
 
-```bash
+
 npm install
-```
+
 
 ### Step 3
 
-```bash
+
 npm run dev
-```
+
 
 </td>
 
@@ -266,21 +266,20 @@ npm run dev
 
 ### Step 4
 
-```bash
+
 cd My_Online-Food-Delivery-Project/Adminpanel
-```
+
 
 ### Step 5
 
-```bash
+
 npm install
-```
+
 
 ### Step 6
 
-```bash
+
 npm run dev
-```
 
 </td>
 </tr>
@@ -290,15 +289,13 @@ npm run dev
 
 # ⚙️ Backend Setup
 
-```bash
+
 git clone https://github.com/G1thub-05/Online-Food-Ordering-System.git
 
 cd foodiesapi
 
 mvn spring-boot:run
-```
 
----
 
 # 💳 Razorpay Test Payment Details
 
@@ -332,25 +329,15 @@ success@razorpay
 # 🔐 Environment Variables
 
 ## Clientpanel `.env`
-
-```env
 VITE_API_URL=https://online-food-ordering-system-y2kf.onrender.com
 VITE_RAZORPAY_KEY=your_razorpay_key
-```
-
----
 
 ## Adminpanel `.env`
-
-```env
 VITE_API_URL=https://online-food-ordering-system-y2kf.onrender.com
-```
 
----
 
 ## Backend `.env`
 
-```env
 MONGODB_URI=your_mongodb_uri
 JWT_SECRET=your_secret
 RAZORPAY_KEY=your_key
@@ -358,7 +345,6 @@ RAZORPAY_SECRET=your_secret
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
-```
 
 ---
 
@@ -375,7 +361,6 @@ CLOUDINARY_API_SECRET=your_api_secret
 
 # 📸 Project Architecture
 
-```text
 Client Panel (React)
         ↓
 REST APIs (Spring Boot)
@@ -383,9 +368,6 @@ REST APIs (Spring Boot)
 MongoDB Atlas Database
         ↓
 Cloudinary Image Storage
-```
-
----
 
 # 📈 Future Improvements
 
