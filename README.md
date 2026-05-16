@@ -19,7 +19,7 @@
 <br/>
 
 <p align="center">
-A modern full-stack food ordering platform with secure authentication, Razorpay payments, cloud image storage, responsive UI and admin management system.
+𝑨 𝒎𝒐𝒅𝒆𝒓𝒏 𝒇𝒖𝒍𝒍-𝒔𝒕𝒂𝒄𝒌 𝒇𝒐𝒐𝒅 𝒐𝒓𝒅𝒆𝒓𝒊𝒏𝒈 𝒑𝒍𝒂𝒕𝒇𝒐𝒓𝒎 𝒘𝒊𝒕𝒉 𝒔𝒆𝒄𝒖𝒓𝒆 𝒂𝒖𝒕𝒉𝒆𝒏𝒕𝒊𝒄𝒂𝒕𝒊𝒐𝒏, 𝒔𝒆𝒂𝒎𝒍𝒆𝒔𝒔 𝑹𝒂𝒛𝒐𝒓𝒑𝒂𝒚 𝒑𝒂𝒚𝒎𝒆𝒏𝒕𝒔, 𝒄𝒍𝒐𝒖𝒅 𝒊𝒎𝒂𝒈𝒆 𝒔𝒕𝒐𝒓𝒂𝒈𝒆, 𝒓𝒆𝒔𝒑𝒐𝒏𝒔𝒊𝒗𝒆 𝑼𝑰, 𝒂𝒏𝒅 𝒂𝒏 𝒂𝒅𝒗𝒂𝒏𝒄𝒆𝒅 𝒂𝒅𝒎𝒊𝒏 𝒎𝒂𝒏𝒂𝒈𝒆𝒎𝒆𝒏𝒕 𝒔𝒚𝒔𝒕𝒆𝒎.
 </p>
 
 <br/>
