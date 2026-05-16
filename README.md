@@ -17,11 +17,9 @@
 <img src="https://readme-typing-svg.herokuapp.com?font=Poppins&weight=700&size=24&duration=2500&pause=1000&center=true&vCenter=true&width=1000&lines=Client+Panel+%7C+Admin+Panel+%7C+Backend+API;React+%2B+Spring+Boot+%2B+MongoDB;Razorpay+Payment+Integration;Responsive+Modern+UI;Cloudinary+Image+Storage;Full+Stack+Food+Ordering+Platform" />
 
 <br/>
-<br/>
 
 <p align="center">
-A modern full-stack food ordering platform with secure authentication,
-Razorpay payments, cloud image storage, responsive UI and admin management system.
+A modern full-stack food ordering platform with secure authentication, Razorpay payments, cloud image storage, responsive UI and admin management system.
 </p>
 
 <br/>
