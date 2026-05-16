@@ -42,6 +42,17 @@ Razorpay payments, cloud image storage, responsive UI and admin management syste
 <br/>
 
 <div align="left">
+  <!-- LIGHT MODE FOOTER -->
+
+<a href="https://github.com/G1thub-05#gh-light-mode-only">
+  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=140&color=0:00c6ff,50:0072ff,100:8e2de2&section=footer"/>
+</a>
+
+<!-- DARK MODE FOOTER -->
+
+<a href="https://github.com/G1thub-05#gh-dark-mode-only">
+  <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=140&color=0:0F2027,50:203A43,100:2C5364&section=footer"/>
+</a>
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=140&color=0:39FF14,50:00C6FF,100:8E2DE2&section=footer" />
 
 ## 🚀 About The Project
