@@ -23,80 +23,33 @@ online payments, responsive UI and admin management system.
 <img src="https://img.shields.io/badge/Razorpay-02042B?style=for-the-badge&logo=razorpay&logoColor=white" />
 <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" />
 
+</div>
+
+---
+
+# 🌐 Live Demo
+
+<table align="center" width="100%">
+<tr border="none">
+
+<td width="50%" align="center">
+
+<img src="https://img.shields.io/badge/🛒_Client_Panel-39FF14?style=for-the-badge" />
+
+<br/>
+<br/>
+
+<img width="90%" src="https://img.shields.io/badge/Order_Food_Online-0F172A?style=for-the-badge&logo=foodpanda&logoColor=39FF14" />
+
 <br/>
 <br/>
 
 <a href="https://client-online-food-ordering-system.vercel.app">
-<img src="https://img.shields.io/badge/🛒_Client_Panel-39FF14?style=for-the-badge" />
+<img src="https://img.shields.io/badge/🌐_Open_Client_Demo-39FF14?style=flat-square&logo=googlechrome&logoColor=black" />
 </a>
-
-<a href="https://admin-online-food-ordering-system.vercel.app">
-<img src="https://img.shields.io/badge/⚙️_Admin_Panel-8A2BE2?style=for-the-badge" />
-</a>
-
-<a href="https://online-food-ordering-system-y2kf.onrender.com">
-<img src="https://img.shields.io/badge/🚀_Backend_API-FF5733?style=for-the-badge" />
-</a>
-
-</div>
-
----
-
-# 🚀 About The Project
-
-> 🍔 Foodies is a modern full-stack food ordering platform where users can browse foods, place orders online and make secure payments using Razorpay.
-
-> ⚙️ Admins can manage foods, users and customer orders through a dedicated admin dashboard.
-
----
-
-# ✨ Core Features
-
-### 🍽️ Browse Foods
-Explore delicious foods with responsive modern UI.
-
----
-
-### 🛒 Add To Cart
-Smooth cart experience with dynamic item updates.
-
----
-
-### 💳 Secure Payments
-Integrated Razorpay payment gateway support.
-
----
-
-### 📦 Order Tracking
-Track orders with real-time order status updates.
-
----
-
-### ☁️ Cloud Image Storage
-Cloudinary / AWS S3 image upload support.
-
----
-
-### 🔐 JWT Authentication
-Secure login system with OTP verification.
-
----
-
-# 🧠 Tech Stack
-
-<div align="center">
-
-<img src="https://skillicons.dev/icons?i=java,spring,mongodb,react,vite,nodejs,git,github,vercel,aws,docker&perline=6" />
-
-</div>
 
 <br/>
+<br/>
 
-## 🖥️ Backend
-```text
-Java 21
-Spring Boot
-Spring Security
-JWT Authentication
-Maven
-MongoDB
+```bash
+https://client-online-food-ordering-system.vercel.app
