@@ -25,10 +25,6 @@ Razorpay payments, cloud image storage, responsive UI and admin management syste
 </p>
 
 <br/>
-<div align="left">
-## Technology used
-</div>
-
 <img src="https://img.shields.io/badge/Java-21-orange?style=for-the-badge&logo=openjdk&logoColor=white" />
 <img src="https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white" />
 <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
@@ -53,7 +49,6 @@ Razorpay payments, cloud image storage, responsive UI and admin management syste
 <a href="https://github.com/G1thub-05#gh-dark-mode-only">
   <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=140&color=0:0F2027,50:203A43,100:2C5364&section=footer"/>
 </a>
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=140&color=0:39FF14,50:00C6FF,100:8E2DE2&section=footer" />
 
 ## 🚀 About The Project
 Foodies is a modern full-stack food ordering application where users can browse foods,
