@@ -63,20 +63,20 @@
 </tr>
 
 <tr>
-<td align="center"> 💳 Mastercard </td>
+<td align="justify"> 💳 Mastercard </td>
 <td align="center"> 5267 3181 8797 5449 </td> 
 <td align="center"> Any Random CVV </td>
 <td align="center"> Any Future Date</td> 
 </tr> 
 
-<tr> <td align="center"> 💳 Visa Card </td>
+<tr> <td align="justify"> 💳 Visa Card </td>
 <td align="center"> 4386 2894 0766 0153 </td>
 <td align="center"> Any Random CVV </td>
 <td align="center"> Any Future Date </td>
 </tr> 
 
 <tr>
-<th align="center"> 📲 UPI ID</th>
+<th align="justify"> 📲 UPI ID</th>
 <td colspan="3" align="center"> success@razorpay </td>
 </tr> 
 </table>
