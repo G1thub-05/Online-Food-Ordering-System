@@ -42,6 +42,13 @@ Razorpay payments, cloud image storage, responsive UI and admin management syste
 <tr>
 <td width="50%" align="center">
 
+## 🚀 About The Project
+
+Foodies is a modern full-stack food ordering application where users can browse foods,
+place orders online and make secure payments using Razorpay.
+
+Admins can manage foods, orders and application content through a dedicated admin dashboard.
+
 ## 🛒 Client Panel
 
 #### Order your favorite food online 🍕
@@ -86,14 +93,8 @@ https://admin-online-food-ordering-system.vercel.app
 
 ---
 
-# 🚀 About The Project
 
-Foodies is a modern full-stack food ordering application where users can browse foods,
-place orders online and make secure payments using Razorpay.
 
-Admins can manage foods, orders and application content through a dedicated admin dashboard.
-
----
 
 # ✨ Core Features
 
