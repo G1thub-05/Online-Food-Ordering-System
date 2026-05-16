@@ -84,3 +84,7 @@
 </tr>
 </table> 
 </div>
+
+## Live URL
+- Client URL: https://client-online-food-ordering-system.vercel.app/
+- Admin URL: https://admin-online-food-ordering-system.vercel.app/
