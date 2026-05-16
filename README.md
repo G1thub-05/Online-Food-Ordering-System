@@ -46,6 +46,29 @@
 </p>
 
 
+## 👨‍💻 Developer
+
+<div align="center">
+
+## Digeshwar
+
+### Java Full Stack Developer 🚀
+
+<a href="https://github.com/G1thub-05">
+<img src="https://img.shields.io/badge/GitHub-G1thub--05-181717?style=for-the-badge&logo=github" />
+</a>
+
+<a href="https://linkedin.com/in/mr-digeshwar05">
+<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
+</a>
+
+<a href="mailto:Mr.Digeshwar05@gmail.com">
+<img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
+</a>
+</div>
+
+
+
 
 ## 💳 Razorpay Test Payment Details
 
@@ -78,15 +101,9 @@
 
 <tr>
 <th align="center"> 📲 UPI ID</th>
-<td colspan="3" align="center"> success@razorpay success@razorpay </td>
+<td colspan="3" align="center"> success@razorpay </td>
 </tr> 
 </table> 
-
-
-
-
-
-
 
 
 
@@ -393,31 +410,7 @@ Cloudinary Image Storage
 
 ---
 
-# 👨‍💻 Developer
 
-<div align="center">
-
-## Digeshwar
-
-### Java Full Stack Developer 🚀
-
-<a href="https://github.com/G1thub-05">
-<img src="https://img.shields.io/badge/GitHub-G1thub--05-181717?style=for-the-badge&logo=github" />
-</a>
-
-<a href="https://linkedin.com/in/mr-digeshwar05">
-<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
-</a>
-
-<a href="mailto:Mr.Digeshwar05@gmail.com">
-<img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
-</a>
-
-</div>
-
----
-
-<div align="center">
 
 # ⭐ Support The Project
 
