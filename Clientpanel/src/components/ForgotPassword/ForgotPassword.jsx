@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { useEffect } from "react";
 import axios from "axios"; // 🆕 axios needed
 import "../../App.css";
+import { API_URL } from "../../util/constants";
 
 const ForgotPassword = () => {
 	const navigate = useNavigate();
@@ -42,7 +43,7 @@ const ForgotPassword = () => {
 			return toast.error("Enter a valid email address");
 		try {
 			const res = await axios.post(
-				"http://localhost:8080/api/reset-password",
+				`${API_URL}/api/reset-password`,
 				{
 					email: data.email,
 				},
@@ -51,7 +52,7 @@ const ForgotPassword = () => {
 						"Content-Type": "application/json",
 					},
 					// withCredentials: true,
-				}
+				},
 			);
 			toast.success(`OTP sent to your email: ${data.email}`);
 			console.log("OTP sent response:", res.data);
@@ -65,7 +66,7 @@ const ForgotPassword = () => {
 	const handleVerifyOtp = async () => {
 		if (!otp) return toast.error("Please enter the OTP");
 		try {
-			const res = await axios.post("http://localhost:8080/api/verify-otp", {
+			const res = await axios.post(`${API_URL}/api/verify-otp`, {
 				email: data.email,
 				otp,
 			});
@@ -93,13 +94,17 @@ const ForgotPassword = () => {
 			const token = localStorage.getItem("token"); // 🧠 MOVE THIS UP
 			console.log("reset token:", token);
 			const response = await axios.post(
-				"http://localhost:8080/api/reset",
-				{ email: data.email, password: data.password },
+				`${API_URL}/api/reset`,
+				{
+					email: data.email,
+					password: data.password,
+				},
+
 				{
 					headers: {
 						"Content-Type": "application/json",
 					},
-				}
+				},
 			);
 			if (response.status === 201 || response.status === 200) {
 				toast.success("Password reset successful. Please login.");
@@ -157,7 +162,7 @@ const ForgotPassword = () => {
 												// Auto-focus next
 												if (value && idx < 5) {
 													const nextInput = document.getElementById(
-														`otp-${idx + 1}`
+														`otp-${idx + 1}`,
 													);
 													nextInput?.focus();
 												}

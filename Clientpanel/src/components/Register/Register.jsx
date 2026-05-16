@@ -1,120 +1,10 @@
-// import React, { useState } from "react";
-// import "./Register.css";
-// import { Link, useNavigate } from "react-router-dom";
-// import { toast } from "react-toastify";
-// import { registerUser } from "../../service/authService";
-// import "../../App.css";
-
-// const Register = () => {
-// 	const navigate = useNavigate();
-// 	const [data, setData] = useState({
-// 		name: "",
-// 		email: "",
-// 		password: "",
-// 	});
-
-// 	const [showPassword, setShowPassword] = useState(false); // 👈 Add this state
-
-// 	const handleReset = () => {
-// 		setData({
-// 			name: "",
-// 			email: "",
-// 			password: "",
-// 		});
-// 	};
-
-// 	const onChangeHandler = (e) => {
-// 		const { name, value } = e.target;
-// 		setData((prev) => ({ ...prev, [name]: value }));
-// 	};
-
-// 	const [loading, setLoading] = useState(false);
-
-// 	const onSubmitHandler = async (e) => {
-// 		e.preventDefault();
-// 		setLoading(true);
-// 		try {
-// 			const response = await registerUser(data);
-// 			if (response.status === 201) {
-// 				toast.success("Registration successful. Please login.");
-// 				navigate("/login");
-// 			} else {
-// 				toast.error("Registration failed. Try again.");
-// 			}
-// 		} catch (err) {
-// 			// toast.error("Something went wrong. Please try again.");
-// 			console.error("❌ Error response:", err.response);
-// 			toast.error(
-// 				err.response?.data?.message || "Email already registered hai Bhai"
-// 			);
-// 		} finally {
-// 			setLoading(false);
-// 		}
-// 	};
-
-// 	return (
-// 		<div className="register-page">
-// 			<div className="register-form-container">
-// 				<h2>Sign Up</h2>
-// 				<form onSubmit={onSubmitHandler} className="register-form">
-// 					<input
-// 						type="text"
-// 						name="name"
-// 						placeholder="Full Name"
-// 						value={data.name}
-// 						onChange={onChangeHandler}
-// 						required
-// 					/>
-// 					<input
-// 						type="email"
-// 						name="email"
-// 						placeholder="Email"
-// 						value={data.email}
-// 						onChange={onChangeHandler}
-// 						required
-// 					/>
-// 					<div className="password-wrapper">
-// 						<input
-// 							type={showPassword ? "text" : "password"}
-// 							name="password"
-// 							placeholder="Password"
-// 							value={data.password}
-// 							onChange={onChangeHandler}
-// 							required
-// 						/>
-// 						<span
-// 							className="toggle-password"
-// 							onClick={() => setShowPassword((prev) => !prev)}
-// 						>
-// 							{showPassword ? "🙈" : "👁️"}
-// 						</span>
-// 					</div>
-
-// 					<button type="submit" disabled={loading}>
-// 						{loading ? "Registering..." : "Sign Up"}
-// 					</button>
-
-// 					{/* <button type="button" className="reset-btn" onClick={handleReset}>
-// 						Reset
-// 					</button> */}
-
-// 					<p className="login-link">
-// 						Already have an account? <Link to="/login">Sign In</Link>
-// 					</p>
-// 				</form>
-// 			</div>
-// 		</div>
-// 	);
-// };
-
-// export default Register;
-
 import React, { useState } from "react";
 import "./Register.css";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios"; // 🆕 axios needed
 import "../../App.css";
+import { API_URL } from "../../util/constants";
 
 const Register = () => {
 	const navigate = useNavigate();
@@ -148,7 +38,6 @@ const Register = () => {
 		setData((prev) => ({ ...prev, [name]: value }));
 	};
 	const isValidEmail = (email) => {
-		// const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 		const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 		return regex.test(email);
 	};
@@ -160,16 +49,16 @@ const Register = () => {
 			return toast.error("Enter a valid email address");
 		try {
 			const res = await axios.post(
-				"http://localhost:8080/api/send-otp",
+				`${API_URL}/api/send-otp`,
 				{
 					email: data.email,
 				},
 				{
 					headers: {
-						"Content-Type": "application/json", // ✅ Add this header
+						"Content-Type": "application/json",
 					},
 					withCredentials: true,
-				}
+				},
 			);
 			toast.success(`OTP sent to your email: ${data.email}`);
 			console.log("OTP sent response:", res.data);
@@ -183,7 +72,7 @@ const Register = () => {
 	const handleVerifyOtp = async () => {
 		if (!otp) return toast.error("Please enter the OTP");
 		try {
-			const res = await axios.post("http://localhost:8080/api/verify-otp", {
+			const res = await axios.post(`${API_URL}/api/verify-otp`, {
 				email: data.email,
 				otp,
 			});
@@ -206,10 +95,7 @@ const Register = () => {
 		}
 		setLoading(true);
 		try {
-			const response = await axios.post(
-				"http://localhost:8080/api/register",
-				data
-			);
+			const response = await axios.post(`${API_URL}/api/register`, data);
 			if (response.status === 201 || response.status === 200) {
 				toast.success("Registration successful. Please login.");
 				navigate("/login");
@@ -274,7 +160,7 @@ const Register = () => {
 												// Auto-focus next
 												if (value && idx < 5) {
 													const nextInput = document.getElementById(
-														`otp-${idx + 1}`
+														`otp-${idx + 1}`,
 													);
 													nextInput?.focus();
 												}

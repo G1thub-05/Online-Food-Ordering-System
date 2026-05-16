@@ -1,10 +1,9 @@
 import axios from "axios";
-
-const API_URL = "http://localhost:8080/api/orders";
-
+import { API_URL } from "../util/constants";
+const ORDER_API_URL = `${API_URL}/api/orders`;
 export const fetchAllOrders = async () => {
     try {
-        const response = await axios.get(API_URL+"/all");
+        const response = await axios.get(ORDER_API_URL+"/all");
         return response.data;
     } catch (error) {
         console.error('Error occured while fetching the orders', error);
@@ -15,7 +14,7 @@ export const fetchAllOrders = async () => {
 export const updateOrderStatus = async (orderId, status) => {
     try {
         const response = await axios.patch(
-            `${API_URL}/status/${orderId}?status=${status}`
+            `${ORDER_API_URL}/status/${orderId}?status=${status}`
         );
         return response.status === 200;
     } catch (error) {
@@ -27,7 +26,7 @@ export const updateOrderStatus = async (orderId, status) => {
 export const cancelOrder = async (orderId, token) => {
 	try {
 		const res = await axios.patch(
-			`http://localhost:8080/api/orders/${orderId}/cancel`,
+			`/api/orders/${orderId}/cancel`,
 			{},
 			{
 				headers: {

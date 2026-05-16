@@ -1,10 +1,11 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/api";
+import { API_URL } from "../util/constants";
+const API_API_URL = `${API_URL}/api`;
 
 export const registerUser = async (data) => {
 	try {
-		const response = await axios.post(API_URL + "/register", data);
+		const response = await axios.post(API_API_URL + "/register", data);
 		return response;
 	} catch (error) {
 		throw error;
@@ -13,7 +14,7 @@ export const registerUser = async (data) => {
 
 export const login = async (data) => {
 	try {
-		const response = await axios.post(API_URL + "/login", data);
+		const response = await axios.post(API_API_URL + "/login", data);
 		return response;
 	} catch (error) {
 		throw error;

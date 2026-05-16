@@ -1,80 +1,3 @@
-// import React, { useEffect, useState } from "react";
-// import { useContext } from "react";
-// import { StoreContext } from "../../context/StoreContext";
-// import axios from "axios";
-// import { assets } from "../../assets/assets";
-// import "./MyOrders.css";
-// import { fetchUserOrders } from "../../service/orderService";
-
-// const MyOrders = () => {
-//   const { token } = useContext(StoreContext);
-//   const [data, setData] = useState([]);
-
-//   const fetchOrders = async () => {
-//     const response = await fetchUserOrders(token);
-//     setData(response);
-//   };
-
-//   useEffect(() => {
-//     if (token) {
-//       fetchOrders();
-//     }
-//   }, [token]);
-
-//   return (
-//     <div className="container">
-//       <div className="py-5 row justify-content-center">
-//         <div className="col-11 card">
-//           <table className="table table-responsive">
-//             <tbody>
-//               {data.map((order, index) => {
-//                 return (
-//                   <tr key={index}>
-//                     <td>
-//                       <img
-//                         src={assets.delivery}
-//                         alt=""
-//                         height={48}
-//                         width={48}
-//                       />
-//                     </td>
-//                     <td>
-//                       {order.orderedItems.map((item, index) => {
-//                         if (index === order.orderedItems.length - 1) {
-//                           return item.name + " x " + item.quantity;
-//                         } else {
-//                           return item.name + " x " + item.quantity + ", ";
-//                         }
-//                       })}
-//                     </td>
-//                     <td>&#x20B9;{order.amount.toFixed(2)}</td>
-//                     <td>Items: {order.orderedItems.length}</td>
-//                     <td className="fw-bold text-capitalize">
-//                       &#x25cf;{order.orderStatus}
-//                     </td>
-//                     <td>
-//                       <button
-//                         className="btn btn-sm btn-warning"
-//                         onClick={fetchOrders}
-//                       >
-//                         <i className="bi bi-arrow-clockwise"></i>
-//                       </button>
-//                     </td>
-//                   </tr>
-//                 );
-//               })}
-//             </tbody>
-//           </table>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default MyOrders;
-
-// =============================================================
-
 import React, { useEffect, useState, useContext } from "react";
 import { StoreContext } from "../../context/StoreContext";
 import { fetchUserOrders } from "../../service/orderService";
@@ -114,8 +37,8 @@ const MyOrders = () => {
 				data.filter(
 					(order) =>
 						order.orderStatus === "Food Preparing" ||
-						order.orderStatus === "Preparing"
-				)
+						order.orderStatus === "Preparing",
+				),
 			);
 		} else {
 			setFilteredData(data.filter((order) => order.orderStatus === value));
@@ -233,7 +156,7 @@ const MyOrders = () => {
 					display: flex;
 					flex-direction: column;
 					gap: 4px;
-					
+
 				}
 				.item-name {
 					font-weight: 600;
@@ -249,7 +172,7 @@ const MyOrders = () => {
 				}
 				.dark-mode .address {
 				background: linear-gradient(135deg, #ff0000, #2575fc, #00d4ff);
-				
+
 				-webkit-background-clip: text;
 				-webkit-text-fill-color: transparent;
 }
@@ -280,9 +203,9 @@ const MyOrders = () => {
 					{/* animation: pulseRed 1.8s infinite ease-in-out; */}
 					transition: transform 0.3s ease, box-shadow 0.3s ease;
 				}
-				
-				
-				
+
+
+
 				.refresh-btn {
 					background-color: white;
 					border: none;
@@ -317,7 +240,7 @@ const MyOrders = () => {
 					background-color: white;
 				}
 
-				
+
 				.text-muted {
 					color: black !important;
 				}
@@ -382,7 +305,7 @@ const MyOrders = () => {
 				filteredData.map((order, index) => {
 					const totalItems = order.orderedItems.reduce(
 						(total, item) => total + item.quantity,
-						0
+						0,
 					);
 
 					const getStatusAnimation = (status) => {
@@ -440,10 +363,10 @@ const MyOrders = () => {
 											order.orderStatus === "Delivered"
 												? "bg-success"
 												: order.orderStatus === "Out for delivery"
-												? "bg-info"
-												: order.orderStatus === "Cancelled"
-												? "bg-danger"
-												: "bg-warning text-dark"
+													? "bg-info"
+													: order.orderStatus === "Cancelled"
+														? "bg-danger"
+														: "bg-warning text-dark"
 										} ${getStatusAnimation(order.orderStatus)}`}
 									>
 										<i
@@ -451,10 +374,10 @@ const MyOrders = () => {
 												order.orderStatus === "Delivered"
 													? "bi-check-circle-fill"
 													: order.orderStatus === "Out for delivery"
-													? "bi-truck"
-													: order.orderStatus === "Cancelled"
-													? "bi-x-circle-fill"
-													: "bi-hourglass-split"
+														? "bi-truck"
+														: order.orderStatus === "Cancelled"
+															? "bi-x-circle-fill"
+															: "bi-hourglass-split"
 											}`}
 										></i>
 										{order.orderStatus}
@@ -466,7 +389,7 @@ const MyOrders = () => {
 												onClick={async () => {
 													if (
 														window.confirm(
-															"Are you sure you want to cancel this order?"
+															"Are you sure you want to cancel this order?",
 														)
 													) {
 														try {
