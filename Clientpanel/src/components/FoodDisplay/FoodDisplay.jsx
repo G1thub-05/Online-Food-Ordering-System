@@ -5,10 +5,11 @@ import "../../App.css";
 
 const FoodDisplay = ({ category, searchText }) => {
 	const { foodList } = useContext(StoreContext);
-	const filteredFoods = foodList.filter(
+	const safeFoodList = Array.isArray(foodList) ? foodList : [];
+	const filteredFoods = safeFoodList.filter(
 		(food) =>
 			(category === "All" || food.category === category) &&
-			food.name.toLowerCase().includes(searchText.toLowerCase())
+			food.name.toLowerCase().includes(searchText.toLowerCase()),
 	);
 	return (
 		<div className="container">
