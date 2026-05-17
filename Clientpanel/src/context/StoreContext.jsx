@@ -1,6 +1,5 @@
 import { createContext, useEffect, useState } from "react";
 import { fetchFoodList } from "../service/foodService";
-import axios from "axios";
 
 import {
 	addToCart,
@@ -17,41 +16,53 @@ export const StoreContextProvider = (props) => {
 	const [token, setToken] = useState("");
 
 	const increaseQty = async (foodId) => {
-		setQuantities((prev) => ({ ...prev, [foodId]: (prev[foodId] || 0) + 1 }));
-		await addToCart(foodId, token);
+		try {
+			await addToCart(foodId, token);
+			setQuantities((prev) => ({
+				...prev,
+				[foodId]: (prev[foodId] || 0) + 1,
+			}));
+		} catch (error) {
+			console.error("ADD TO CART ERROR:", error);
+		}
 	};
 
 	const decreaseQty = async (foodId) => {
-		setQuantities((prev) => ({
-			...prev,
-			[foodId]: prev[foodId] > 0 ? prev[foodId] - 1 : 0,
-		}));
-		await removeQtyFromCart(foodId, token);
+		try {
+			await removeQtyFromCart(foodId, token);
+			setQuantities((prev) => ({
+				...prev,
+				[foodId]: prev[foodId] > 0 ? prev[foodId] - 1 : 0,
+			}));
+		} catch (error) {
+			console.error("REMOVE QTY ERROR:", error);
+		}
 	};
 
-	// const removeFromCart = (foodId) => {
-	// 	setQuantities((prevQuantities) => {
-	// 		const updatedQuantitites = { ...prevQuantities };
-	// 		delete updatedQuantitites[foodId];
-	// 		return updatedQuantitites;
-	// 	});
-	// };
-
 	const removeFromCart = async (foodId) => {
-		// 1. Backend se bhi item delete karo
-		await removeItemFromCart(foodId, token); // 🟢 POST /api/cart/remove
+		try {
+			// Backend remove
+			await removeItemFromCart(foodId, token);
 
-		// 2. Frontend se bhi quantity hatao
-		setQuantities((prevQuantities) => {
-			const updatedQuantities = { ...prevQuantities };
-			delete updatedQuantities[foodId];
-			return updatedQuantities;
-		});
+			// Frontend remove only after success
+			setQuantities((prevQuantities) => {
+				const updatedQuantities = { ...prevQuantities };
+				delete updatedQuantities[foodId];
+				return updatedQuantities;
+			});
+		} catch (error) {
+			console.error("REMOVE ITEM ERROR:", error);
+		}
 	};
 
 	const loadCartData = async (token) => {
-		const items = await getCartData(token);
-		setQuantities(items);
+		try {
+			const items = await getCartData(token);
+			setQuantities(items && typeof items === "object" ? items : {});
+		} catch (error) {
+			console.error("LOAD CART ERROR:", error);
+			setQuantities({});
+		}
 	};
 
 	const contextValue = {
@@ -68,11 +79,20 @@ export const StoreContextProvider = (props) => {
 
 	useEffect(() => {
 		async function loadData() {
-			const data = await fetchFoodList();
-			setFoodList(data);
-			if (localStorage.getItem("token")) {
-				setToken(localStorage.getItem("token"));
-				await loadCartData(localStorage.getItem("token"));
+			try {
+				const data = await fetchFoodList();
+				console.log("FOOD API RESPONSE:", data);
+				setFoodList(Array.isArray(data) ? data : []);
+
+				const savedToken = localStorage.getItem("token");
+				if (savedToken) {
+					setToken(savedToken);
+					await loadCartData(savedToken);
+				}
+			} catch (error) {
+				console.error("LOAD DATA ERROR:", error);
+				setFoodList([]);
+				setQuantities({});
 			}
 		}
 		loadData();

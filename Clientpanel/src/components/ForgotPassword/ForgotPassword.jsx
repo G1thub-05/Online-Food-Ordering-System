@@ -58,8 +58,8 @@ const ForgotPassword = () => {
 			console.log("OTP sent response:", res.data);
 			setOtpSent(true);
 		} catch (err) {
-			toast.error("Failed to send OTP");
-			console.error(err.response?.data || err.message);
+			toast.error(err.response?.data?.message || "Failed to send OTP");
+			console.log("OTP ERROR:", err.response);
 		}
 	};
 
@@ -70,7 +70,7 @@ const ForgotPassword = () => {
 				email: data.email,
 				otp,
 			});
-			if (res.data.verified) {
+			if (res?.data?.verified) {
 				toast.success("OTP verified");
 				setOtpVerified(true);
 			} else {
@@ -103,10 +103,13 @@ const ForgotPassword = () => {
 				{
 					headers: {
 						"Content-Type": "application/json",
+						...(token && {
+							Authorization: `Bearer ${token}`,
+						}),
 					},
 				},
 			);
-			if (response.status === 201 || response.status === 200) {
+			if (response?.status === 200 || response?.status === 201) {
 				toast.success("Password reset successful. Please login.");
 				navigate("/login");
 			} else {
@@ -156,7 +159,7 @@ const ForgotPassword = () => {
 										onChange={(e) => {
 											const value = e.target.value;
 											if (/^[0-9]?$/.test(value)) {
-												const newOtp = otp.split("");
+												const newOtp = otp ? [...otp] : Array(6).fill("");
 												newOtp[idx] = value;
 												setOtp(newOtp.join(""));
 												// Auto-focus next

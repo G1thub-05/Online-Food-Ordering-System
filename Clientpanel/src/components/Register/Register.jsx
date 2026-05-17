@@ -64,8 +64,8 @@ const Register = () => {
 			console.log("OTP sent response:", res.data);
 			setOtpSent(true);
 		} catch (err) {
-			toast.error("Failed to send OTP");
-			console.error(err.response?.data || err.message);
+			toast.error(err.response?.data?.message || "Failed to send OTP");
+			console.log("OTP ERROR:", err.response);
 		}
 	};
 
