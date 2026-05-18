@@ -28,32 +28,17 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         final String authHeader = request.getHeader("Authorization");
-        String header = request.getHeader("Authorization");
-//        System.out.println("Authorization Header: " + header);
-
-
-
-        String path = request.getRequestURI();
-        // ✅ Skip authentication for public endpoints
-//        if (path.startsWith("/api/foods")
-//        ||path.startsWith("/api/reset")){
-//        filterChain.doFilter(request, response);
-//        System.out.println("Requested Path: " + path);
-//        System.out.println("Authorization Header: " + authHeader);
-//            return;
-//        }
-
-
-        if (path.startsWith("/api/foods")
-                || path.startsWith("/api/reset")
-                || path.startsWith("/api/reset-password")
-                || path.startsWith("/api/verify-otp")
-                || path.startsWith("/api/send-otp")
-                || path.startsWith("/api/register")
-                || path.startsWith("/api/login")) {
+        String path = request.getServletPath();
+        if (
+                path.startsWith("/api/foods")
+                        || path.equals("/api/reset")
+                        || path.equals("/api/reset-password")
+                        || path.equals("/api/verify-otp")
+                        || path.equals("/api/send-otp")
+                        || path.equals("/api/register")
+                        || path.equals("/api/login")
+        ) {
             filterChain.doFilter(request, response);
-            System.out.println("Requested Path: " + path);
-            System.out.println("Authorization Header: " + authHeader);
             return;
         }
 
