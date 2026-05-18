@@ -71,7 +71,7 @@ public class SecurityConfig {
         config.setAllowedHeaders(List.of("*"));
 //        config.setAllowedHeaders(List.of("Authorization", "Content-Type", "Origin", "Accept", "X-Requested-With"));
         config.setExposedHeaders(List.of("Authorization"));
-        config.setAllowCredentials(true);
+        config.setAllowCredentials(false);
 
 //        config.addAllowedMethod("*"); // 👈 Allow all HTTP methods
 //        config.addAllowedHeader("*"); // 👈 Allow all headers
