@@ -57,7 +57,7 @@ const Register = () => {
 					headers: {
 						"Content-Type": "application/json",
 					},
-					withCredentials: true,
+					// withCredentials: true,
 				},
 			);
 			toast.success(`OTP sent to your email: ${data.email}`);
