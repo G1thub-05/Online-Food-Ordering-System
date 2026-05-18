@@ -14,12 +14,11 @@ import java.util.Map;
 public class BrevoEmailProvider implements EmailProvider {
 
     @Value("${BREVO_API_KEY}")
-    private String brevoApiKey;
+private String brevoApiKey;
     private final String BREVO_URL = "https://api.brevo.com/v3/smtp/email";
 
     @Override
     public void sendEmail(String to, String subject, String body) {
-
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
@@ -32,9 +31,8 @@ public class BrevoEmailProvider implements EmailProvider {
 
         requestBody.put("to", new Object[]{Map.of("email", to)});
         requestBody.put("subject", subject);
-        requestBody.put("textContent", body);
+        requestBody.put("htmlContent", body);
         HttpEntity<Map<String, Object>> request = new HttpEntity<>(requestBody, headers);
-//        restTemplate.postForEntity(BREVO_URL, request, String.class);
         try {
 
             ResponseEntity<String> response =
@@ -43,6 +41,7 @@ public class BrevoEmailProvider implements EmailProvider {
                             request,
                             String.class
                     );
+            System.out.println("BREVO STATUS: " + response.getStatusCode());
             System.out.println("BREVO RESPONSE: " + response.getBody());
         } catch (Exception e) {
             e.printStackTrace();
