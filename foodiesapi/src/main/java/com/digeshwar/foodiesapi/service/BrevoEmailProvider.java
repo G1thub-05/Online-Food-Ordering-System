@@ -34,6 +34,18 @@ public class BrevoEmailProvider implements EmailProvider {
         requestBody.put("subject", subject);
         requestBody.put("textContent", body);
         HttpEntity<Map<String, Object>> request = new HttpEntity<>(requestBody, headers);
-        restTemplate.postForEntity(BREVO_URL, request, String.class);
+//        restTemplate.postForEntity(BREVO_URL, request, String.class);
+        try {
+
+            ResponseEntity<String> response =
+                    restTemplate.postForEntity(
+                            BREVO_URL,
+                            request,
+                            String.class
+                    );
+            System.out.println("BREVO RESPONSE: " + response.getBody());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
