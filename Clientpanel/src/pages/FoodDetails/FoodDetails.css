@@ -1,22 +1,293 @@
-.adtocartbtn:hover {
-	background: linear-gradient(to right, #0011ff, #000000) !important;
-	color: white;
-	font-weight: 700;
+/* =========================
+   FOOD DETAILS PAGE
+========================= */
 
-	background-position: right center !important;
-	transform: translateY(2px) scale(0.97) !important; /* press effect */
-	box-shadow: 0 8px 24px rgba(0, 39, 212, 0.6) !important;
+/* MAIN CONTAINER */
+
+.food-details-container {
+	padding: 40px 20px;
+
+	overflow: visible;
 }
 
+/* FIX OVERFLOW */
+
+.food-details-container * {
+	overflow: visible;
+}
+
+/* IMAGE */
+
+.food-display-image,
+.fooddetails-image,
+.food-image {
+	width: 100%;
+
+	max-width: 500px;
+
+	height: 500px;
+
+	object-fit: contain;
+
+	display: block;
+
+	margin: 0 auto;
+}
+
+/* CATEGORY */
+
+.food-category,
+.category-text {
+	font-size: 1.2rem;
+
+	font-weight: 500;
+
+	color: #222;
+
+	margin-bottom: 12px;
+}
+
+/* CATEGORY BADGE */
+
+.food-category span,
+.category-badge {
+	background: #d8b44a;
+
+	color: #000;
+
+	font-weight: 700;
+
+	padding: 6px 14px;
+
+	border-radius: 10px;
+
+	font-size: 0.9rem;
+}
+
+/* TITLE */
+
+.food-title,
+h1 {
+	font-size: 4rem;
+
+	font-weight: 800;
+
+	line-height: 1.1;
+
+	color: #1f1f28;
+
+	margin-bottom: 20px;
+}
+
+/* PRICE */
+
+.food-price {
+	font-size: 2rem;
+
+	font-weight: 700;
+
+	color: #222;
+
+	margin-bottom: 24px;
+}
+
+/* DESCRIPTION */
+
+.food-description,
+.food-desc,
+p {
+	font-size: 1.2rem;
+
+	line-height: 1.8;
+
+	color: #2d2d35;
+}
+
+/* =========================
+   ADD TO CART BUTTON
+========================= */
+
 .adtocartbtn {
-	/* background: linear-gradient(to right, #000000, #ff0000) !important; */
 	color: white !important;
+
 	font-weight: 700 !important;
 
-	background-position: left center !important;
-	background: linear-gradient(135deg, #ff0000, #000000, #0000ff) !important;
-	background-size: 200% 200% !important;
-	box-shadow: 0 5px 15px rgba(212, 0, 0, 0.4) !important;
-	transition: background-position 1s ease, transform 0.2s ease,
-		box-shadow 0.2s ease !important;
+	font-size: 1rem !important;
+
+	letter-spacing: 0.3px;
+
+	padding: 10px 18px !important;
+
+	border: none !important;
+
+	border-radius: 12px !important;
+
+	cursor: pointer !important;
+
+	background: linear-gradient(135deg, #ff5f00, #ff0000, #001dff) !important;
+
+	background-size: 220% 220% !important;
+
+	box-shadow:
+		0 8px 20px rgba(255, 0, 0, 0.22),
+		0 4px 12px rgba(0, 29, 255, 0.12) !important;
+
+	transition:
+		box-shadow 0.28s ease,
+		background-position 0.6s ease,
+		filter 0.3s ease !important;
+
+	position: relative;
+
+	z-index: 10;
+
+	display: inline-flex;
+
+	align-items: center;
+
+	justify-content: center;
+
+	margin-top: 6px;
+
+	overflow: hidden;
+}
+
+/* SHINE EFFECT */
+
+.adtocartbtn::before {
+	content: "";
+
+	position: absolute;
+
+	top: 0;
+
+	left: -75%;
+
+	width: 50%;
+
+	height: 100%;
+
+	background: rgba(255, 255, 255, 0.25);
+
+	transform: skewX(-25deg);
+
+	transition: left 0.7s ease;
+}
+
+/* HOVER */
+
+.adtocartbtn:hover {
+	background-position: right center !important;
+
+	filter: brightness(1.05);
+
+	transform: none !important;
+
+	box-shadow:
+		0 18px 34px rgba(0, 29, 255, 0.28),
+		0 12px 24px rgba(255, 94, 0, 0.24),
+		0 0 16px rgba(255, 0, 0, 0.18) !important;
+}
+
+.adtocartbtn:hover::before {
+	left: 130%;
+}
+
+/* ACTIVE */
+
+.adtocartbtn:active {
+	transform: scale(0.97) !important;
+
+	box-shadow:
+		0 5px 14px rgba(0, 0, 0, 0.22),
+		inset 0 2px 4px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* =========================
+   MOBILE FIX
+========================= */
+
+@media (max-width: 576px) {
+	.food-details-container {
+		padding: 20px 14px;
+	}
+
+	/* FOOD IMAGE SMALLER */
+
+	.food-display-image,
+	.fooddetails-image,
+	.food-image {
+		width: 100% !important;
+
+		max-width: 210px !important;
+
+		height: 210px !important;
+
+		object-fit: contain !important;
+
+		display: block;
+
+		margin: 0 auto 10px auto;
+	}
+
+	/* CATEGORY */
+
+	.food-category,
+	.category-text {
+		font-size: 0.9rem !important;
+
+		margin-bottom: 8px !important;
+	}
+
+	/* CATEGORY BADGE */
+
+	.food-category span,
+	.category-badge {
+		font-size: 0.72rem !important;
+
+		padding: 4px 10px !important;
+
+		border-radius: 8px !important;
+	}
+
+	/* TITLE */
+
+	.food-title,
+	h1 {
+		font-size: 2rem !important;
+
+		line-height: 1.1 !important;
+
+		margin-bottom: 12px !important;
+	}
+
+	/* PRICE */
+
+	.food-price {
+		font-size: 1.4rem !important;
+
+		margin-bottom: 14px !important;
+	}
+
+	/* DESCRIPTION */
+
+	.food-description,
+	.food-desc,
+	p {
+		font-size: 0.95rem !important;
+
+		line-height: 1.6 !important;
+	}
+
+	/* BUTTON */
+
+	.adtocartbtn {
+		width: 100% !important;
+
+		font-size: 0.9rem !important;
+
+		padding: 10px 14px !important;
+
+		border-radius: 10px !important;
+	}
 }

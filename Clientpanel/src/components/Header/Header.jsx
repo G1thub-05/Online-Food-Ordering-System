@@ -6,21 +6,32 @@ import "../../App.css";
 const Header = () => {
 	return (
 		<header className="hero-header">
+			<div className="hero-overlay"></div>
+
 			<div className="hero-container">
-				<div className="hero-title-container">
-					{/* <h1 className="hero-title">Order your favorite food here</h1> */}
-					<h1 className="hero-title">“Feel the flavor, love the bite.”</h1>
-					{/* <h1>🚀</h1> */}
-				</div>
+				<div className="hero-badge">🔥 Fast Delivery Across Your City</div>
+
+				<h1 className="hero-title">
+					Fresh Food.
+					<br />
+					<span>Delivered Hot.</span>
+				</h1>
+
 				<p className="hero-description">
-					Craving something delicious? Tap, order, and relax—your food is on the
-					way! We deliver piping-hot meals from local favorites, faster than you
-					can say “extra cheese.” Order in seconds. Eat in minutes. Get hot,
-					fresh meals from your favorite spots—delivered fast, without the fuss.
+					Discover delicious meals from top restaurants near you. Enjoy
+					lightning-fast delivery, premium taste, and a modern food ordering
+					experience — all in just a few taps.
 				</p>
-				<Link to="/explore" className="hero-button">
-					🚀 Explore Now
-				</Link>
+
+				<div className="hero-buttons">
+					<Link to="/explore" className="hero-button primary-btn">
+						🍔 Explore Menu
+					</Link>
+
+					<Link to="/cart" className="hero-button secondary-btn">
+						🛒 View Cart
+					</Link>
+				</div>
 			</div>
 		</header>
 	);

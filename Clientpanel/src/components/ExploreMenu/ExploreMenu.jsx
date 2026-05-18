@@ -8,10 +8,16 @@ const ExploreMenu = ({ category, setCategory }) => {
 		<div className="explore-menu">
 			<div className="explore-menu-header">
 				<h2>🛒</h2>
-				<h2 className="explore-menu-title">Explore Your Taste Now!</h2>
+				<h2 className="explore-menu-title">
+					Explore Your <b>Taste</b> Now!
+				</h2>
 			</div>
 			<p className="explore-menu-description">
-				"Find what makes your mouth water"
+				"Find what makes your mouth <b>water</b>. 🍽️✨ Discover flavors crafted
+				to satisfy every craving — from sizzling street-style favorites to rich
+				gourmet delights. Explore dishes that turn every bite into a memorable
+				experience with fresh ingredients, irresistible aromas, and
+				mouth-watering taste all waiting for you in one place."
 			</p>
 			<div className="explore-menu-list">
 				{categories.map((item, index) => (

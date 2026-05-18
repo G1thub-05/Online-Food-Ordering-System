@@ -1,181 +1,216 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+	font-family: "Inter", sans-serif;
+	scroll-behavior: smooth;
+	overflow-x: hidden;
+}
+
+/* ========================= */
+/* REGISTER PAGE */
+/* ========================= */
+
 .register-page {
-	/* background: url("../../assets/bg.jpg") no-repeat center center/cover; */
-	height: 100vh;
+	position: relative;
+	min-height: calc(100vh - 72px);
 	display: flex;
 	justify-content: center;
-	align-items: center;
-	font-family: "Segoe UI", sans-serif;
-	backdrop-filter: blur(15px);
-	height: calc(100vh - 72px);
+	align-items: flex-start;
+	padding-top: 55px;
+	padding-inline: 16px;
+	overflow: hidden;
 }
 
-.register-form-container {
-	background: rgba(255, 255, 255, 0.1);
-	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-	border-radius: 16px;
-	width: 100%;
-	max-width: 480px;
-	color: #fff;
-	backdrop-filter: blur(15px);
-	text-align: center;
-	padding: 2em 2em;
-	display: flex;
-	flex-direction: column;
-	gap: 2px;
-	animation: fadeIn 1s ease;
-	z-index: 1;
-	position: relative;
-}
+/* ========================= */
+/* BACKGROUND */
+/* ========================= */
 
-/* Add this pseudo-element to blur the background */
 .register-page::before {
 	content: "";
 	position: absolute;
 	inset: 0;
-	background: url("../../assets/vibrant-detailed-thai-restaura.jpg") no-repeat
-		center center/cover;
-	filter: blur(5px); /* Change intensity as needed */
+
+	background:
+		linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1)),
+		url("../../assets/vibrant-detailed-thai-restaura.jpg") no-repeat center
+			center/cover;
+
+	filter: blur(3px);
+	transform: scale(1.03);
 	z-index: 0;
 }
 
+/* ========================= */
+/* FORM CONTAINER */
+/* ========================= */
+
+.register-form-container {
+	position: relative;
+	z-index: 2;
+
+	width: 100%;
+	max-width: 470px;
+
+	padding: 34px 30px;
+
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+
+	border-radius: 26px;
+
+	background: rgba(255, 255, 255, 0.1);
+
+	backdrop-filter: blur(16px);
+	-webkit-backdrop-filter: blur(16px);
+
+	border: 1px solid rgba(255, 255, 255, 0.16);
+
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.14);
+
+	animation: smoothReveal 0.8s ease;
+}
+
+/* ========================= */
+/* TITLE */
+/* ========================= */
+
 .register-form-container h2 {
-	font-size: 2.2em;
-	font-weight: 700;
-	padding-bottom: 5px;
-	background: linear-gradient(to right, #ff0000, #000000, #0000ff);
+	font-size: 2.2rem;
+	font-weight: 800;
+	letter-spacing: -1px;
+	text-align: center;
+
+	background: linear-gradient(to right, #ff7b00, #ff9500);
+
 	-webkit-background-clip: text;
 	background-clip: text;
 	-webkit-text-fill-color: transparent;
-	color: transparent;
-	text-align: center;
-	text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+	text-shadow: 0 0 12px rgba(255, 123, 0, 0.12);
 }
 
-/* .register-form input::placeholder {
-	color: #000000;
-} */
+/* ========================= */
+/* FORM */
+/* ========================= */
 
-.register-form button {
+.register-form {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+/* ========================= */
+/* INPUT GROUP */
+/* ========================= */
+
+.form_control {
+	position: relative;
 	width: 100%;
-	padding: 0.75rem;
-	margin-top: 18px;
-	font-size: 1.05rem;
-	font-weight: bold;
-	color: #fff;
-	border: none;
-	border-radius: 14px;
-	background: linear-gradient(135deg, #ff0000, #000000, #0000ff);
-	background-size: 200% 200%;
-	background-position: left center;
-	cursor: pointer;
-	box-shadow: 0 5px 15px rgba(212, 0, 0, 0.4);
-	transition: background-position 1s ease, transform 0.2s ease,
-		box-shadow 0.2s ease;
 }
 
-.register-form button:hover {
-	background-position: right center;
-	transform: translateY(2px) scale(0.97);
-	box-shadow: 0 8px 24px rgba(0, 39, 212, 0.6);
-}
-
-.register-form .reset-btn {
-	margin-top: 10px;
-}
-
-@keyframes fadeIn {
-	from {
-		transform: scale(0.9);
-		opacity: 0;
-	}
-	to {
-		transform: scale(1);
-		opacity: 1;
-	}
-}
+/* ========================= */
+/* INPUT */
+/* ========================= */
 
 .register-form input {
 	width: 100%;
-	margin: 8px 0;
-	padding: 0.75rem 1rem;
-	border-radius: 10px;
-	background: rgba(255, 255, 255, 0.25);
-	border: 1px solid rgba(255, 255, 255, 0.2);
-	color: #000;
-	font-size: 1.1rem;
-	font-weight: 600;
-	outline: none;
-	transition: 0.3s ease;
-	backdrop-filter: blur(6px);
+	padding: 16px 18px;
 
-	box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.25),
-		-8px -8px 15px rgba(255, 255, 255, 0.1),
-		inset 1px 1px 3px rgba(255, 255, 255, 0.6),
-		inset -1px -1px 2px rgba(0, 0, 0, 0.1);
-	background: linear-gradient(to right, #ff0000, #000000, #0000ff);
-	-webkit-background-clip: text;
-	background-clip: text;
-	/* -webkit-text-fill-color: transparent; */
+	border-radius: 16px;
+
+	border: 1px solid rgba(255, 255, 255, 0.22);
+
+	background: rgba(255, 255, 255, 0.22);
+
+	color: #111;
+
+	font-size: 0.95rem;
+	font-weight: 600;
+
+	outline: none;
+
+	backdrop-filter: blur(10px);
+
+	box-shadow:
+		6px 6px 14px rgba(0, 0, 0, 0.12),
+		-4px -4px 12px rgba(255, 255, 255, 0.05),
+		inset 1px 1px 2px rgba(255, 255, 255, 0.35);
+
+	transition:
+		transform 0.3s ease,
+		border-color 0.3s ease,
+		background 0.3s ease,
+		box-shadow 0.3s ease;
 }
 
 .register-form input:focus {
-	border: 1px solid #00e1ff;
-	background: rgba(255, 255, 255, 0.35);
-	box-shadow: 0 0 8px rgba(0, 225, 255, 0.4);
-	background: linear-gradient(to right, #ff0000, #000000, #0000ff);
-	-webkit-background-clip: text;
-	background-clip: text;
-	/* -webkit-text-fill-color: transparent; */
+	transform: translateY(-1px);
+
+	background: rgba(255, 255, 255, 0.3);
+
+	border: 1px solid #ff7b00;
+
+	box-shadow:
+		0 0 0 4px rgba(255, 123, 0, 0.1),
+		0 10px 24px rgba(255, 123, 0, 0.12);
 }
+
+/* ========================= */
+/* PLACEHOLDER */
+/* ========================= */
+
+.register-form input::placeholder {
+	color: rgba(0, 0, 0, 0.45);
+	font-weight: 500;
+}
+
+/* ========================= */
+/* LABEL */
+/* ========================= */
 
 label {
 	position: absolute;
-	left: 15px;
+
+	left: 16px;
 	top: 50%;
+
 	transform: translateY(-50%);
-	font-size: 1rem;
-	color: #080000;
+
+	font-size: 0.92rem;
+	font-weight: 500;
+
+	color: rgba(0, 0, 0, 0.68);
+
 	pointer-events: none;
-	transition: 0.3s ease;
+
+	transition: 0.28s ease;
 }
 
 .input:focus + .label,
 .input:not(:placeholder-shown) + .label {
-	transform: translateY(-140%) scale(0.85);
-	background: rgba(255, 255, 255, 0.8);
-	padding: 0 6px;
-	border-radius: 5px;
-	color: #00bcd4;
+	transform: translateY(-145%) scale(0.84);
+
+	background: rgba(255, 255, 255, 0.82);
+
+	padding: 2px 8px;
+
+	border-radius: 999px;
+
+	color: #ff7b00;
 }
 
-input:-webkit-autofill {
-	background: linear-gradient(to right, #ff0000, #000000, #0000ff) !important;
-	-webkit-background-clip: text !important;
-	background-clip: text !important;
-	border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.login-link {
-	font-size: 0.95rem;
-	background: linear-gradient(to right, #ff0000, #000000, #0000ff);
-	-webkit-background-clip: text;
-	background-clip: text;
-	-webkit-text-fill-color: transparent;
-	text-decoration: none;
-	text-align: center;
-	margin-top: 20px;
-}
-
-.login-link a {
-	font-weight: 700;
-	color: #00bcd4;
-	cursor: pointer;
-	text-decoration: none;
-}
-
-input:placeholder-shown {
-	opacity: 1 !important;
-}
+/* ========================= */
+/* PASSWORD */
+/* ========================= */
 
 .password-wrapper {
 	position: relative;
@@ -188,60 +223,380 @@ input:placeholder-shown {
 
 .toggle-password {
 	position: absolute;
-	right: 15px;
+
+	right: 16px;
 	top: 50%;
+
 	transform: translateY(-50%);
+
+	font-size: 1rem;
+
+	color: #ff7b00;
+
 	cursor: pointer;
-	font-size: 1.1rem;
-	color: #000;
+
 	user-select: none;
+
+	transition: 0.3s ease;
 }
+
+.toggle-password:hover {
+	color: #ff5500;
+
+	transform: translateY(-50%) scale(1.08);
+}
+
+/* ========================= */
+/* BUTTON */
+/* ========================= */
+
+.register-form button {
+	width: 100%;
+	padding: 15px;
+
+	border: none;
+	border-radius: 16px;
+
+	font-size: 0.96rem;
+	font-weight: 700;
+
+	color: white;
+	cursor: pointer;
+
+	background: #ff7b00;
+
+	box-shadow: 0 8px 24px rgba(255, 123, 0, 0.2);
+
+	position: relative;
+	overflow: hidden;
+
+	transition:
+		transform 0.3s ease,
+		box-shadow 0.3s ease,
+		background 0.3s ease;
+}
+
+/* SHINE EFFECT */
+
+.register-form button::before {
+	content: "";
+
+	position: absolute;
+
+	top: 0;
+	left: -140%;
+
+	width: 120%;
+	height: 100%;
+
+	background: linear-gradient(
+		90deg,
+		transparent,
+		rgba(255, 255, 255, 0.18),
+		transparent
+	);
+
+	transform: skewX(-20deg);
+
+	transition: left 1s ease;
+}
+
+.register-form button:hover::before {
+	left: 140%;
+}
+
+.register-form button:hover {
+	transform: translateY(-2px);
+
+	background: #ff8800;
+
+	box-shadow: 0 14px 30px rgba(255, 123, 0, 0.24);
+}
+
+.register-form button:active {
+	transform: scale(0.985);
+}
+
+/* ========================= */
+/* LOGIN LINK */
+/* ========================= */
+
+.login-link {
+	font-size: 0.9rem;
+	text-align: center;
+	color: #111;
+	line-height: 1.7;
+	margin-top: 6px;
+}
+
+.login-link a {
+	font-weight: 700;
+	color: #ff7b00;
+	text-decoration: none;
+	transition: 0.3s ease;
+}
+
+.login-link a:hover {
+	color: #ff5500;
+}
+
+/* ========================= */
+/* OTP EMAIL CONTAINER */
+/* ========================= */
 
 .otp-email-container {
 	display: flex;
-	flex-direction: row;
+	align-items: stretch;
 	gap: 10px;
-	align-items: center;
+	width: 100%;
 }
 
-.otp-email-container input,
-.otp-input-container input {
-	flex: 2.9;
+.otp-email-container input {
+	flex: 2.7;
+	height: 52px;
 }
+
+/* ========================= */
+/* OTP BUTTONS */
+/* ========================= */
 
 .send-otp-btn,
 .verify-otp-btn {
 	flex: 1;
-	padding: 10px 10px;
-	background-color: #333;
-	color: white;
-	margin-top: 5px !important;
+
+	height: 52px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	padding: 0 14px !important;
+
+	font-size: 0.78rem !important;
+	font-weight: 700;
+
 	border: none;
-	border-radius: 5px;
+	border-radius: 14px;
+
+	color: white;
 	cursor: pointer;
+
+	background: #ff7b00;
+
+	white-space: nowrap;
+
+	box-sizing: border-box;
+
+	transition:
+		transform 0.3s ease,
+		background 0.3s ease,
+		box-shadow 0.3s ease;
 }
+
+.send-otp-btn:hover,
+.verify-otp-btn:hover {
+	transform: translateY(-1px);
+
+	background: #ff8800;
+
+	box-shadow: 0 10px 24px rgba(255, 123, 0, 0.18);
+}
+
+/* ========================= */
+/* OTP INPUT CONTAINER */
+/* ========================= */
 
 .otp-input-container {
 	display: flex;
-	flex: 2.9;
 	justify-content: center;
+	align-items: center;
 	gap: 10px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	/* margin-right: 22px; */
+	margin-top: 4px;
 }
 
+/* ========================= */
+/* OTP BOX */
+/* ========================= */
+
 .otp-box {
-	width: 30px;
-	height: 45px;
+	width: 46px;
+	height: 46px;
+
+	padding: 0 !important;
+
+	border-radius: 12px;
+
+	border: 1px solid rgba(255, 255, 255, 0.22);
+
+	background: rgba(255, 255, 255, 0.88);
+
+	font-size: 16px !important;
+	font-weight: 500;
+
+	font-family: "Inter", sans-serif;
+
 	text-align: center;
-	font-size: 1.2rem !important;
-	font-weight: bold;
-	padding: 1px !important;
-	border-radius: 8px;
-	border: 1px solid #ccc;
-	background: rgba(255, 255, 255, 0.9);
-	color: #000;
+
+	line-height: 46px;
+
+	color: #111;
+
 	outline: none;
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+	caret-color: #ff7b00;
+
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+	transition: 0.3s ease;
+
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: textfield;
+}
+
+.otp-box:focus {
+	border: 1px solid #ff7b00;
+
+	box-shadow: 0 0 0 4px rgba(255, 123, 0, 0.1);
+}
+
+/* REMOVE NUMBER ARROWS */
+
+.otp-box::-webkit-inner-spin-button,
+.otp-box::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* ========================= */
+/* AUTOFILL */
+/* ========================= */
+
+input:-webkit-autofill {
+	-webkit-text-fill-color: #111 !important;
+
+	transition: background-color 9999s ease-in-out 0s;
+}
+
+/* ========================= */
+/* ANIMATION */
+/* ========================= */
+
+@keyframes smoothReveal {
+	from {
+		opacity: 0;
+		transform: translateY(25px) scale(0.97);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+}
+
+/* ========================= */
+/* TABLET */
+/* ========================= */
+
+@media (max-width: 768px) {
+	.register-page {
+		padding-top: 40px;
+	}
+
+	.register-form-container {
+		max-width: 390px;
+		padding: 28px 22px;
+	}
+
+	.register-form-container h2 {
+		font-size: 1.9rem;
+	}
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media (max-width: 480px) {
+	.register-page {
+		padding-top: 20px;
+		padding-inline: 10px;
+	}
+
+	.register-form-container {
+		max-width: 330px;
+
+		padding: 22px 18px;
+
+		border-radius: 22px;
+
+		gap: 15px;
+	}
+
+	.register-form-container h2 {
+		font-size: 1.65rem;
+	}
+
+	.register-form {
+		gap: 14px;
+	}
+
+	.register-form input {
+		padding: 14px 15px;
+
+		font-size: 0.84rem;
+
+		border-radius: 13px;
+	}
+
+	label {
+		font-size: 0.8rem;
+	}
+
+	.register-form button {
+		padding: 13px;
+
+		font-size: 0.84rem;
+
+		border-radius: 13px;
+	}
+
+	.login-link {
+		font-size: 0.74rem;
+		line-height: 1.6;
+	}
+
+	.toggle-password {
+		font-size: 0.9rem;
+	}
+
+	.otp-email-container {
+		gap: 8px;
+	}
+
+	.otp-email-container input {
+		height: 46px;
+	}
+
+	.send-otp-btn,
+	.verify-otp-btn {
+		height: 46px;
+
+		font-size: 0.66rem !important;
+
+		padding: 0 10px !important;
+
+		border-radius: 12px;
+	}
+
+	.otp-box {
+		width: 42px;
+		height: 42px;
+
+		font-size: 14px !important;
+
+		line-height: 42px;
+
+		border-radius: 10px;
+	}
 }

@@ -186,7 +186,7 @@ const FoodItem = ({ name, description, id, imageUrl, price }) => {
 						className="vbtn btn btn-outline-success btn-sm"
 						to={`/food/${id}`}
 					>
-						View Food
+						{quantities[id] > 0 ? "View" : "View Food"}
 					</Link>
 
 					{quantities[id] > 0 ? (

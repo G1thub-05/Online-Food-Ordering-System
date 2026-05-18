@@ -1,58 +1,499 @@
+/* =========================
+   GRID
+========================= */
+
 .row.custom-grid {
 	display: flex;
 	flex-wrap: wrap;
-	margin-left: -0.5rem;
-	margin-right: -0.5rem;
+
+	margin-left: -8px;
+	margin-right: -8px;
 }
 
+/* =========================
+   4 COLUMN LAYOUT
+========================= */
+
 .custom-5-col {
-	flex: 0 0 20%;
-	max-width: 20%;
-	padding-left: 0.5rem;
-	padding-right: 0.5rem;
+	flex: 0 0 25%;
+	max-width: 25%;
+
+	padding-left: 8px;
+	padding-right: 8px;
+
+	margin-bottom: 18px;
+
+	box-sizing: border-box;
 }
+
+/* =========================
+   CARD
+========================= */
+
 .custom-5-col .card {
-	margin-bottom: 1rem;
+	border: none;
+
+	border-radius: 16px;
+
+	overflow: hidden;
+
+	background: #fff;
+
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+
+	transition:
+		transform 0.25s ease,
+		box-shadow 0.25s ease;
+
+	height: 100%;
+
+	display: flex;
+
+	flex-direction: column;
 }
-/* Responsive fallback for smaller devices */
+
+.custom-5-col .card:hover {
+	transform: translateY(-4px);
+
+	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.imageStyle {
+	width: 100%;
+
+	height: 135px;
+
+	object-fit: cover;
+
+	transition: transform 0.3s ease;
+}
+
+.card:hover .imageStyle {
+	transform: scale(1.03);
+}
+
+/* =========================
+   CARD BODY
+========================= */
+
+.card-body {
+	padding: 12px;
+
+	display: flex;
+
+	flex-direction: column;
+
+	flex: 1;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.card-title {
+	font-size: 1rem;
+
+	font-weight: 700;
+
+	color: #222;
+
+	margin-bottom: 6px;
+
+	line-height: 1.3;
+}
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.card-text {
+	font-size: 0.84rem;
+
+	color: #666;
+
+	line-height: 1.6;
+
+	margin-bottom: 12px;
+
+	text-align: justify;
+
+	display: -webkit-box;
+
+	-webkit-line-clamp: 3;
+
+	-webkit-box-orient: vertical;
+
+	overflow: hidden;
+
+	min-height: 60px;
+}
+
+/* =========================
+   PRICE + STAR ROW
+========================= */
+
+.price-rating-row {
+	display: flex;
+
+	align-items: center;
+
+	justify-content: space-between;
+
+	gap: 6px;
+
+	margin-bottom: 12px;
+}
+
+/* =========================
+   STAR
+========================= */
+
+.five-star {
+	font-size: 0.82rem;
+
+	color: #ff9800;
+
+	white-space: nowrap;
+}
+
+/* =========================
+   BUTTON GROUP
+========================= */
+
+.button-group,
+.d-flex {
+	display: flex;
+
+	align-items: center;
+
+	justify-content: space-between;
+
+	gap: 10px;
+
+	margin-top: auto;
+
+	overflow: hidden;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.vbtn {
+	flex: 1;
+
+	border: none;
+
+	border-radius: 10px;
+
+	background: #111;
+
+	color: white;
+
+	font-size: 0.84rem;
+
+	font-weight: 700;
+
+	padding: 10px 12px;
+
+	white-space: nowrap;
+
+	transition:
+		transform 0.25s ease,
+		background 0.25s ease;
+}
+
+.vbtn:hover {
+	background: #ff7b00;
+
+	transform: translateY(-2px);
+}
+
+/* =========================
+   VIEW / VIEW FOOD SWITCH
+========================= */
+
+/* Default */
+.vbtn .full-text {
+	display: inline;
+}
+
+.vbtn .short-text {
+	display: none;
+}
+
+/* When item added */
+.food-item-counter ~ .vbtn .full-text {
+	display: none;
+}
+
+.food-item-counter ~ .vbtn .short-text {
+	display: inline;
+}
+
+/* =========================
+   PLUS BUTTON
+========================= */
+
+.plus-btn {
+	margin-left: 0;
+
+	display: flex;
+
+	align-items: center;
+
+	justify-content: center;
+
+	flex-shrink: 0;
+}
+
+/* =========================
+   COUNTER
+========================= */
+
+.food-item-counter {
+	display: flex;
+
+	align-items: center;
+
+	justify-content: center;
+
+	gap: 4px;
+
+	min-width: 78px;
+
+	height: 30px;
+
+	flex-shrink: 0;
+}
+
+.food-item-counter img {
+	width: 22px !important;
+
+	height: 22px !important;
+
+	object-fit: contain;
+
+	flex-shrink: 0;
+}
+
+.food-item-counter p {
+	font-size: 12px;
+
+	margin: 0;
+
+	min-width: 10px;
+
+	text-align: center;
+
+	font-weight: 700;
+
+	flex-shrink: 0;
+}
+
+/* =========================
+   LAPTOP
+========================= */
+
 @media (max-width: 1200px) {
 	.custom-5-col {
-		flex: 0 0 33.3333%;
-		max-width: 33.3333%;
+		flex: 0 0 33.333%;
+		max-width: 33.333%;
 	}
 }
 
-@media (max-width: 768px) {
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 992px) {
 	.custom-5-col {
 		flex: 0 0 50%;
 		max-width: 50%;
 	}
-}
 
-@media (max-width: 576px) {
-	.custom-5-col {
-		flex: 0 0 100%;
-		max-width: 100%;
-	}
 	.imageStyle {
-		width: 100%;
-		height: 200px;
-		height: clamp(120px, 18vw, 150px);
-		object-fit: contain;
-		transition: transform 0.3s ease;
+		height: 130px;
 	}
 }
 
-.five-star {
-	font-size: 0.9rem;
-}
+/* =========================
+   iPHONE 14 PRO FIX
+========================= */
 
-.vbtn {
-	font-size: 10.1rem;
-	font-weight: 700;
-	color: #ffffff;
-	border-radius: 30px;
-	width: 7rem !important;
-	padding: 1rem;
-	text-align: center;
+@media screen and (max-width: 430px) {
+	.row.custom-grid {
+		display: flex;
+		flex-wrap: wrap;
+
+		margin-left: -2px;
+		margin-right: -2px;
+	}
+
+	.custom-5-col {
+		width: 50% !important;
+
+		max-width: 50% !important;
+
+		flex: 0 0 50% !important;
+
+		padding-left: 2px;
+		padding-right: 2px;
+
+		margin-bottom: 8px;
+
+		box-sizing: border-box;
+	}
+
+	/* CARD */
+
+	.custom-5-col .card {
+		width: 100%;
+
+		border-radius: 10px;
+
+		overflow: hidden;
+
+		display: flex;
+
+		flex-direction: column;
+
+		height: 100%;
+	}
+
+	/* IMAGE */
+
+	.imageStyle {
+		height: 82px;
+
+		object-fit: contain;
+
+		padding: 2px;
+	}
+
+	/* BODY */
+
+	.card-body {
+		padding: 6px;
+
+		display: flex;
+
+		flex-direction: column;
+
+		flex: 1;
+	}
+
+	/* TITLE */
+
+	.card-title {
+		font-size: 0.66rem;
+
+		line-height: 1.1;
+
+		margin-bottom: 3px;
+	}
+
+	/* DESCRIPTION */
+
+	.card-text {
+		font-size: 0.52rem;
+
+		line-height: 1.15;
+
+		margin-bottom: 5px;
+
+		min-height: 32px;
+
+		-webkit-line-clamp: 2;
+
+		overflow: hidden;
+	}
+
+	/* PRICE + STAR */
+
+	.price-rating-row {
+		display: flex;
+
+		align-items: center;
+
+		justify-content: space-between;
+
+		gap: 2px;
+
+		margin-bottom: 6px;
+	}
+
+	/* STAR */
+
+	.five-star {
+		font-size: 0.5rem;
+
+		white-space: nowrap;
+	}
+
+	/* BUTTON GROUP */
+
+	.button-group,
+	.d-flex {
+		display: flex;
+
+		align-items: center;
+
+		justify-content: space-between;
+
+		gap: 3px;
+
+		margin-top: auto;
+
+		overflow: hidden;
+	}
+
+	/* VIEW BUTTON */
+
+	.vbtn {
+		flex: 1;
+
+		font-size: 0.5rem;
+
+		padding: 4px 2px;
+
+		border-radius: 5px;
+
+		white-space: nowrap;
+	}
+
+	/* PLUS BUTTON */
+
+	.plus-btn img,
+	.plus-btn svg {
+		width: 16px !important;
+
+		height: 16px !important;
+	}
+
+	/* COUNTER */
+
+	.food-item-counter {
+		min-width: 64px;
+
+		height: 24px;
+
+		gap: 2px;
+	}
+
+	.food-item-counter img {
+		width: 16px !important;
+
+		height: 16px !important;
+	}
+
+	.food-item-counter p {
+		font-size: 10px;
+
+		min-width: 8px;
+	}
 }

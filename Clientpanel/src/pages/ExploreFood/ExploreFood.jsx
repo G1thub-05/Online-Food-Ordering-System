@@ -33,9 +33,6 @@ const ExploreFood = () => {
 									onChange={(e) => setSearchText(e.target.value)}
 									value={searchText}
 								/>
-								{/* <button className='btn btn-primary mt-2' type='submit'>
-                <i className='bi bi-search'></i>
-              </button> */}
 							</div>
 						</form>
 					</div>

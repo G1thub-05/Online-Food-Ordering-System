@@ -151,6 +151,8 @@ const Register = () => {
 										type="text"
 										maxLength="1"
 										className="otp-box"
+										id={`otp-${idx}`}
+										value={otp[idx] || ""}
 										onChange={(e) => {
 											const value = e.target.value;
 											if (/^[0-9]?$/.test(value)) {
@@ -166,7 +168,18 @@ const Register = () => {
 												}
 											}
 										}}
-										id={`otp-${idx}`}
+										onKeyDown={(e) => {
+											if (e.key === "Backspace") {
+												// current input already empty
+												if (e.target.value === "" && idx > 0) {
+													const prevInput = document.getElementById(
+														`otp-${idx - 1}`,
+													);
+
+													prevInput?.focus();
+												}
+											}
+										}}
 									/>
 								))}
 

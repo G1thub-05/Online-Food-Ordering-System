@@ -1,195 +1,322 @@
+/* =========================
+   HIDE SCROLLBAR
+========================= */
+
 .explore-menu-list::-webkit-scrollbar {
 	display: none;
 }
 
-.explore-menu-header {
-	display: flex;
-	align-items: flex-start;
-	justify-content: flex-start;
-	gap: 10px; /* Space between the emoji and the title */
-}
-.explore-menu-title {
-	font-size: 1.8rem;
-	font-weight: 700;
-	color: #000;
-	letter-spacing: 1.5px;
-	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-	background: linear-gradient(145deg, #000000, #ff0000);
-	-webkit-background-clip: text;
-	background-clip: text;
-	-webkit-text-fill-color: transparent;
-}
-.explore-menu-description {
-	font-size: 1rem;
-	font-weight: 600;
-	font-style: italic;
-	color: white;
-	background: linear-gradient(145deg, #000000, #ff0000);
-	-webkit-background-clip: text;
-	background-clip: text;
-	-webkit-text-fill-color: transparent;
-	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-}
-.explore-menu-description::before {
-	content: "";
-	font-size: 1.2rem;
-	margin-right: 5px;
-}
-.explore-menu-description::after {
-	content: "";
-	color: #ff0000;
-	font-size: 1.2rem;
-	margin-left: 5px;
-}
+/* =========================
+   EXPLORE MENU
+========================= */
 
-.explore-menu-list {
-	display: flex;
-	justify-content: space-between;
-	padding: 24px 16px;
-	overflow-x: auto;
-	scroll-snap-type: x mandatory;
-	scroll-behavior: smooth;
-	scrollbar-width: none;
-}
-
-/* 💥 Category Card with Animated Gradient Background */
-.explore-menu-item {
-	flex: 0 0 auto;
-	width: 140px;
-	backdrop-filter: blur(10px);
-	background-size: 300% 300%;
-	padding: 16px 8px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
-	gap: 10px 0px;
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
-	cursor: pointer;
-	scroll-snap-align: center;
-	color: rgb(16, 12, 12);
-	box-shadow: 8px 8px 20px #cbd1d8, -8px -8px 20px #ffffff,
-		inset 2px 2px 4px #d1d9e6, inset -2px -2px 4px #ffffff;
-	border: 1px solid #e4e7ed;
-	border-top: 1px solid #eeee;
-	border-radius: 12px;
-}
-
-.explore-menu-item:hover {
-	transform: translateY(-5px);
-	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* Image Wrapper */
-.menu-image-wrapper { 
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	/* background: white; */
-	background: transparent;
-	border-radius: 50%;
-	padding: 5px;
-	background: transparent;
-	transition: border 0.3s, transform 0.3s;
-}
-.menu-image-wrapper img {
+.explore-menu {
 	width: 100%;
-	height: 90px;
-	object-fit: contain;
-	/* border-radius: 50%; */
-	transition: transform 0.3s;
-}
-.menu-image-wrapper:hover img {
-	transform: scale(1.05);
-}
-
-/* Active State */
-.explore-menu-item.active .menu-image-wrapper {
-	border: 2px solid #fb7d00;
-	background: linear-gradient(135deg, #ff6a00, #ee0979); /* 🔥 Orange to Pink */
-	transform: scale(1.05);
+	padding-top: 38px;
+	background: transparent;
 	overflow: hidden;
 }
 
-/* Active Text Color */
-.text-active {
-	/* color: rgb(61, 45, 43); */
-	font-weight: 700;
-	background: linear-gradient(145deg, #000000, #001df7);
+/* Remove container extra spacing */
+
+.explore-menu .container {
+	padding-right: 0 !important;
+	margin-right: 0 !important;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.explore-menu-header {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.explore-menu-title {
+	font-size: 2rem;
+	font-weight: 800;
+	letter-spacing: -0.5px;
+
+	background: linear-gradient(90deg, #ff7b00, #ff9a00);
+
 	-webkit-background-clip: text;
 	background-clip: text;
 	-webkit-text-fill-color: transparent;
-	/* margin-bottom: 0.2rem; */
 }
 
-/* Item Label */
+/* =========================
+   DESCRIPTION
+========================= */
+
+.explore-menu-description {
+	margin-top: 8px;
+
+	font-size: 0.98rem;
+	font-weight: 500;
+
+	color: #555;
+	text-align: justify;
+	text-justify: inter-word;
+	line-height: 1.7;
+}
+
+.explore-menu-description::before,
+.explore-menu-description::after {
+	content: "";
+}
+
+/* =========================
+   MENU LIST
+========================= */
+
+.explore-menu-list {
+	display: flex;
+
+	gap: 18px;
+
+	padding: 26px 0;
+
+	overflow-x: auto;
+
+	scrollbar-width: none;
+
+	scroll-behavior: smooth;
+}
+
+/* Prevent tiny right blank */
+
+.explore-menu-list::after {
+	content: "";
+	min-width: 1px;
+}
+
+/* =========================
+   CATEGORY CARD
+========================= */
+
+.explore-menu-item {
+	flex: 0 0 auto;
+
+	width: 142px;
+
+	padding: 18px 12px;
+
+	border-radius: 22px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	gap: 12px;
+
+	cursor: pointer;
+
+	background: rgba(255, 255, 255, 0.72);
+
+	backdrop-filter: blur(14px);
+	-webkit-backdrop-filter: blur(14px);
+
+	border: 1px solid rgba(255, 255, 255, 0.4);
+
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+
+	transition:
+		transform 0.28s ease,
+		box-shadow 0.28s ease,
+		border 0.28s ease;
+}
+
+.explore-menu-item:hover {
+	transform: translateY(-6px);
+
+	box-shadow: 0 14px 32px rgba(255, 123, 0, 0.14);
+
+	border: 1px solid rgba(255, 123, 0, 0.18);
+}
+
+.explore-menu-item:last-child {
+	margin-right: 0;
+}
+
+/* =========================
+   IMAGE WRAPPER
+========================= */
+
+.menu-image-wrapper {
+	width: 92px;
+	height: 92px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	border-radius: 50%;
+
+	background: linear-gradient(
+		145deg,
+		rgba(255, 255, 255, 0.95),
+		rgba(255, 255, 255, 0.55)
+	);
+
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+
+	transition:
+		transform 0.28s ease,
+		box-shadow 0.28s ease,
+		border 0.28s ease;
+}
+
+.menu-image-wrapper img {
+	width: 74px;
+	height: 74px;
+
+	object-fit: contain;
+
+	transition: transform 0.28s ease;
+}
+
+.explore-menu-item:hover .menu-image-wrapper img {
+	transform: scale(1.06);
+}
+
+/* =========================
+   ACTIVE STATE
+========================= */
+
+.explore-menu-item.active {
+	background: linear-gradient(
+		145deg,
+		rgba(255, 123, 0, 0.1),
+		rgba(255, 255, 255, 0.75)
+	);
+
+	border: 1px solid rgba(255, 123, 0, 0.22);
+
+	box-shadow: 0 16px 34px rgba(255, 123, 0, 0.14);
+}
+
+.explore-menu-item.active .menu-image-wrapper {
+	border: 2px solid rgba(255, 123, 0, 0.75);
+
+	box-shadow: 0 10px 24px rgba(255, 123, 0, 0.18);
+}
+
+/* =========================
+   ITEM TEXT
+========================= */
+
 .explore-menu-item p {
-	color: black;
-	font-weight: 600;
-	font-size: 15px;
 	margin: 0;
-	transition: color 0.2s;
-	background: linear-gradient(145deg, #000000, #ff0000);
-	-webkit-background-clip: text;
-	background-clip: text;
-	-webkit-text-fill-color: transparent;
-}
-.explore-menu-item:hover p {
-	/* color: rgb(135, 3, 3); */
-	font-weight: 700;
-	background: linear-gradient(145deg, #000000, #001df7);
-	-webkit-background-clip: text;
-	background-clip: text;
-	-webkit-text-fill-color: transparent;
+
+	font-size: 0.95rem;
+	font-weight: 600;
+
+	color: #222;
+
+	transition: 0.25s ease;
 }
 
-/* Scroll Arrows */
+.explore-menu-item:hover p {
+	color: #ff7b00;
+}
+
+.text-active {
+	color: #ff7b00 !important;
+	font-weight: 700;
+}
+
+/* =========================
+   SCROLL ICON
+========================= */
+
 .scroll-icon {
 	font-size: 24px;
+
 	cursor: pointer;
+
 	margin-left: 10px;
-	color: #747474;
-	transition: color 0.2s;
+
+	color: #888;
+
+	transition: 0.25s ease;
 }
+
 .scroll-icon:hover {
-	color: tomato;
+	color: #ff7b00;
+	transform: scale(1.08);
 }
 
-/* Section Divider */
+/* =========================
+   DIVIDER
+========================= */
+
 .explore-menu hr {
-	margin: 20px;
-	height: 2px;
-	background: linear-gradient(145deg, #000000, #ff0000);
+	margin-top: 28px;
+
+	height: 1px;
+
 	border: none;
+
+	background: linear-gradient(
+		to right,
+		transparent,
+		rgba(255, 123, 0, 0.35),
+		transparent
+	);
 }
 
-/* 💡 Explore Section Background: Light */
-.explore-menu {
-	padding-top: 40px;
-	background: transparent; /* Or use #f9f9f9 */
-}
+/* =========================
+   MOBILE
+========================= */
 
-/* 👇 Base styles already look good for mobile (default) */
-
-/* 📱 Small devices: phones (max-width: 600px) */
 @media (max-width: 600px) {
+	.explore-menu {
+		padding-top: 24px;
+	}
+
+	.explore-menu-title {
+		font-size: 1.55rem;
+	}
+
+	.explore-menu-description {
+		font-size: 0.84rem;
+		line-height: 1.5;
+	}
+
 	.explore-menu-list {
-		padding: 16px 12px;
-		gap: 12px;
+		gap: 14px;
+		padding: 18px 0;
 	}
 
 	.explore-menu-item {
-		width: 110px;
-		padding: 12px 6px;
-		gap: 6px;
+		width: 118px;
+
+		padding: 14px 10px;
+
+		border-radius: 18px;
+
+		gap: 10px;
+	}
+
+	.menu-image-wrapper {
+		width: 76px;
+		height: 76px;
 	}
 
 	.menu-image-wrapper img {
-		height: 70px;
+		width: 60px;
+		height: 60px;
 	}
 
 	.explore-menu-item p {
-		font-size: 13px;
+		font-size: 0.82rem;
 	}
 
 	.scroll-icon {
@@ -197,51 +324,52 @@
 	}
 }
 
-/* 📱 Medium devices: tablets (601px to 900px) */
+/* =========================
+   TABLET
+========================= */
+
 @media (min-width: 601px) and (max-width: 900px) {
 	.explore-menu-list {
-		padding: 20px 14px;
+		gap: 16px;
 	}
 
 	.explore-menu-item {
-		width: 120px;
-		padding: 14px 8px;
-		gap: 8px;
+		width: 133px;
+
+		padding: 16px 10px;
+	}
+
+	.menu-image-wrapper {
+		width: 84px;
+		height: 84px;
 	}
 
 	.menu-image-wrapper img {
-		height: 80px;
-	}
-
-	.explore-menu-item p {
-		font-size: 14px;
-	}
-
-	.scroll-icon {
-		font-size: 22px;
+		width: 66px;
+		height: 66px;
 	}
 }
 
-/* 💻 Large devices: desktops (901px and above) */
+/* =========================
+   DESKTOP
+========================= */
+
 @media (min-width: 901px) {
 	.explore-menu-list {
-		padding: 24px 16px;
+		padding: 26px 0;
 	}
 
 	.explore-menu-item {
-		width: 140px;
-		padding: 16px 8px;
+		width: 142px;
+	}
+
+	.menu-image-wrapper {
+		width: 92px;
+		height: 92px;
 	}
 
 	.menu-image-wrapper img {
-		height: 90px;
-	}
-
-	.explore-menu-item p {
-		font-size: 15px;
-	}
-
-	.scroll-icon {
-		font-size: 24px;
+		width: 74px;
+		height: 74px;
 	}
 }

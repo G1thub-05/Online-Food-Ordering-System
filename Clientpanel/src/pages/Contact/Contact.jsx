@@ -3,33 +3,44 @@ import "./Contact.css";
 
 const Contact = () => {
 	return (
-		<section className="line-contact-section">
-			<div className="line-contact-container">
-				<h2 className="line-contact-title">Contact Us</h2>
-				<form className="line-form">
-					<div className="line-input-group">
-						<input type="text" required />
-						<span className="line-highlight"></span>
-						<label>First Name</label>
+		<section className="contact-wrapper">
+			<div className="contact-left">
+				<p className="contact-tag">GET IN TOUCH</p>
+
+				<h1 className="contact-heading">
+					We’d love to hear
+					<span> from you.</span>
+				</h1>
+
+				<p className="contact-text">
+					Questions, feedback, or partnership ideas — send us a message and our
+					team will get back to you shortly.
+				</p>
+			</div>
+
+			<div className="contact-right">
+				<form className="contact-form">
+					<div className="input-box">
+						<input type="text" placeholder="First Name" required />
 					</div>
-					<div className="line-input-group">
-						<input type="text" required />
-						<span className="line-highlight"></span>
-						<label>Last Name</label>
+
+					<div className="input-box">
+						<input type="text" placeholder="Last Name" required />
 					</div>
-					<div className="line-input-group">
-						<input type="email" required />
-						<span className="line-highlight"></span>
-						<label>Email Address</label>
+
+					<div className="input-box full-width">
+						<input type="email" placeholder="Email Address" required />
 					</div>
-					<div className="line-input-group">
-						<textarea rows="4" required></textarea>
-						<span className="line-highlight"></span>
-						<label>Your Message</label>
+
+					<div className="input-box full-width">
+						<textarea
+							rows="5"
+							placeholder="Write your message..."
+							required
+						></textarea>
 					</div>
-					<button className="line-submit-btn" type="submit">
-						🚀 Send Message
-					</button>
+
+					<button type="submit">Send Message</button>
 				</form>
 			</div>
 		</section>
