@@ -145,8 +145,9 @@ JWT_SECRET=Your_Actual_JWT_Secret
 ```
 
 ```env
-MAIL_USERNAME=Your@gmail.com
-MAIL_PASSWORD=Your_gmail_apppassword
+MAIL_USERNAME=Your_Mail_Username (Gmail or brevo)
+MAIL_PASSWORD=Your_Mail_Password (Gmail or brevo)
+BREVO_API_KEY=Your_Actual_Brevo_API_Key
 ```
 
 ```env
