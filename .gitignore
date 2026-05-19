@@ -23,6 +23,7 @@ target/
 # =========================
 # IntelliJ IDEA
 # =========================
+.metadata/
 .idea/
 *.iws
 *.iml
