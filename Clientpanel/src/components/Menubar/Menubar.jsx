@@ -32,7 +32,7 @@ const Menubar = () => {
 				<Link to="/" className="minimal-brand">
 					<img src={assets.logo} alt="logo" className="minimal-logo" />
 
-					<span>Foodies</span>
+					{/* <span>Foodies</span> */}
 				</Link>
 
 				<div className="minimal-links">

@@ -295,6 +295,18 @@
    DELETE BUTTON
 ========================================================= */
 
+/* DELETE */
+
+.cart-delete-btn {
+	position: absolute;
+
+	top: 10px;
+
+	right: 10px;
+
+	font-size: 14px;
+}
+
 .cart-delete-btn {
 	background: none;
 	border: none;
@@ -553,18 +565,6 @@
 		height: 24px;
 
 		font-size: 11px;
-	}
-
-	/* DELETE */
-
-	.cart-delete-btn {
-		position: absolute;
-
-		top: 10px;
-
-		right: 10px;
-
-		font-size: 14px;
 	}
 
 	/* SUMMARY */

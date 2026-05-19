@@ -168,25 +168,25 @@ const PlaceOrder = () => {
 			key: RAZORPAY_KEY,
 
 			amount: order.amount,
+
 			currency: "INR",
+
 			name: "Digeshwar Foodies",
+
 			description: "Food Order Payment",
+
 			order_id: order.razorpayOrderId,
+
 			handler: verifyHandler,
+
 			prefill: {
 				name: `${form.firstName} ${form.lastName}`,
+
 				email: form.email,
+
 				contact: form.phoneNumber,
 			},
-			method: {
-				upi: true,
-				card: true,
-				netbanking: true,
-				wallet: true,
-			},
-			upi: {
-				flow: "collect",
-			},
+
 			theme: {
 				color: "#ff6b00",
 			},
@@ -272,106 +272,12 @@ const PlaceOrder = () => {
 				{/* ========================== */}
 				{/* FORM */}
 				{/* ========================== */}
-				{/* ========================== */}
-				{/* SUMMARY */}
-				{/* ========================== */}
-
-				<div className="placeorder-summary" ref={printRef}>
-					<div className="summary-top">
-						<div>
-							<h2 className="placeorder-heading">🛍️ Cart Summary</h2>
-							<p className="delivery-time">🚚 Delivery in 25-30 mins</p>
-						</div>
-
-						<div className="summary-count">{cartItems.length} Items</div>
-					</div>
-
-					{/* ITEMS */}
-
-					<div className="placeorder-items">
-						{cartItems.map((item) => (
-							<div key={item.id} className="summary-item-card">
-								<div className="summary-img-wrapper">
-									<img
-										src={item.imageUrl}
-										alt={item.name}
-										className="summary-item-img"
-									/>
-								</div>
-
-								<div className="summary-item-info">
-									<div className="summary-title-row">
-										<h4>{item.name}</h4>
-
-										<span className="summary-badge">{item.category}</span>
-									</div>
-
-									<div className="summary-bottom-row">
-										<div className="summary-qty-box">
-											<span className="qty-label">Qty</span>
-
-											<span className="qty-value">{quantities[item.id]}</span>
-										</div>
-
-										<p className="summary-single-price">₹{item.price} each</p>
-									</div>
-								</div>
-
-								<div className="summary-price-wrapper">
-									<p className="summary-total-label">Total</p>
-
-									<div className="summary-item-price">
-										₹{(item.price * quantities[item.id]).toFixed(2)}
-									</div>
-								</div>
-							</div>
-						))}
-					</div>
-
-					{/* TOTAL */}
-
-					<div className="summary-total-box">
-						<div className="placeorder-total-line">
-							<span>Subtotal</span>
-
-							<span>₹{subtotal.toFixed(2)}</span>
-						</div>
-
-						<div className="placeorder-total-line">
-							<span>Shipping</span>
-
-							<span>₹{shipping.toFixed(2)}</span>
-						</div>
-
-						<div className="placeorder-total-line">
-							<span>Tax</span>
-
-							<span>₹{tax.toFixed(2)}</span>
-						</div>
-
-						<div className="placeorder-total final-total">
-							<span>Grand Total</span>
-
-							<span>₹{total.toFixed(2)}</span>
-						</div>
-					</div>
-
-					<div className="secure-payment">
-						<div className="secure-icon">🔒</div>
-
-						<div>
-							<p className="secure-subtitle">Protected by Razorpay</p>
-						</div>
-					</div>
-				</div>
 
 				<form onSubmit={handleSubmit} className="placeorder-form">
 					<div className="form-header">
-						<h2 className="placeorder-heading">
-							🚚 Enter your Delivery Details
-						</h2>
+						<h2 className="placeorder-heading">🚚 Delivery Details</h2>
 
-						<p className="form-subtitle"> </p>
+						<p className="form-subtitle">Enter your shipping information</p>
 					</div>
 
 					<div className="placeorder-row">
@@ -470,6 +376,100 @@ const PlaceOrder = () => {
 						📄 Print Receipt
 					</button>
 				</form>
+
+				{/* ========================== */}
+				{/* SUMMARY */}
+				{/* ========================== */}
+
+				<div className="placeorder-summary" ref={printRef}>
+					<div className="summary-top">
+						<div>
+							<h2 className="placeorder-heading">🛍️ Cart Summary</h2>
+
+							<p className="delivery-time">🚚 Delivery in 25-30 mins</p>
+						</div>
+
+						<div className="summary-count">{cartItems.length} Items</div>
+					</div>
+
+					{/* ITEMS */}
+
+					<div className="placeorder-items">
+						{cartItems.map((item) => (
+							<div key={item.id} className="summary-item-card">
+								<div className="summary-img-wrapper">
+									<img
+										src={item.imageUrl}
+										alt={item.name}
+										className="summary-item-img"
+									/>
+								</div>
+
+								<div className="summary-item-info">
+									<div className="summary-title-row">
+										<h4>{item.name}</h4>
+
+										<span className="summary-badge">{item.category}</span>
+									</div>
+
+									<div className="summary-bottom-row">
+										<div className="summary-qty-box">
+											<span className="qty-label">Qty</span>
+
+											<span className="qty-value">{quantities[item.id]}</span>
+										</div>
+
+										<p className="summary-single-price">₹{item.price} each</p>
+									</div>
+								</div>
+
+								<div className="summary-price-wrapper">
+									<p className="summary-total-label">Total</p>
+
+									<div className="summary-item-price">
+										₹{(item.price * quantities[item.id]).toFixed(2)}
+									</div>
+								</div>
+							</div>
+						))}
+					</div>
+
+					{/* TOTAL */}
+
+					<div className="summary-total-box">
+						<div className="placeorder-total-line">
+							<span>Subtotal</span>
+
+							<span>₹{subtotal.toFixed(2)}</span>
+						</div>
+
+						<div className="placeorder-total-line">
+							<span>Shipping</span>
+
+							<span>₹{shipping.toFixed(2)}</span>
+						</div>
+
+						<div className="placeorder-total-line">
+							<span>Tax</span>
+
+							<span>₹{tax.toFixed(2)}</span>
+						</div>
+
+						<div className="placeorder-total final-total">
+							<span>Grand Total</span>
+
+							<span>₹{total.toFixed(2)}</span>
+						</div>
+					</div>
+
+					<div className="secure-payment">
+						<div className="secure-icon">🔒</div>
+
+						<div>
+							<p className="secure-subtitle">Protected by Razorpay</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	);

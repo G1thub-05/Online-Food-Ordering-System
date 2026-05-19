@@ -25,6 +25,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Autowired
     private UserDetailsService userDetailsService;
 
+
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         final String authHeader = request.getHeader("Authorization");
@@ -37,6 +38,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                         || path.equals("/api/send-otp")
                         || path.equals("/api/register")
                         || path.equals("/api/login")
+                        || (request.getMethod().equals("DELETE") && path.startsWith("/api/orders")
+
+                )
         ) {
             filterChain.doFilter(request, response);
             return;

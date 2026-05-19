@@ -1,238 +1,226 @@
 import React, { useEffect, useState } from "react";
 import { assets } from "../../assets/assets";
-import { fetchAllOrders, updateOrderStatus } from "../../services/orderService";
+import { useNavigate } from "react-router-dom";
+
+import {
+	fetchAllOrders,
+	updateOrderStatus,
+	deleteOrder,
+} from "../../services/orderService";
+
 import { toast } from "react-toastify";
+
+import "./Orders.css";
 
 const Orders = () => {
 	const [data, setData] = useState([]);
 
+	const [filterStatus, setFilterStatus] = useState("All");
+
+	/* ========================================= */
+	/* FETCH ORDERS */
+	/* ========================================= */
+
 	const fetchOrders = async () => {
 		try {
 			const response = await fetchAllOrders();
+
+			console.log(response);
+
 			setData(response);
 		} catch (error) {
-			toast.error("Unable to display the orders. Please try again.");
-		}
-	};
+			console.log(error);
 
-	const updateStatus = async (event, orderId) => {
-		const success = await updateOrderStatus(orderId, event.target.value);
-		if (success) await fetchOrders();
+			toast.error("Unable to fetch orders");
+		}
 	};
 
 	useEffect(() => {
 		fetchOrders();
 	}, []);
 
+	/* ========================================= */
+	/* UPDATE STATUS */
+	/* ========================================= */
+
+	const updateStatus = async (event, orderId) => {
+		const newStatus = event.target.value;
+
+		try {
+			await updateOrderStatus(orderId, newStatus);
+
+			/* REFRESH */
+
+			await fetchOrders();
+
+			toast.success(`Order marked as ${newStatus}`);
+		} catch (error) {
+			console.log(error);
+
+			toast.error("Failed to update order");
+		}
+	};
+
+	/* ========================================= */
+	/* DELETE ORDER */
+	/* ========================================= */
+
+	const handleDelete = async (orderId) => {
+		try {
+			const confirmDelete = window.confirm("Delete this order?");
+
+			if (!confirmDelete) return;
+			await deleteOrder(orderId);
+
+			/* REFRESH */
+
+			await fetchOrders();
+
+			toast.success("Order deleted");
+		} catch (error) {
+			console.log(error);
+
+			toast.error("Failed to delete order");
+		}
+	};
+
+	/* ========================================= */
+	/* FILTER */
+	/* ========================================= */
+
+	const filteredOrders =
+		filterStatus === "All"
+			? data
+			: data.filter((order) => order.orderStatus === filterStatus);
+
 	return (
-		<div style={styles.container}>
-			<h2 style={styles.heading}>All Orders</h2>
+		<div className="orders-container">
+			{/* ========================================= */}
+			{/* TOPBAR */}
+			{/* ========================================= */}
 
-			<div style={styles.ordersWrapper}>
-				{data.map((order, index) => (
-					<div key={index} className="order-box" style={styles.orderBox}>
-						<img src={assets.parcel} alt="Parcel" style={styles.image} />
+			<div className="orders-topbar">
+				<h2 className="orders-heading">All Orders</h2>
 
-						<div style={styles.details}>
-							{order.orderedItems.map((item, idx) => (
-								<span key={idx}>
-									{item.name} x {item.quantity}
-									{idx < order.orderedItems.length - 1 && ", "}
-								</span>
-							))}
-							<span style={styles.address}> — {order.userAddress}</span>
-						</div>
+				<div className="filter-box">
+					<i className="fa-solid fa-filter"></i>
 
-						<div style={styles.amount}>₹{order.amount.toFixed(2)}</div>
+					<select
+						value={filterStatus}
+						onChange={(e) => setFilterStatus(e.target.value)}
+						className="filter-select"
+					>
+						<option value="All">All Orders</option>
 
-						<div style={styles.itemCount}>
-							Items: {order.orderedItems.length}
-						</div>
+						<option value="Food Preparing">Food Preparing</option>
 
-						{/* <select
-							style={styles.select}
-							onChange={(e) => updateStatus(e, order.id)}
-							value={order.orderStatus}
-						>
-							<option value="Food Preparing">Food Preparing</option>
-							<option value="Out for delivery">Out for delivery</option>
-							<option value="Delivered">Delivered</option>
-						</select> */}
+						<option value="Out for delivery">Out for delivery</option>
 
-						{/* <select
-							style={styles.select}
-							onChange={(e) => updateStatus(e, order.id)}
-							value={order.orderStatus}
-							disabled={order.orderStatus === "Cancelled"} // 🔐 disable if Cancelled
-						>
-							<option value="Food Preparing">Food Preparing</option>
-							<option value="Out for delivery">Out for delivery</option>
-							<option value="Delivered">Delivered</option>
-						</select> */}
+						<option value="Delivered">Delivered</option>
 
-						{order.orderStatus === "Cancelled" ? (
-							<span style={styles.cancelledTag}>Cancelled</span>
-						) : (
-							<select
-								style={styles.select}
-								onChange={(e) => updateStatus(e, order.id)}
-								value={order.orderStatus}
-							>
-								<option value="Food Preparing">Food Preparing</option>
-								<option value="Out for delivery">Out for delivery</option>
-								<option value="Delivered">Delivered</option>
-							</select>
-						)}
-					</div>
-				))}
+						<option value="Cancelled">Cancelled</option>
+					</select>
+				</div>
 			</div>
 
-			{/* Hover effect for rows */}
-			<style>
-				{`
-        .order-box {
-          transition: all 0.25s ease;
-        }
-        .order-box:hover {
-          background-color: #fefefe;
-          box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-          transform: scale(1.01);
-        }
-			{/* cancelledTag:hover: {
-		transform: "scale(1.06)",
-		boxShadow: "0 4px 12px rgba(255, 0, 0, 0.25)",
-	} */}
+			{/* ========================================= */}
+			{/* ORDERS */}
+			{/* ========================================= */}
 
+			<div className="orders-wrapper">
+				{filteredOrders.length > 0 ? (
+					filteredOrders.map((order, index) => (
+						<div key={index} className="order-box">
+							{/* IMAGE */}
 
-				@keyframes pulseRed {
-					0% {
-						transform: scale(1);
-						box-shadow: 0 0 0 0 rgba(255, 77, 79, 0.6);
-					}
-					70% {
-						transform: scale(1.03);
-						box-shadow: 0 0 0 8px rgba(255, 77, 79, 0);
-					}
-					100% {
-						transform: scale(1);
-						box-shadow: 0 0 0 0 rgba(255, 77, 79, 0);
-					}
-				}
+							<img src={assets.parcel} alt="Parcel" className="order-image" />
 
+							{/* DETAILS */}
 
+							<div className="order-details">
+								<div className="items-text">
+									{order.orderedItems?.map((item, idx) => (
+										<span key={idx}>
+											{item.name} x{" "}
+											<strong className="qty-text">{item.quantity}</strong>
+											{idx < order.orderedItems.length - 1 && ", "}
+										</span>
+									))}
+								</div>
 
-      `}
-			</style>
+								<span className="order-address">{order.userAddress}</span>
+							</div>
+
+							{/* ITEM COUNT */}
+
+							<div className="item-count">
+								Items: <strong>{order.orderedItems?.length}</strong>
+							</div>
+
+							{/* AMOUNT */}
+
+							<div className="order-amount">₹{order.amount?.toFixed(2)}</div>
+
+							{/* ACTIONS */}
+
+							<div className="order-actions">
+								{/* STATUS */}
+
+								<select
+									className={`status-select ${
+										order.orderStatus === "Cancelled"
+											? "cancelled-tag"
+											: order.orderStatus === "Out for delivery"
+												? "out-delivery"
+												: order.orderStatus === "Delivered"
+													? "delivered-tag"
+													: "preparing-tag"
+									}`}
+									onChange={(e) => updateStatus(e, order._id || order.id)}
+									value={order.orderStatus}
+								>
+									<option value="Food Preparing">🥣 Food Preparing</option>
+
+									<option value="Out for delivery">🚚 Out for delivery</option>
+
+									<option value="Delivered">✅ Delivered</option>
+
+									<option
+										value="Cancelled"
+										disabled={order.orderStatus === "Cancelled"}
+									>
+										❌ Cancelled
+									</option>
+								</select>
+
+								{/* REFRESH */}
+
+								<button
+									className="refresh-btn"
+									onClick={fetchOrders}
+									title="Refresh"
+								>
+									<i className="bi bi-arrow-clockwise"></i>
+								</button>
+
+								{/* DELETE */}
+
+								<button
+									className="delete-btn"
+									onClick={() => handleDelete(order._id || order.id)}
+									title="Delete Order"
+								>
+									🗑️
+								</button>
+							</div>
+						</div>
+					))
+				) : (
+					<div className="no-orders">No orders found 😕</div>
+				)}
+			</div>
 		</div>
 	);
-};
-
-const styles = {
-	container: {
-		padding: "1.5rem",
-		background: "#f4f4f4",
-		fontFamily: "Segoe UI, sans-serif",
-		minHeight: "100vh",
-	},
-
-	cancelledTag: {
-		color: "#ff4d4f",
-		fontWeight: 600,
-		fontSize: "0.85rem",
-		padding: "3px 14px",
-		borderRadius: "999px", // full pill
-		background: "rgba(255, 77, 79, 0.1)", // soft red glass
-		border: "1px solid rgba(255, 77, 79, 0.3)",
-		backdropFilter: "blur(6px)", // glassmorphism
-		boxShadow: "0 4px 12px rgba(255, 77, 79, 0.2)",
-		animation: "pulseRed 1.8s infinite ease-in-out",
-		transition: "transform 0.3s ease, box-shadow 0.3s ease",
-		userSelect: "none",
-		display: "inline-block",
-		cursor: "default",
-	},
-
-	heading: {
-		textAlign: "center",
-		fontSize: "1.5rem",
-		fontWeight: "600",
-		marginBottom: "1rem",
-	},
-	ordersWrapper: {
-		display: "flex",
-		flexDirection: "column",
-		gap: "0.5rem",
-	},
-	orderBox: {
-		display: "flex",
-		alignItems: "center",
-		justifyContent: "space-between",
-		background: "#fff",
-		padding: "0.6rem 1rem",
-		border: "1px solid #e0e0e0",
-		flexWrap: "wrap",
-	},
-	image: {
-		width: "40px",
-		height: "40px",
-		objectFit: "cover",
-		marginRight: "1rem",
-	},
-	details: {
-		flex: "1",
-		fontSize: "0.95rem",
-		fontWeight: "500",
-		color: "black", // fallback
-		marginRight: "1rem",
-		// whiteSpace: "nowrap",
-		// overflow: "hidden",
-		textOverflow: "ellipsis",
-	},
-	address: {
-		fontSize: "0.9rem",
-		background: "linear-gradient(90deg, #000000, #ff0000)",
-		WebkitBackgroundClip: "text",
-		WebkitTextFillColor: "transparent",
-		color: "transparent", // fallback
-		fontWeight: "700",
-	},
-	amount: {
-		minWidth: "90px",
-		fontWeight: "600",
-		fontSize: "0.95rem",
-		color: "#ffffff",
-		marginRight: "1rem",
-		background: "linear-gradient(90deg, #000000, #ff0000)",
-		borderRadius: "22px",
-		width: "90px",
-		margin: "0.5rem auto", // auto horizontally centers
-		padding: "0.01rem 0",
-		textAlign: "center",
-		border: "1px solid #ccc",
-	},
-	itemCount: {
-		minWidth: "80px",
-		fontSize: "0.85rem",
-		color: "#ff0000",
-		margin: "1rem",
-		fontWeight: "700",
-		textAlign: "center",
-		borderRadius: "4px",
-		width: "90px",
-	},
-	select: {
-		padding: "4px 8px",
-		borderRadius: "4px",
-		border: "1px solid #ccc",
-		// background: "#f4f4f4",
-		background: "linear-gradient(90deg, #000000, #ff0000)",
-		WebkitBackgroundClip: "text",
-		WebkitTextFillColor: "transparent",
-		// color: "transparent", // fallback
-		fontWeight: "700",
-		fontSize: "0.85rem",
-		cursor: "pointer",
-	},
 };
 
 export default Orders;

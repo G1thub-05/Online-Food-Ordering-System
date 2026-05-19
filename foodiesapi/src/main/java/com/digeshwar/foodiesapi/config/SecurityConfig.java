@@ -44,7 +44,7 @@ public class SecurityConfig {
                          .requestMatchers("/api/foods/**").permitAll()
                          .requestMatchers("/api/reset").permitAll()
                          .requestMatchers("/api/register", "/api/login", "/api/orders/all",
-                 "/api/orders/status/**", "/api/send-otp","/api/verify-otp", "/api/forgot-password",
+                 "/api/orders/status/**", "/api/orders/**","/api/send-otp","/api/verify-otp", "/api/forgot-password",
                  "/api/reset-password").permitAll()
                  .anyRequest().authenticated())
                  .sessionManagement(session -> session

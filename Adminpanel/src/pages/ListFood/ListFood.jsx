@@ -65,7 +65,7 @@ const ListFood = () => {
 						<img src={item.imageUrl} alt={item.name} style={styles.img} />
 						<div style={styles.content}>
 							<div style={styles.title}>{item.name}</div>
-							<div class="badge text-bg-warning" style={styles.category}>
+							<div className="badge text-bg-warning" style={styles.category}>
 								{item.category}
 							</div>
 							<div style={styles.price}>₹{item.price}.00</div>

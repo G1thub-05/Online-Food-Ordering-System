@@ -1,3 +1,660 @@
-.table td {
-    vertical-align: middle;
+/* ========================================= */
+/* DARK MODE */
+/* ========================================= */
+
+.dark-mode {
+	background: #050505 !important;
+	color: #fff !important;
+}
+
+/* ========================================= */
+/* HEADER */
+/* ========================================= */
+
+.orders-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 18px;
+	margin-bottom: 28px;
+}
+
+.orders-title-gradient {
+	background: linear-gradient(135deg, #ff7a00, #ffb347);
+
+	-webkit-background-clip: text;
+	background-clip: text;
+
+	color: transparent;
+
+	font-size: 1.9rem;
+
+	font-weight: 700;
+
+	margin-left: 8px;
+
+	letter-spacing: -0.5px;
+}
+
+.orders-controls {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+/* ========================================= */
+/* ORDER CARD */
+/* ========================================= */
+
+.order-card {
+	position: relative;
+
+	background: #ffffff;
+
+	border: 1px solid #f3f3f3;
+
+	border-radius: 22px;
+
+	padding: 16px 18px;
+
+	margin-bottom: 18px;
+
+	overflow: hidden;
+
+	transition:
+		transform 0.28s ease,
+		border-color 0.28s ease,
+		box-shadow 0.28s ease;
+
+	box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* ========================================= */
+/* CARD HOVER */
+/* ========================================= */
+
+.order-card:hover {
+	transform: translateY(-4px);
+
+	border-color: rgba(255, 140, 0, 0.16);
+
+	box-shadow: 0 10px 24px rgba(255, 140, 0, 0.08);
+}
+
+/* ========================================= */
+/* TOP LINE */
+/* ========================================= */
+
+.order-card::before {
+	content: "";
+
+	position: absolute;
+
+	top: 0;
+
+	left: 0;
+
+	width: 0%;
+
+	height: 2px;
+
+	background: linear-gradient(90deg, #ff7a00, #ffb347);
+
+	transition: width 0.35s ease;
+}
+
+.order-card:hover::before {
+	width: 100%;
+}
+
+/* ========================================= */
+/* ORDER LINE */
+/* ========================================= */
+
+.order-line {
+	display: flex;
+
+	align-items: center;
+
+	justify-content: space-between;
+
+	gap: 18px;
+
+	flex-wrap: wrap;
+}
+
+/* ========================================= */
+/* ITEM INFO */
+/* ========================================= */
+
+.item-info {
+	display: flex;
+
+	align-items: center;
+
+	gap: 16px;
+
+	flex: 1;
+
+	min-width: 260px;
+}
+
+/* ========================================= */
+/* IMAGE */
+/* ========================================= */
+
+.item-info img {
+	width: 58px;
+
+	height: 58px;
+
+	object-fit: contain;
+
+	padding: 6px;
+
+	border-radius: 16px;
+
+	background: #fff7ef;
+
+	border: 1px solid #ffe6cb;
+
+	transition:
+		transform 0.28s ease,
+		background 0.28s ease;
+}
+
+.order-card:hover .item-info img {
+	transform: scale(1.04);
+
+	background: #fff2e2;
+}
+
+/* ========================================= */
+/* DETAILS */
+/* ========================================= */
+
+.item-details {
+	display: flex;
+
+	flex-direction: column;
+
+	gap: 8px;
+
+	width: 100%;
+}
+
+/* ========================================= */
+/* ITEM NAME */
+/* ========================================= */
+
+.item-name {
+	font-size: 0.96rem;
+
+	font-weight: 500;
+
+	color: #181818;
+
+	line-height: 1.5;
+
+	word-break: break-word;
+}
+
+/* ========================================= */
+/* QUANTITY */
+/* ========================================= */
+
+.item-qty {
+	color: #ff7a00;
+
+	font-weight: 600;
+}
+
+/* ========================================= */
+/* META */
+/* ========================================= */
+
+.order-meta {
+	display: flex;
+
+	align-items: center;
+
+	flex-wrap: wrap;
+
+	gap: 10px;
+
+	font-size: 0.8rem;
+
+	font-weight: 400;
+
+	color: #6b6b6b;
+
+	line-height: 1.4;
+}
+
+.address {
+	color: #666;
+
+	font-weight: 400;
+
+	word-break: break-word;
+}
+
+/* ========================================= */
+/* STATUS + PRICE */
+/* ========================================= */
+
+.status-price {
+	display: flex;
+
+	align-items: center;
+
+	flex-wrap: wrap;
+
+	gap: 10px;
+
+	row-gap: 10px;
+}
+
+/* ========================================= */
+/* PRICE */
+/* ========================================= */
+
+.price-box {
+	background: linear-gradient(135deg, #ff7a00, #ffb347);
+
+	color: white;
+
+	padding: 7px 13px;
+
+	border-radius: 999px;
+
+	font-size: 0.78rem;
+
+	font-weight: 700;
+
+	letter-spacing: 0.2px;
+
+	box-shadow: 0 3px 10px rgba(255, 122, 0, 0.14);
+}
+
+/* ========================================= */
+/* STATUS */
+/* ========================================= */
+
+.status-pill {
+	padding: 6px 12px;
+
+	border-radius: 999px;
+
+	font-size: 0.74rem;
+
+	font-weight: 700;
+
+	display: flex;
+
+	align-items: center;
+
+	gap: 6px;
+
+	border: none;
+
+	position: relative;
+
+	overflow: hidden;
+}
+
+/* ========================================= */
+/* DELIVERED */
+/* ========================================= */
+
+.bg-success {
+	background: linear-gradient(135deg, #008c25, #67d985) !important;
+
+	color: white !important;
+}
+
+/* ========================================= */
+/* CANCELLED */
+/* ========================================= */
+
+.bg-danger {
+	background: linear-gradient(135deg, #f00014, #030000) !important;
+
+	color: white !important;
+}
+
+/* ========================================= */
+/* OUT FOR DELIVERY */
+/* ========================================= */
+
+.bg-warning {
+	background: linear-gradient(135deg, #ffb300, #ffd54f) !important;
+	transition: all 0.25s ease;
+
+	color: #1b1b1b !important;
+}
+
+/* ========================================= */
+/* CANCEL BUTTON */
+/* ========================================= */
+
+.btn-outline-danger {
+	color: #f50008 !important;
+
+	padding: 6px 12px;
+
+	display: flex;
+
+	align-items: center;
+
+	gap: 5px;
+
+	transition: all 0.25s ease;
+
+	border: 0.5px solid #848282 !important;
+
+	border-radius: 999px !important;
+
+	font-weight: 700 !important;
+
+	font-size: 0.8rem !important;
+
+	background: transparent !important;
+}
+
+.btn-outline-danger:hover {
+	background: #f2020a !important;
+
+	color: white !important;
+
+	border: none !important;
+}
+
+/* ICON */
+
+.btn-outline-danger i {
+	font-size: 0.65rem;
+
+	line-height: 1;
+}
+
+/* ========================================= */
+/* REFRESH BUTTON */
+/* ========================================= */
+
+.refresh-btn {
+	width: 36px;
+
+	height: 36px;
+
+	border-radius: 50%;
+
+	border: 1px solid #efefef;
+
+	background: white;
+
+	display: flex;
+
+	align-items: center;
+
+	justify-content: center;
+
+	cursor: pointer;
+
+	transition:
+		transform 0.3s ease,
+		background 0.3s ease,
+		border-color 0.3s ease;
+}
+
+.refresh-btn:hover {
+	transform: rotate(180deg);
+
+	background: linear-gradient(135deg, #ff7a00, #ffb347);
+
+	border-color: transparent;
+}
+
+.refresh-btn i {
+	font-size: 0.9rem;
+
+	color: #555;
+
+	transition: color 0.3s ease;
+}
+
+.refresh-btn:hover i {
+	color: white;
+}
+
+/* ========================================= */
+/* GLOW ANIMATIONS */
+/* ========================================= */
+
+@keyframes glowYellow {
+	0% {
+		box-shadow: 0 0 0 0 rgba(255, 179, 0, 0);
+	}
+
+	50% {
+		box-shadow:
+			0 0 0 3px rgba(255, 179, 0, 0.22),
+			0 0 0 7px rgba(255, 179, 0, 0.14),
+			0 0 18px rgba(255, 179, 0, 0.18);
+	}
+
+	100% {
+		box-shadow: 0 0 0 0 rgba(255, 179, 0, 0);
+	}
+}
+
+@keyframes glowGreen {
+	0% {
+		box-shadow: 0 0 0 0 rgba(0, 255, 98, 0);
+	}
+
+	50% {
+		box-shadow:
+			0 0 0 3px rgba(0, 255, 98, 0.2),
+			0 0 0 7px rgba(0, 255, 98, 0.12),
+			0 0 18px rgba(0, 255, 98, 0.18);
+	}
+
+	100% {
+		box-shadow: 0 0 0 0 rgba(0, 255, 98, 0);
+	}
+}
+
+@keyframes glowRed {
+	0% {
+		box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+	}
+
+	50% {
+		box-shadow:
+			0 0 0 3px rgba(255, 0, 0, 0.2),
+			0 0 0 7px rgba(255, 0, 0, 0.12),
+			0 0 18px rgba(255, 0, 0, 0.18);
+	}
+
+	100% {
+		box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+	}
+}
+
+/* ========================================= */
+/* APPLY ANIMATION */
+/* ========================================= */
+
+.pulseYellow {
+	animation: glowYellow 1.8s infinite ease-in-out;
+}
+
+.pulseGreen {
+	animation: glowGreen 1.8s infinite ease-in-out;
+}
+
+.pulseRed {
+	animation: glowRed 1.8s infinite ease-in-out;
+}
+
+/* ========================================= */
+/* DARK MODE */
+/* ========================================= */
+
+.dark-mode .order-card {
+	background: #121212;
+
+	border: 1px solid #232323;
+}
+
+.dark-mode .item-name {
+	color: white;
+}
+
+.dark-mode .address {
+	background: linear-gradient(135deg, #ff7a00, #ffb347);
+
+	-webkit-background-clip: text;
+
+	-webkit-text-fill-color: transparent;
+}
+
+.dark-mode .refresh-btn {
+	background: #1a1a1a;
+
+	border-color: #2b2b2b;
+}
+
+.dark-mode .refresh-btn i {
+	color: #ddd;
+}
+
+.dark-mode .btn-outline-danger {
+	background: #341b1b !important;
+
+	color: #ff9b9d !important;
+}
+
+.dark-mode .btn-outline-danger:hover {
+	background: #ff5a5f !important;
+
+	color: white !important;
+}
+
+/* ========================================= */
+/* RESPONSIVE */
+/* ========================================= */
+
+@media (max-width: 768px) {
+	.order-line {
+		flex-direction: column;
+
+		align-items: flex-start;
+
+		gap: 14px;
+	}
+
+	.status-price {
+		width: 100%;
+
+		gap: 8px;
+	}
+
+	.item-info {
+		width: 100%;
+
+		min-width: 100%;
+	}
+
+	.item-info img {
+		width: 50px;
+
+		height: 50px;
+	}
+
+	.item-name {
+		font-size: 0.86rem;
+	}
+
+	.order-meta {
+		font-size: 0.72rem;
+	}
+
+	.price-box {
+		font-size: 0.7rem;
+
+		padding: 6px 10px;
+	}
+
+	.status-pill {
+		font-size: 0.68rem;
+
+		padding: 5px 10px;
+	}
+
+	.btn-outline-danger {
+		font-size: 0.62rem;
+
+		height: 28px;
+
+		padding: 0 9px;
+	}
+}
+
+/* ========================================= */
+/* SMALL MOBILE */
+/* ========================================= */
+
+@media (max-width: 480px) {
+	.order-card {
+		padding: 13px;
+	}
+
+	.item-info img {
+		width: 46px;
+
+		height: 46px;
+	}
+
+	.item-name {
+		font-size: 0.8rem;
+	}
+
+	.order-meta {
+		font-size: 0.66rem;
+
+		gap: 6px;
+	}
+
+	.status-price {
+		width: 100%;
+
+		display: flex;
+
+		flex-wrap: wrap;
+
+		gap: 7px;
+	}
+
+	.price-box {
+		font-size: 0.64rem;
+
+		padding: 5px 9px;
+	}
+
+	.status-pill {
+		font-size: 0.62rem;
+
+		padding: 5px 9px;
+	}
+
+	.btn-outline-danger {
+		font-size: 0.58rem;
+
+		height: 26px;
+
+		padding: 0 8px;
+	}
 }

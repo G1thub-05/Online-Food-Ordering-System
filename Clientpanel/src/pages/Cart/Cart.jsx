@@ -2,14 +2,20 @@ import React, { useContext } from "react";
 import { StoreContext } from "../../context/StoreContext";
 import { Link, useNavigate } from "react-router-dom";
 import { calculateCartTotals } from "../../util/cartUtils";
+import { toast } from "react-toastify";
 import "./Cart.css";
 import "../../App.css";
 
 const Cart = () => {
 	const navigate = useNavigate();
-	const { foodList, increaseQty, decreaseQty, quantities, removeFromCart } =
-		useContext(StoreContext);
-
+	const {
+		foodList,
+		increaseQty,
+		decreaseQty,
+		quantities,
+		removeFromCart,
+		token,
+	} = useContext(StoreContext);
 	const cartItems = foodList.filter((food) => quantities[food.id] > 0);
 	const { subtotal, shipping, tax, total } = calculateCartTotals(
 		cartItems,
@@ -35,7 +41,7 @@ const Cart = () => {
 									<div className="cart-details">
 										<h5 className="cart-title">{food.name}</h5>
 
-										<p class="badge cart-category text-bg-warning">
+										<p className="badge cart-category text-bg-warning">
 											{food.category}
 										</p>
 									</div>
@@ -54,7 +60,19 @@ const Cart = () => {
 									</div>
 									<button
 										className="cart-delete-btn"
-										onClick={() => removeFromCart(food.id)}
+										onClick={() => {
+											if (!token) {
+												toast.error("Please login first to remove items 🛒", {
+													position: "top-right",
+													autoClose: 2000,
+													theme: "transparent",
+												});
+
+												return;
+											}
+
+											removeFromCart(food.id);
+										}}
 										// onClick={() => decreaseQty(food.id)}
 									>
 										🗑️
@@ -86,8 +104,25 @@ const Cart = () => {
 						</div>
 						<button
 							className="checkout-btn"
-							disabled={cartItems.length === 0}
-							onClick={() => navigate("/order")}
+							onClick={() => {
+								if (cartItems.length === 0) {
+									toast.warning("Your cart is empty 🛒", {
+										position: "top-right",
+										autoClose: 2000,
+										theme: "transparent",
+									});
+									return;
+								}
+								if (!token) {
+									toast.warning("Please login first to continue checkout", {
+										position: "top-right",
+										autoClose: 2000,
+										theme: "transparent",
+									});
+									return;
+								}
+								navigate("/order");
+							}}
 						>
 							🚀 Proceed to Checkout
 						</button>

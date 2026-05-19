@@ -13,12 +13,10 @@ body {
 
 .minimal-navbar {
 	position: sticky;
-
 	top: 0;
-
 	z-index: 1000;
 
-	background: rgba(255, 255, 255, 0.82);
+	background: rgba(255, 255, 255, 0.88);
 
 	backdrop-filter: blur(14px);
 	-webkit-backdrop-filter: blur(14px);
@@ -26,20 +24,21 @@ body {
 	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
+/* ========================== */
+/* NAVBAR CONTAINER */
+/* ========================== */
+
 .minimal-navbar-container {
 	max-width: 1280px;
 
 	margin: auto;
 
-	padding: 14px 22px;
-
+	padding: 1px 1px;
 	display: flex;
-
 	align-items: center;
-
 	justify-content: space-between;
 
-	gap: 20px;
+	gap: 10px;
 }
 
 /* ========================== */
@@ -48,42 +47,37 @@ body {
 
 .minimal-brand {
 	display: flex;
-
 	align-items: center;
-
-	gap: 10px;
-
 	text-decoration: none;
-}
-
-.minimal-logo {
-	width: 46px;
-
-	height: 46px;
-
-	object-fit: cover;
-}
-
-.minimal-brand span {
-	font-size: 1rem;
-
-	font-weight: 800;
-
-	letter-spacing: -0.5px;
-
-	color: #111;
+	flex-shrink: 0;
 }
 
 /* ========================== */
-/* LINKS */
+/* LOGO */
+/* ========================== */
+
+.minimal-logo {
+	width: 150px;
+	height: 100px;
+	object-fit: contain;
+	transition: 0.3s ease;
+}
+
+.minimal-logo:hover {
+	transform: scale(1.05);
+}
+
+/* ========================== */
+/* NAV LINKS */
 /* ========================== */
 
 .minimal-links {
 	display: flex;
-
 	align-items: center;
 
-	gap: 26px;
+	gap: 22px;
+
+	flex-shrink: 1;
 }
 
 .minimal-link {
@@ -91,13 +85,16 @@ body {
 
 	text-decoration: none;
 
-	font-size: 0.92rem;
-
-	font-weight: 600;
+	font-size: 0.98rem;
+	font-weight: 700;
 
 	color: #555;
 
 	transition: 0.25s ease;
+
+	white-space: nowrap;
+
+	padding-bottom: 3px;
 }
 
 .minimal-link:hover {
@@ -108,17 +105,17 @@ body {
 	color: #ff6b00;
 }
 
+/* UNDERLINE */
+
 .active-link::after {
 	content: "";
 
 	position: absolute;
 
 	left: 0;
-
-	bottom: -8px;
+	bottom: 0;
 
 	width: 100%;
-
 	height: 2px;
 
 	background: #ff6b00;
@@ -132,10 +129,11 @@ body {
 
 .minimal-actions {
 	display: flex;
-
 	align-items: center;
 
-	gap: 12px;
+	gap: 7px;
+
+	flex-shrink: 0;
 }
 
 /* ========================== */
@@ -146,16 +144,13 @@ body {
 	position: relative;
 
 	display: flex;
-
 	align-items: center;
-
 	justify-content: center;
 
-	width: 42px;
+	width: 38px;
+	height: 38px;
 
-	height: 42px;
-
-	border-radius: 12px;
+	border-radius: 10px;
 
 	background: #f1f1f1;
 
@@ -164,24 +159,24 @@ body {
 
 .minimal-cart:hover {
 	background: #ececec;
+
+	transform: translateY(-2px);
 }
 
 .minimal-cart-count {
 	position: absolute;
 
 	top: -4px;
-
 	right: -4px;
 
 	background: linear-gradient(135deg, #ff6b00, #ff9500);
 
 	color: white;
 
-	font-size: 0.68rem;
-
+	font-size: 0.62rem;
 	font-weight: 700;
 
-	padding: 3px 6px;
+	padding: 2px 5px;
 
 	border-radius: 999px;
 }
@@ -194,22 +189,31 @@ body {
 .minimal-register {
 	border: none;
 
-	padding: 10px 16px;
+	height: 38px;
 
-	border-radius: 12px;
+	padding: 0 14px;
 
-	font-size: 0.84rem;
+	border-radius: 9px;
 
+	font-size: 0.74rem;
 	font-weight: 700;
 
 	cursor: pointer;
 
-	transition: all 0.25s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	white-space: nowrap;
+
+	transition: 0.25s ease;
 }
 
 /* LOGIN */
 
 .minimal-login {
+	min-width: 82px;
+
 	background: rgba(255, 107, 0, 0.08);
 
 	color: #ff6b00;
@@ -224,17 +228,19 @@ body {
 /* REGISTER */
 
 .minimal-register {
+	min-width: 118px;
+
 	background: linear-gradient(135deg, #ff6b00, #ff9500);
 
 	color: white;
 
-	box-shadow: 0 8px 18px rgba(255, 107, 0, 0.22);
+	box-shadow: 0 6px 16px rgba(255, 107, 0, 0.22);
 }
 
 .minimal-register:hover {
 	transform: translateY(-2px);
 
-	box-shadow: 0 12px 24px rgba(255, 107, 0, 0.32);
+	box-shadow: 0 10px 22px rgba(255, 107, 0, 0.3);
 }
 
 /* ========================== */
@@ -246,6 +252,19 @@ body {
 
 	cursor: pointer;
 }
+
+.minimal-profile img {
+	width: 38px;
+	height: 38px;
+
+	border-radius: 50%;
+
+	object-fit: cover;
+}
+
+/* ========================== */
+/* DROPDOWN */
+/* ========================== */
 
 .minimal-dropdown {
 	border: none;
@@ -260,14 +279,10 @@ body {
 .dropdown-item {
 	border-radius: 10px;
 
-	font-size: 0.88rem;
-
+	font-size: 0.82rem;
 	font-weight: 600;
-
 	padding: 10px 14px;
-
 	cursor: pointer;
-
 	transition: 0.25s ease;
 }
 
@@ -281,32 +296,63 @@ body {
 
 @media (max-width: 768px) {
 	.minimal-navbar-container {
-		flex-wrap: wrap;
+		padding: 2px 5px;
 
-		padding: 14px 16px;
+		gap: 6px;
 	}
+
+	/* LOGO */
+
+	.minimal-logo {
+		width: 65px;
+		height: 65px;
+	}
+
+	/* LINKS */
 
 	.minimal-links {
-		order: 3;
-
-		width: 100%;
-
-		justify-content: center;
-
-		padding-top: 10px;
-
-		gap: 18px;
+		gap: 10px;
 	}
 
-	.minimal-actions {
-		gap: 8px;
+	.minimal-link {
+		font-size: 0.75rem;
 	}
+
+	/* BUTTONS */
 
 	.minimal-login,
 	.minimal-register {
-		padding: 9px 14px;
+		height: 32px;
 
-		font-size: 0.78rem;
+		padding: 0 8px;
+
+		font-size: 0.6rem;
+	}
+
+	.minimal-login {
+		min-width: 62px;
+	}
+
+	.minimal-register {
+		min-width: 88px;
+	}
+
+	/* CART */
+
+	.minimal-cart {
+		width: 30px;
+		height: 30px;
+	}
+
+	.minimal-cart svg {
+		font-size: 14px;
+	}
+
+	/* PROFILE */
+
+	.minimal-profile img {
+		width: 30px;
+		height: 30px;
 	}
 }
 
@@ -316,51 +362,77 @@ body {
 
 @media (max-width: 480px) {
 	.minimal-navbar-container {
-		padding: 12px 14px;
-
-		gap: 12px;
+		padding: 2px 4px;
+		gap: 5px;
 	}
 
-	.minimal-brand span {
-		display: none;
+	/* LOGO */
+
+	.minimal-logo {
+		width: 60px;
+		height: 60px;
 	}
+
+	/* LINKS */
 
 	.minimal-links {
-		width: 100%;
-
-		justify-content: space-around;
-
-		gap: 10px;
-
-		padding-top: 8px;
+		gap: 7px;
 	}
 
 	.minimal-link {
-		font-size: 0.78rem;
+		font-size: 0.64rem;
 	}
+
+	/* ACTIONS */
 
 	.minimal-actions {
-		width: 100%;
-
-		justify-content: center;
-
-		flex-wrap: wrap;
-
-		gap: 10px;
+		gap: 4px;
 	}
 
-	.minimal-cart {
-		width: 38px;
-
-		height: 38px;
-	}
+	/* BUTTONS */
 
 	.minimal-login,
 	.minimal-register {
-		padding: 8px 12px;
+		height: 30px;
 
-		font-size: 0.72rem;
+		padding: 0 8px;
 
-		border-radius: 10px;
+		font-size: 0.55rem;
+
+		border-radius: 7px;
+	}
+
+	.minimal-login {
+		min-width: 58px;
+	}
+
+	.minimal-register {
+		min-width: 82px;
+	}
+
+	/* CART */
+
+	.minimal-cart {
+		width: 28px;
+		height: 28px;
+
+		border-radius: 8px;
+	}
+
+	.minimal-cart svg {
+		font-size: 13px;
+	}
+
+	.minimal-cart-count {
+		font-size: 0.45rem;
+
+		padding: 1px 4px;
+	}
+
+	/* PROFILE */
+
+	.minimal-profile img {
+		width: 28px;
+		height: 28px;
 	}
 }
