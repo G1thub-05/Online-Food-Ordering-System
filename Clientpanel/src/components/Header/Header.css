@@ -24,9 +24,7 @@ body {
 
 	padding: 22px;
 
-	background:
-		url("../../assets/wmremove-transformed.jpeg")
-		center/cover no-repeat;
+	background: url("../../assets/HeaderPage.png") center/cover no-repeat;
 
 	box-shadow: 0 10px 35px rgba(0, 0, 0, 0.16);
 }
@@ -35,13 +33,12 @@ body {
 	position: absolute;
 	inset: 0;
 
-	background:
-		linear-gradient(
-			to right,
-			rgba(0, 0, 0, 0.82),
-			rgba(0, 0, 0, 0.45),
-			rgba(0, 0, 0, 0.12)
-		);
+	background: linear-gradient(
+		to right,
+		rgba(0, 0, 0, 0.82),
+		rgba(0, 0, 0, 0.45),
+		rgba(0, 0, 0, 0.12)
+	);
 }
 
 .hero-container {
@@ -176,7 +173,6 @@ body {
 /* ====================== */
 
 @media (max-width: 768px) {
-
 	.hero-header {
 		padding: 16px;
 		min-height: auto;
@@ -209,7 +205,6 @@ body {
 /* ====================== */
 
 @media (max-width: 480px) {
-
 	.hero-header {
 		margin-top: 12px;
 		padding: 12px;

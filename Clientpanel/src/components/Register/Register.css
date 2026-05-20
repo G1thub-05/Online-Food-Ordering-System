@@ -40,8 +40,7 @@ body {
 
 	background:
 		linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1)),
-		url("../../assets/vibrant-detailed-thai-restaura.jpg") no-repeat center
-			center/cover;
+		url("../../assets/Main.png") no-repeat center center/cover;
 
 	filter: blur(3px);
 	transform: scale(1.03);
