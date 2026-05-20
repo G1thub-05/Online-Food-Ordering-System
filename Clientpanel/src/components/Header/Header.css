@@ -9,23 +9,14 @@ body {
 
 .hero-header {
 	position: relative;
-
 	margin-top: 18px;
-
 	min-height: 300px;
-
 	border-radius: 28px;
-
 	overflow: hidden;
-
 	display: flex;
-
 	align-items: center;
-
 	padding: 22px;
-
 	background: url("../../assets/HeaderPage.png") center/cover no-repeat;
-
 	box-shadow: 0 10px 35px rgba(0, 0, 0, 0.16);
 }
 
