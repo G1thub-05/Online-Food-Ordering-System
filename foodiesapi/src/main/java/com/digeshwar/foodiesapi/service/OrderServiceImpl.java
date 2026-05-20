@@ -23,7 +23,6 @@ import com.digeshwar.foodiesapi.entity.FoodEntity;
 import com.digeshwar.foodiesapi.repository.FoodRepository;
 
 
-
 @Service
 public class OrderServiceImpl implements OrderService{
 
@@ -60,13 +59,6 @@ public class OrderServiceImpl implements OrderService{
         orderRequest.put("amount", paise.intValue()); // must be integer
         orderRequest.put("currency", "INR");
         orderRequest.put("payment_capture", 1);
-
-
-
-//
-//        orderRequest.put("amount", newOrder.getAmount() * 100);
-//        orderRequest.put("currency", "INR");
-//        orderRequest.put("payment_capture", 1);
 
         Order razorpayOrder = razorpayClient.orders.create(orderRequest);
         newOrder.setRazorpayOrderId(razorpayOrder.get("id"));
@@ -105,20 +97,11 @@ public class OrderServiceImpl implements OrderService{
         orderRepository.deleteById(orderId);
     }
 
-
     @Override
     public List<OrderResponse> getOrdersOfAllUsers() {
         List<OrderEntity> list = orderRepository.findAll();
         return list.stream().map(entity -> convertToResponse(entity)).collect(Collectors.toList());
     }
-
-//    @Override
-//    public void updateOrderStatus(String orderId, String status) {
-//        OrderEntity entity = orderRepository.findById(orderId)
-//                .orElseThrow(() -> new RuntimeException("Order not found"));
-//        entity.setOrderStatus(status);
-//        orderRepository.save(entity);
-//    }
 
     @Override
     public void updateOrderStatus(String orderId, String status) {
@@ -148,10 +131,6 @@ public class OrderServiceImpl implements OrderService{
         orderRepository.save(entity);
     }
 
-
-
-
-
     private OrderResponse convertToResponse(OrderEntity newOrder) {
         return OrderResponse.builder()
                 .id(newOrder.getId())
@@ -166,18 +145,6 @@ public class OrderServiceImpl implements OrderService{
                 .orderedItems(newOrder.getOrderedItems())
                 .build();
     }
-
-//    private OrderEntity convertToEntity(OrderRequest request) {
-//        return OrderEntity.builder()
-//                .userAddress(request.getUserAddress())
-//                .amount(request.getAmount())
-//                .orderedItems(request.getOrderedItems())
-//                .email(request.getEmail())
-//                .phoneNumber(request.getPhoneNumber())
-//                .orderStatus(request.getOrderStatus())
-//                .build();
-//    }
-
     private OrderEntity convertToEntity(OrderRequest request) {
 
         double totalAmount = 0;
