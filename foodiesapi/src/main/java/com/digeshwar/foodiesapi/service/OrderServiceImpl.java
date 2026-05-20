@@ -19,6 +19,9 @@ import java.util.stream.Collectors;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import com.digeshwar.foodiesapi.entity.FoodEntity;
+import com.digeshwar.foodiesapi.repository.FoodRepository;
+
 
 
 @Service
@@ -30,6 +33,9 @@ public class OrderServiceImpl implements OrderService{
     private UserService userService;
     @Autowired
     private CartRespository cartRespository;
+
+    @Autowired
+    private FoodRepository foodRepository;
 
     @Value("${razorpay_key}")
     private String RAZORPAY_KEY;
@@ -161,10 +167,29 @@ public class OrderServiceImpl implements OrderService{
                 .build();
     }
 
+//    private OrderEntity convertToEntity(OrderRequest request) {
+//        return OrderEntity.builder()
+//                .userAddress(request.getUserAddress())
+//                .amount(request.getAmount())
+//                .orderedItems(request.getOrderedItems())
+//                .email(request.getEmail())
+//                .phoneNumber(request.getPhoneNumber())
+//                .orderStatus(request.getOrderStatus())
+//                .build();
+//    }
+
     private OrderEntity convertToEntity(OrderRequest request) {
+
+        double totalAmount = 0;
+        for (var item : request.getOrderedItems()) {
+            FoodEntity food = foodRepository.findById(item.getFoodId())
+                    .orElseThrow(() -> new RuntimeException("Food not found"));
+            totalAmount += food.getPrice() * item.getQuantity();
+        }
+
         return OrderEntity.builder()
                 .userAddress(request.getUserAddress())
-                .amount(request.getAmount())
+                .amount(totalAmount)
                 .orderedItems(request.getOrderedItems())
                 .email(request.getEmail())
                 .phoneNumber(request.getPhoneNumber())

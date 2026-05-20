@@ -35,6 +35,26 @@ const PlaceOrder = () => {
 	});
 
 	/* ========================== */
+	/* HANDLE RELOAD */
+	/* ========================== */
+
+	useEffect(() => {
+		const handleBeforeUnload = (event) => {
+			sessionStorage.setItem("reloaded", "true");
+
+			event.preventDefault();
+
+			event.returnValue = "";
+		};
+
+		window.addEventListener("beforeunload", handleBeforeUnload);
+
+		return () => {
+			window.removeEventListener("beforeunload", handleBeforeUnload);
+		};
+	}, []);
+
+	/* ========================== */
 	/* HANDLE INPUT */
 	/* ========================== */
 
@@ -66,7 +86,6 @@ const PlaceOrder = () => {
 	const cleanedZip = form.zip.replace(/\D/g, "");
 
 	const handleSubmit = async (e) => {
-		console.log(cartItems);
 		e.preventDefault();
 
 		const nameRegex = /^[A-Za-z ]{2,30}$/;
@@ -131,7 +150,7 @@ const PlaceOrder = () => {
 			phoneNumber: cleanedPhone,
 			email: form.email,
 			orderedItems: cartItems.map((item) => ({
-				foodId: item.id,
+				foodId: item.foodId,
 				quantity: quantities[item.id],
 				price: item.price * quantities[item.id],
 				category: item.category,
@@ -139,6 +158,8 @@ const PlaceOrder = () => {
 				description: item.description,
 				name: item.name,
 			})),
+
+			amount: Math.round(total * 100) / 100,
 			orderStatus: "Food Preparing",
 		};
 
@@ -182,13 +203,15 @@ const PlaceOrder = () => {
 				netbanking: true,
 				wallet: true,
 			},
+			upi: {
+				flow: "collect",
+			},
 			theme: {
 				color: "#ff6b00",
 			},
 
 			modal: {
-				// ondismiss: () => deleteOrderHandler(order._id, token), for fake payment without backend order creation
-				ondismiss: () => deleteOrderHandler(order.id, token),
+				ondismiss: () => deleteOrderHandler(order._id, token),
 			},
 		};
 		if (!window.Razorpay) {

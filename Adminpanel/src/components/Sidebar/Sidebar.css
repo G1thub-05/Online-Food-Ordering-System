@@ -78,6 +78,14 @@
 /* ========================================= */
 
 .sidebar {
+	position: relative;
+	position: fixed;
+
+	top: 0;
+
+	left: 0;
+
+	z-index: 1000;
 	width: 210px;
 
 	min-height: 100vh;
@@ -91,8 +99,6 @@
 	border-right: 1px solid rgba(0, 0, 0, 0.05);
 
 	box-shadow: 0 8px 22px rgba(255, 136, 0, 0.05);
-
-	position: relative;
 
 	overflow: hidden;
 
@@ -375,5 +381,19 @@
 
 	.sidebar-link i {
 		font-size: 0.74rem;
+	}
+}
+
+@media (max-width: 768px) {
+	.sidebar {
+		position: relative;
+
+		width: 100%;
+
+		height: auto;
+	}
+
+	#page-content-wrapper {
+		margin-left: 0 !important;
 	}
 }

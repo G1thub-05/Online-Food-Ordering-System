@@ -79,11 +79,15 @@
 <td align="center"> Any Random CVV </td>
 <td align="center"> Any Future Date </td>
 </tr>
-
+<tr>
+<th align="justify"> OTP For Card </th>
+<td colspan="3" align="center"> 12345 </td>
+</tr>
 <tr>
 <th align="justify"> 📲 UPI ID </th>
 <td colspan="3" align="center"> success@razorpay </td>
 </tr>
+
 </table>
 </div>
 

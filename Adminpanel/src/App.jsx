@@ -21,12 +21,10 @@ const App = () => {
 				sidebarVisible={sidebarVisible}
 				setSidebarVisible={setSidebarVisible}
 			/>
-
 			<div
 				id="page-content-wrapper"
 				style={{
-					flex: 1,
-
+					marginLeft: "210px",
 					width: "100%",
 				}}
 			>

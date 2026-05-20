@@ -558,6 +558,11 @@ body {
 
 	line-height: 1;
 }
+.disabled-btn {
+	opacity: 0.7;
+	cursor: not-allowed;
+	background: #5d5e5e !important;
+}
 
 /* ========================== */
 /* TOTAL */
