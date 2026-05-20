@@ -89,7 +89,7 @@ const Menubar = () => {
 								className="minimal-register"
 								onClick={() => navigate("/register")}
 							>
-								Get Started
+								Sign-up
 							</button>
 						</>
 					) : (

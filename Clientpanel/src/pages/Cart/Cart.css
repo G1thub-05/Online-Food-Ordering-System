@@ -29,7 +29,7 @@
 
 	gap: 50px;
 
-	height: 560px;
+	height: 650px;
 
 	overflow: hidden;
 }
@@ -425,7 +425,7 @@
 
 	.cart-content {
 		flex-direction: column;
-		height: 530px;
+		height: 700px;
 
 		gap: 22px;
 
@@ -441,7 +441,7 @@
 	.cart-left {
 		padding: 2px;
 		padding-top: 10px;
-		height: 260px;
+		height: 560px;
 		overflow-y: auto;
 		overflow-x: hidden;
 	}
