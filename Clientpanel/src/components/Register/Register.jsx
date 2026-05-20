@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Register.css";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -22,17 +22,17 @@ const Register = () => {
 	const [otpSent, setOtpSent] = useState(false);
 	const [otpVerified, setOtpVerified] = useState(false);
 	const [sendingOtp, setSendingOtp] = useState(false);
+	const [otpCooldown, setOtpCooldown] = useState(0);
 
-	const handleReset = () => {
-		setData({
-			name: "",
-			email: "",
-			password: "",
-		});
-		setOtp("");
-		setOtpSent(false);
-		setOtpVerified(false);
-	};
+	useEffect(() => {
+		if (otpCooldown <= 0) return;
+
+		const timer = setInterval(() => {
+			setOtpCooldown((prev) => prev - 1);
+		}, 1000);
+
+		return () => clearInterval(timer);
+	}, [otpCooldown]);
 
 	const onChangeHandler = (e) => {
 		const { name, value } = e.target;
@@ -56,6 +56,9 @@ const Register = () => {
 	};
 
 	const handleSendOtp = async () => {
+		if (otpSent) {
+			return toast.error("OTP already sent");
+		}
 		if (!data.name) return toast.error("Enter your full name first");
 		if (!data.email) return toast.error("Enter your email first");
 		if (!isValidEmail(data.email))
@@ -88,6 +91,7 @@ const Register = () => {
 			toast.success(`OTP sent to your email: ${data.email}`);
 			console.log("OTP sent response:", res.data);
 			setOtpSent(true);
+			setOtpCooldown(60);
 		} catch (err) {
 			toast.error(err.response?.data?.message || "Failed to send OTP");
 			console.log("OTP ERROR:", err.response);
@@ -164,9 +168,15 @@ const Register = () => {
 								type="button"
 								className="send-otp-btn"
 								onClick={handleSendOtp}
-								disabled={sendingOtp}
+								disabled={sendingOtp || otpCooldown > 0}
 							>
-								{sendingOtp ? "Sending..." : "Send OTP"}
+								{sendingOtp
+									? "Sending..."
+									: otpCooldown > 0
+										? `Resend in ${otpCooldown}s`
+										: otpSent
+											? "Resend OTP"
+											: "Send OTP"}
 							</button>
 						</span>
 					</div>
