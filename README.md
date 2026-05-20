@@ -81,7 +81,7 @@
 </tr>
 <tr>
 <th align="justify"> 💳 Card OTP </th>
-<td colspan="3" align="center"> 12345 </td>
+<td colspan="3" align="center"> 123456 </td>
 </tr>
 <tr>
 <th align="justify"> 📲 UPI ID </th>
