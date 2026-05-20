@@ -199,10 +199,24 @@ const MyOrders = () => {
 													if (!confirmCancel) return;
 													try {
 														await cancelOrder(order.id, token);
-														toast.success("Order Cancelled");
+														toast.success("Order Cancelled Successfully", {
+															position: "top-right",
+															autoClose: 1000,
+															theme: "transparent",
+															style: {
+																color: "black",
+															},
+														});
 														await fetchOrders();
 													} catch (error) {
-														toast.error("Failed to cancel order.");
+														toast.error("Failed to cancel order", {
+															position: "top-right",
+															autoClose: 1000,
+															theme: "transparent",
+															style: {
+																color: "black",
+															},
+														});
 													}
 												}}
 											>

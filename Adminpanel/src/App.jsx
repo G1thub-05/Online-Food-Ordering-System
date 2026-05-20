@@ -1,24 +1,35 @@
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import AddFood from "./pages/AddFood/AddFood";
 import ListFood from "./pages/ListFood/ListFood";
 import Orders from "./pages/Orders/Orders";
 import Sidebar from "./components/Sidebar/Sidebar";
-import Menubar from "./components/Menubar/Menubar";
 import { ToastContainer } from "react-toastify";
 
 const App = () => {
-	const [sidebarVisible, setSidebarVisible] = useState(true);
+	const [sidebarVisible, setSidebarVisible] = useState(window.innerWidth > 768);
 
-	const toggleSidebar = () => {
-		setSidebarVisible(!sidebarVisible);
-	};
 	return (
-		<div className="d-flex" id="wrapper">
-			<Sidebar sidebarVisible={sidebarVisible} />
+		<div
+			className="d-flex"
+			id="wrapper"
+			style={{
+				minHeight: "100vh",
+			}}
+		>
+			<Sidebar
+				sidebarVisible={sidebarVisible}
+				setSidebarVisible={setSidebarVisible}
+			/>
 
-			<div id="page-content-wrapper">
-				<Menubar toggleSidebar={toggleSidebar} />
+			<div
+				id="page-content-wrapper"
+				style={{
+					flex: 1,
+
+					width: "100%",
+				}}
+			>
 				<ToastContainer />
 
 				<div className="container-fluid">

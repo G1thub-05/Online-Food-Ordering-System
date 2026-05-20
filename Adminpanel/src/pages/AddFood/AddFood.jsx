@@ -1,53 +1,113 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import { assets } from "../../assets/assets";
-import axios from "axios";
 import { addFood } from "../../services/foodService";
+import "./AddFood.css";
 
 const AddFood = () => {
 	const [image, setImage] = useState(null);
+
 	const [data, setData] = useState({
 		name: "",
 		description: "",
 		price: "",
-		category: "Biryani",
+		category: "",
 	});
+
+	/* ========================================= */
+	/* INPUT CHANGE */
+	/* ========================================= */
 
 	const onChangeHandler = (event) => {
 		const name = event.target.name;
+
 		const value = event.target.value;
-		setData((data) => ({ ...data, [name]: value }));
+
+		setData((prev) => ({
+			...prev,
+			[name]: value,
+		}));
 	};
+
+	/* ========================================= */
+	/* SUBMIT */
+	/* ========================================= */
 
 	const onSubmitHandler = async (event) => {
 		event.preventDefault();
+
+		/* IMAGE CHECK */
+
 		if (!image) {
 			toast.error("Please select an image.");
 			return;
 		}
+
+		/* CATEGORY CHECK */
+
+		if (!data.category) {
+			toast.error("Please select a category.");
+			return;
+		}
+
 		try {
 			await addFood(data, image);
-			toast.success("Food added successfully.");
-			setData({ name: "", description: "", category: "Biryani", price: "" });
+
+			toast.success("Food added successfully");
+
+			setData({
+				name: "",
+				description: "",
+				price: "",
+				category: "",
+			});
+
 			setImage(null);
 		} catch (error) {
-			toast.error("Error adding food.", error);
+			toast.error("Error adding food");
 		}
 	};
 
 	return (
-		<div style={styles.wrapper}>
-			<form onSubmit={onSubmitHandler} style={styles.form}>
-				<h2 style={styles.heading}>Add New Food</h2>
+		<div className="upload-page">
+			<div className="upload-card">
+				{/* CLOSE BUTTON */}
 
-				<label htmlFor="image" style={styles.uploadLabel}>
-					<img
-						src={image ? URL.createObjectURL(image) : "/assets/upload.png"}
-						alt="upload"
-						style={styles.uploadImage}
-					/>
-					<p style={styles.uploadText}>Click to Upload</p>
+				<div className="close-btn">
+					<i className="bi bi-x-lg"></i>
+				</div>
+
+				{/* TITLE */}
+
+				<h2 className="upload-title">
+					<span></span>
+					UPLOAD FOOD
+					<span></span>
+				</h2>
+
+				{/* UPLOAD BOX */}
+
+				<label htmlFor="image" className="upload-box">
+					{image ? (
+						<img
+							src={URL.createObjectURL(image)}
+							alt="preview"
+							className="preview-image"
+						/>
+					) : (
+						<>
+							<div className="upload-icon">
+								<i className="bi bi-cloud-arrow-up"></i>
+							</div>
+
+							<h3>Drag & Drop</h3>
+
+							<p>Upload food image here</p>
+
+							<small>JPG, JPEG, PNG only</small>
+						</>
+					)}
 				</label>
+
 				<input
 					type="file"
 					id="image"
@@ -55,152 +115,90 @@ const AddFood = () => {
 					onChange={(e) => setImage(e.target.files[0])}
 				/>
 
-				<input
-					type="text"
-					name="name"
-					value={data.name}
-					placeholder="Food Name"
-					onChange={onChangeHandler}
-					style={styles.input}
-					required
-				/>
-				<textarea
-					name="description"
-					value={data.description}
-					placeholder="Description"
-					onChange={onChangeHandler}
-					rows="3"
-					style={styles.textarea}
-					required
-				></textarea>
+				{/* FILE ICONS */}
 
-				<select
-					name="category"
-					value={data.category}
-					onChange={onChangeHandler}
-					style={styles.input}
-				>
-					<option value="Biryani">Biryani</option>
-					<option value="Pizza">Pizza</option>
-					<option value="Burger">Burger</option>
-					<option value="Cake">Cake</option>
-					<option value="Salad">Salad</option>
-					<option value="Rolls">Rolls</option>
-					<option value="Ice cream">Ice cream</option>
-				</select>
+				<div className="file-icons">
+					<div className="file-card jpg">
+						<i className="bi bi-image"></i>
+						<span>JPG</span>
+					</div>
 
-				<input
-					type="number"
-					name="price"
-					value={data.price}
-					placeholder="₹ Price"
-					onChange={onChangeHandler}
-					style={styles.input}
-					required
-				/>
+					<div className="file-card jpeg">
+						<i className="bi bi-image"></i>
+						<span>JPEG</span>
+					</div>
 
-				<button type="submit" style={styles.button}>
-					Add Food
-				</button>
-			</form>
+					<div className="file-card png">
+						<i className="bi bi-filetype-png"></i>
+						<span>PNG</span>
+					</div>
 
-			<style>
-				{`
-          @keyframes floatBox {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-5px) rotate(0.3deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
-          }
+					<div className="file-card gif">
+						<i className="bi bi-file-earmark-play"></i>
+						<span>GIF</span>
+					</div>
+				</div>
 
-          @keyframes buttonBreath {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-          }
+				{/* FORM */}
 
-          button:hover {
-            transform: scale(1.08);
-            transition: all 0.3s ease;
-          }
-        `}
-			</style>
+				<form className="food-form" onSubmit={onSubmitHandler}>
+					{/* NAME CATEGORY PRICE */}
+
+					<div className="form-row">
+						<select
+							name="category"
+							value={data.category}
+							onChange={onChangeHandler}
+							required
+						>
+							<option value="" disabled>
+								Category
+							</option>
+
+							<option value="Biryani">Biryani</option>
+							<option value="Pizza">Pizza</option>
+							<option value="Burger">Burger</option>
+							<option value="Cake">Cake</option>
+							<option value="Salad">Salad</option>
+							<option value="Rolls">Rolls</option>
+							<option value="Ice cream">Ice Cream</option>
+						</select>
+
+						<input
+							type="text"
+							name="name"
+							value={data.name}
+							placeholder="Food Name"
+							onChange={onChangeHandler}
+							required
+						/>
+
+						<input
+							type="number"
+							name="price"
+							value={data.price}
+							placeholder="₹ Price"
+							onChange={onChangeHandler}
+							required
+						/>
+					</div>
+
+					{/* DESCRIPTION */}
+
+					<textarea
+						name="description"
+						value={data.description}
+						placeholder="Food Description"
+						rows="3"
+						onChange={onChangeHandler}
+						required
+					></textarea>
+
+					<button type="submit">SAVE FOOD</button>
+				</form>
+			</div>
 		</div>
 	);
 };
 
 export default AddFood;
-
-const styles = {
-	wrapper: {
-		minHeight: "100vh",
-		display: "flex",
-		justifyContent: "center",
-		alignItems: "center",
-		background: "linear-gradient(to right, #f5f7fa, #c3cfe2)",
-		padding: "2rem",
-	},
-	form: {
-		width: "520px",
-		padding: "2rem",
-		borderRadius: "20px",
-		background: "rgba(255, 255, 255, 0.3)",
-		backdropFilter: "blur(10px)",
-		WebkitBackdropFilter: "blur(10px)",
-		border: "1px solid rgba(255, 255, 255, 0.2)",
-		display: "flex",
-		flexDirection: "column",
-		gap: "1rem",
-		animation: "floatBox 4s ease-in-out infinite",
-	},
-	heading: {
-		textAlign: "center",
-		fontWeight: "600",
-		fontSize: "1.8rem",
-		color: "#222",
-	},
-	uploadLabel: {
-		textAlign: "center",
-		border: "2px dotted #aaa",
-		borderRadius: "15px",
-		padding: "1rem",
-		cursor: "pointer",
-		background: "#e2e8f0",
-		transition: "all 0.3s ease",
-	},
-	uploadImage: {
-		width: "80px",
-		opacity: 0.75,
-		marginBottom: "0.5rem",
-	},
-	uploadText: {
-		fontSize: "0.9rem",
-		color: "#555",
-	},
-	input: {
-		padding: "12px",
-		borderRadius: "10px",
-		border: "1px solid #ccc",
-		fontSize: "1rem",
-		background: "#fefefe",
-		transition: "0.2s ease",
-	},
-	textarea: {
-		padding: "12px",
-		borderRadius: "10px",
-		border: "1px solid #ccc",
-		fontSize: "1rem",
-		background: "#fefefe",
-		resize: "none",
-	},
-	button: {
-		padding: "12px",
-		fontSize: "1rem",
-		fontWeight: "bold",
-		borderRadius: "10px",
-		border: "none",
-		background: "linear-gradient(to right, #00c6ff, #0072ff)",
-		color: "#fff",
-		cursor: "pointer",
-		animation: "buttonBreath 3s infinite ease-in-out",
-	},
-};

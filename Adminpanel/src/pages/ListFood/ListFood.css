@@ -1,3 +1,512 @@
-.table td {
-    vertical-align: middle;
+/* ========================================= */
+/* PAGE */
+/* ========================================= */
+
+.listfood-page {
+	padding: 2rem 1rem;
+
+	min-height: 100vh;
+
+	background: #f5f6fa;
+
+	font-family: "Inter", sans-serif;
+
+	overflow-x: hidden;
+}
+
+/* ========================================= */
+/* TOPBAR */
+/* ========================================= */
+
+.listfood-topbar {
+	display: flex;
+
+	align-items: center;
+
+	justify-content: space-between;
+
+	margin-bottom: 24px;
+
+	gap: 14px;
+
+	flex-wrap: wrap;
+}
+
+/* ========================================= */
+/* HEADING */
+/* ========================================= */
+
+.listfood-heading {
+	font-size: 1.6rem;
+
+	font-weight: 900;
+
+	margin: 0;
+
+	background: linear-gradient(90deg, #ff0000, #000000, #0000ff);
+
+	-webkit-background-clip: text;
+
+	-webkit-text-fill-color: transparent;
+}
+
+/* ========================================= */
+/* FILTER */
+/* ========================================= */
+
+.listfood-filter {
+	padding: 10px 24px;
+	margin-left: auto;
+	outline: none;
+	border-radius: 14px;
+	font-size: 0.85rem;
+	font-eight: 600;
+	cursor: pointer;
+	color: black;
+	background: rgba(255, 255, 255, 0.45);
+	backdrop-filter: blur(14px);
+	-webkit-backdrop-filter: blur(14px);
+	box-shadow: 0 8px 22px rgba(255, 136, 0, 0.12);
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	transition:
+		transform 0.3s ease,
+		box-shadow 0.3s ease;
+}
+
+.listfood-filter:hover {
+	transform: translateY(-2px);
+
+	box-shadow: 0 12px 28px rgba(255, 136, 0, 0.22);
+}
+
+/* ========================================= */
+/* GRID */
+/* ========================================= */
+
+.listfood-grid {
+	display: grid;
+
+	grid-template-columns: repeat(5, 1fr);
+
+	gap: 16px;
+
+	max-width: 1450px;
+
+	margin: 0 auto;
+}
+
+/* ========================================= */
+/* CARD */
+/* ========================================= */
+
+.listfood-card {
+	position: relative;
+
+	background: rgba(255, 255, 255, 0.22);
+
+	backdrop-filter: blur(22px);
+
+	-webkit-backdrop-filter: blur(22px);
+
+	border: 1px solid rgba(0, 0, 0, 0.08);
+
+	border-radius: 22px;
+
+	padding: 12px;
+
+	overflow: hidden;
+
+	transition:
+		transform 0.35s ease,
+		box-shadow 0.35s ease,
+		border 0.35s ease;
+
+	box-shadow:
+		0 10px 30px rgba(255, 136, 0, 0.08),
+		inset 0 1px 1px rgba(255, 255, 255, 0.35),
+		inset 0 -1px 1px rgba(255, 255, 255, 0.08);
+}
+
+/* GLASS SHINE */
+
+.listfood-card::before {
+	content: "";
+
+	position: absolute;
+
+	top: -40%;
+
+	left: -40%;
+
+	width: 180%;
+
+	height: 180%;
+
+	background: linear-gradient(
+		120deg,
+		transparent,
+		rgba(255, 255, 255, 0.18),
+		transparent
+	);
+
+	transform: rotate(25deg);
+
+	transition: 0.7s ease;
+
+	pointer-events: none;
+}
+
+.listfood-card:hover::before {
+	left: 100%;
+}
+
+/* HOVER */
+
+.listfood-card:hover {
+	transform: translateY(-7px) scale(1.02);
+
+	border: 1px solid rgba(255, 145, 0, 0.35);
+
+	box-shadow:
+		0 18px 42px rgba(255, 136, 0, 0.18),
+		0 0 20px rgba(255, 166, 0, 0.12);
+}
+
+/* ========================================= */
+/* IMAGE */
+/* ========================================= */
+
+.listfood-img {
+	width: 100%;
+
+	height: 92px;
+
+	object-fit: contain;
+
+	padding: 4px;
+
+	transition: transform 0.35s ease;
+}
+
+.listfood-card:hover .listfood-img {
+	transform: scale(1.06);
+}
+
+/* ========================================= */
+/* CONTENT */
+/* ========================================= */
+
+.listfood-content {
+	text-align: center;
+
+	padding-top: 6px;
+}
+
+/* ========================================= */
+/* TITLE */
+/* ========================================= */
+
+.listfood-title {
+	font-size: 0.92rem;
+
+	font-weight: 700;
+
+	margin-bottom: 10px;
+
+	line-height: 1.25;
+
+	background: linear-gradient(90deg, #ff0000, #000000, #0000ff);
+
+	-webkit-background-clip: text;
+
+	-webkit-text-fill-color: transparent;
+}
+
+/* ========================================= */
+/* CATEGORY */
+/* ========================================= */
+
+.listfood-category {
+	font-size: 0.64rem !important;
+
+	padding: 4px 9px !important;
+
+	border-radius: 999px !important;
+
+	background: #e8b600 !important;
+
+	color: #000 !important;
+
+	font-weight: 700;
+
+	border: none !important;
+
+	display: inline-block;
+
+	margin-bottom: 10px;
+
+	box-shadow: 0 5px 12px rgba(255, 208, 0, 0.22);
+}
+
+/* ========================================= */
+/* PRICE + DELETE */
+/* ========================================= */
+
+.listfood-bottom {
+	display: flex;
+
+	align-items: center;
+
+	justify-content: center;
+
+	gap: 10px;
+}
+
+/* ========================================= */
+/* PRICE */
+/* ========================================= */
+
+.listfood-price {
+	padding: 4px 12px;
+
+	font-size: 0.75rem;
+
+	font-weight: 900;
+
+	color: white;
+
+	border-radius: 999px;
+
+	background: linear-gradient(135deg, #ff6b00, #ff9500);
+
+	box-shadow: 0 7px 16px rgba(255, 107, 0, 0.22);
+
+	white-space: nowrap;
+}
+
+/* ========================================= */
+/* DELETE */
+/* ========================================= */
+
+.listfood-delete {
+	width: 30px;
+
+	height: 30px;
+
+	display: flex;
+
+	align-items: center;
+
+	justify-content: center;
+
+	border-radius: 50%;
+
+	font-size: 0.9rem;
+
+	background: linear-gradient(135deg, #ff2e2e, #ff4d4d);
+
+	color: white;
+
+	cursor: pointer;
+
+	box-shadow: 0 8px 18px rgba(255, 0, 0, 0.22);
+
+	transition:
+		transform 0.3s ease,
+		box-shadow 0.3s ease;
+}
+
+.listfood-delete:hover {
+	transform: scale(1.12) rotate(-10deg);
+
+	box-shadow: 0 12px 24px rgba(255, 0, 0, 0.4);
+}
+
+/* ========================================= */
+/* LAPTOP */
+/* ========================================= */
+
+@media (max-width: 1200px) {
+	.listfood-grid {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+/* ========================================= */
+/* TABLET */
+/* ========================================= */
+
+@media (max-width: 900px) {
+	.listfood-page {
+		padding: 1.4rem 0.7rem;
+	}
+
+	.listfood-heading {
+		font-size: 1.3rem;
+	}
+
+	.listfood-grid {
+		grid-template-columns: repeat(3, 1fr);
+
+		gap: 12px;
+	}
+
+	.listfood-card {
+		padding: 10px;
+	}
+
+	.listfood-img {
+		height: 78px;
+	}
+}
+
+/* ========================================= */
+/* MOBILE */
+/* ========================================= */
+
+@media (max-width: 576px) {
+	.listfood-page {
+		padding: 0.8rem 0.4rem;
+	}
+
+	.listfood-topbar {
+		flex-direction: column;
+
+		align-items: stretch;
+
+		gap: 10px;
+	}
+
+	.listfood-heading {
+		font-size: 1rem;
+
+		text-align: center;
+	}
+
+	.listfood-filter {
+		display: flex;
+		margin-left: auto;
+
+		padding: 10px 15px;
+
+		font-size: 0.72rem;
+
+		border-radius: 10px;
+	}
+
+	/* 3 COLUMN */
+
+	.listfood-grid {
+		grid-template-columns: repeat(3, 1fr);
+
+		gap: 7px;
+	}
+
+	/* CARD */
+
+	.listfood-card {
+		padding: 5px;
+
+		border-radius: 12px;
+	}
+
+	/* IMAGE */
+
+	.listfood-img {
+		height: 48px;
+
+		padding: 2px;
+	}
+
+	/* CONTENT */
+
+	.listfood-content {
+		padding-top: 4px;
+	}
+
+	/* TITLE */
+
+	.listfood-title {
+		font-size: 0.55rem;
+
+		margin-bottom: 5px;
+
+		line-height: 1.1;
+	}
+
+	/* CATEGORY */
+
+	.listfood-category {
+		font-size: 0.45rem !important;
+
+		padding: 2px 5px !important;
+
+		margin-bottom: 5px;
+	}
+
+	/* PRICE + DELETE */
+
+	.listfood-bottom {
+		gap: 4px;
+	}
+
+	/* PRICE */
+
+	.listfood-price {
+		font-size: 0.5rem;
+
+		padding: 2px 6px;
+	}
+
+	/* DELETE */
+
+	.listfood-delete {
+		width: 18px;
+
+		height: 18px;
+
+		font-size: 0.5rem;
+	}
+}
+
+/* ========================================= */
+/* EXTRA SMALL MOBILE */
+/* ========================================= */
+
+@media (max-width: 380px) {
+	.listfood-grid {
+		grid-template-columns: repeat(3, 1fr);
+
+		gap: 5px;
+	}
+
+	.listfood-card {
+		padding: 4px;
+	}
+
+	.listfood-img {
+		height: 42px;
+	}
+
+	.listfood-title {
+		font-size: 0.5rem;
+	}
+
+	.listfood-category {
+		font-size: 0.4rem !important;
+	}
+
+	.listfood-price {
+		font-size: 0.46rem;
+
+		padding: 2px 5px;
+	}
+
+	.listfood-delete {
+		width: 16px;
+
+		height: 16px;
+
+		font-size: 0.45rem;
+	}
 }

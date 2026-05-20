@@ -100,8 +100,6 @@ const Orders = () => {
 			{/* ========================================= */}
 
 			<div className="orders-topbar">
-				<h2 className="orders-heading">All Orders</h2>
-
 				<div className="filter-box">
 					<i className="fa-solid fa-filter"></i>
 
@@ -197,7 +195,19 @@ const Orders = () => {
 
 								<button
 									className="refresh-btn"
-									onClick={fetchOrders}
+									// onClick={fetchOrders}
+									onClick={() => {
+										fetchOrders();
+
+										toast.success("Order refreshed", {
+											position: "top-right",
+											autoClose: 1000,
+											theme: "transparent",
+											style: {
+												color: "black",
+											},
+										});
+									}}
 									title="Refresh"
 								>
 									<i className="bi bi-arrow-clockwise"></i>
