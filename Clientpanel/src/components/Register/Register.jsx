@@ -21,6 +21,7 @@ const Register = () => {
 	const [otp, setOtp] = useState("");
 	const [otpSent, setOtpSent] = useState(false);
 	const [otpVerified, setOtpVerified] = useState(false);
+	const [sendingOtp, setSendingOtp] = useState(false);
 
 	const handleReset = () => {
 		setData({
@@ -35,7 +36,19 @@ const Register = () => {
 
 	const onChangeHandler = (e) => {
 		const { name, value } = e.target;
-		setData((prev) => ({ ...prev, [name]: value }));
+
+		setData((prev) => ({
+			...prev,
+			[name]: value,
+		}));
+
+		// ✅ email change => reset OTP
+
+		if (name === "email") {
+			setOtp("");
+			setOtpSent(false);
+			setOtpVerified(false);
+		}
 	};
 	const isValidEmail = (email) => {
 		const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -47,7 +60,19 @@ const Register = () => {
 		if (!data.email) return toast.error("Enter your email first");
 		if (!isValidEmail(data.email))
 			return toast.error("Enter a valid email address");
+		setSendingOtp(true);
 		try {
+			// ✅ CHECK EMAIL FIRST
+
+			const checkEmail = await axios.post(`${API_URL}/api/check-email`, {
+				email: data.email,
+			});
+
+			if (checkEmail.data.exists) {
+				return toast.error("Email already exists");
+			}
+
+			// ✅ SEND OTP
 			const res = await axios.post(
 				`${API_URL}/api/send-otp`,
 				{
@@ -66,6 +91,8 @@ const Register = () => {
 		} catch (err) {
 			toast.error(err.response?.data?.message || "Failed to send OTP");
 			console.log("OTP ERROR:", err.response);
+		} finally {
+			setSendingOtp(false);
 		}
 	};
 
@@ -137,8 +164,9 @@ const Register = () => {
 								type="button"
 								className="send-otp-btn"
 								onClick={handleSendOtp}
+								disabled={sendingOtp}
 							>
-								Send OTP
+								{sendingOtp ? "Sending..." : "Send OTP"}
 							</button>
 						</span>
 					</div>

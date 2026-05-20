@@ -85,9 +85,9 @@
 
 .listfood-grid {
 	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 260px));
 
-	grid-template-columns: repeat(5, 1fr);
-
+	justify-content: center;
 	gap: 16px;
 
 	max-width: 1450px;

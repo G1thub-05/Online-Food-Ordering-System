@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -36,11 +37,23 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    public void deleteUser(String userId) {
+        userRepository.deleteById(userId);
+    }
+
+    @Override
     public String findByUserId() {
         String loggedInUserEmail = autthenticationFacade.getAuthentication().getName();
         UserEntity loggedInUser = userRepository.findByEmail(loggedInUserEmail)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
         return loggedInUser.getId();
+    }
+    @Override
+    public List<UserResponse> getAllUsers() {
+        return userRepository.findAll()
+                .stream()
+                .map(this::convertToResponse)
+                .toList();
     }
 
 
@@ -60,18 +73,6 @@ public class UserServiceImpl implements UserService{
                 .build();
     }
 
-//    @Override
-//    public boolean resetPassword(String email, String newPassword) {
-//        Optional<User> optionalUser = userRepository.findByEmail(email);
-//        if (optionalUser.isPresent()) {
-//            User user = optionalUser.get();
-//            user.setPassword(passwordEncoder.encode(newPassword));
-//            userRepository.save(user);
-//            return true;
-//        }
-//        return false;
-//    }
-
     @Override
     public boolean resetPassword(String email, String newPassword) {
         Optional<UserEntity> optionalUser = userRepository.findByEmail(email);
@@ -82,6 +83,11 @@ public class UserServiceImpl implements UserService{
             return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean checkEmailExists(String email) {
+        return userRepository.existsByEmail(email);
     }
 
 }

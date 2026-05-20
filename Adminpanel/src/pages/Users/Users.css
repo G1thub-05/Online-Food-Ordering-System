@@ -1,0 +1,309 @@
+.users-page {
+	padding: 14px;
+	min-height: 100vh;
+	background: #f4f7fb;
+	font-family: "Poppins", sans-serif;
+}
+
+/* ========================================= */
+/* HEADER */
+/* ========================================= */
+
+.users-header {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 14px;
+
+	margin-bottom: 24px;
+}
+
+/* ========================================= */
+/* TITLE */
+/* ========================================= */
+
+.users-title {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+
+	margin: 0;
+
+	font-size: 22px;
+	font-weight: 600;
+	color: #111827;
+
+	white-space: nowrap;
+}
+
+.users-title i {
+	color: #ff8800;
+}
+
+/* ========================================= */
+/* SEARCH */
+/* ========================================= */
+
+.users-search {
+	display: flex;
+	align-items: center;
+
+	width: 320px;
+	height: 46px;
+
+	background: white;
+
+	border: 1px solid #e5e7eb;
+	border-radius: 12px;
+
+	padding: 0 14px;
+
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+.users-search i {
+	color: #9ca3af;
+	font-size: 14px;
+	margin-right: 10px;
+}
+
+.users-search input {
+	width: 100%;
+
+	border: none;
+	outline: none;
+
+	background: transparent;
+
+	font-size: 14px;
+	color: #111827;
+}
+
+.users-search input::placeholder {
+	color: #9ca3af;
+}
+
+/* ========================================= */
+/* GRID */
+/* ========================================= */
+
+.users-grid {
+	display: grid;
+
+	grid-template-columns: repeat(auto-fit, minmax(280px, 320px));
+
+	justify-content: center;
+
+	gap: 20px;
+}
+
+/* ========================================= */
+/* CARD */
+/* ========================================= */
+
+.user-card {
+	background: white;
+
+	border-radius: 18px;
+
+	padding: 18px;
+
+	border: 1px solid #e5e7eb;
+
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+	transition: all 0.25s ease;
+}
+
+.user-card:hover {
+	transform: translateY(-4px);
+
+	border-color: rgba(255, 136, 0, 0.25);
+
+	box-shadow:
+		0 12px 28px rgba(255, 136, 0, 0.18),
+		0 0 0 1px rgba(255, 136, 0, 0.08);
+
+	background: linear-gradient(180deg, #ffffff, #fff9f2);
+}
+
+/* ========================================= */
+/* AVATAR */
+/* ========================================= */
+
+.user-avatar {
+	display: block;
+
+	width: 58px;
+	height: 58px;
+
+	margin: 0 auto 14px;
+
+	object-fit: cover;
+
+	border-radius: 50%;
+
+	padding: 8px;
+
+	background: #fff7ed;
+
+	border: 1px solid #fed7aa;
+}
+
+/* ========================================= */
+/* NAME */
+/* ========================================= */
+
+.user-name {
+	font-size: 17px;
+	font-weight: 600;
+
+	color: #374151;
+
+	margin-bottom: 8px;
+}
+
+/* ========================================= */
+/* EMAIL */
+/* ========================================= */
+
+.user-email {
+	font-size: 14px;
+
+	color: #6b7280;
+
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/* ========================================= */
+/* BUTTON */
+/* ========================================= */
+
+.user-delete-btn {
+	width: 100%;
+
+	margin-top: 18px;
+
+	border: none;
+	outline: none;
+
+	padding: 11px;
+
+	border-radius: 10px;
+
+	background: linear-gradient(135deg, #ef4444, #dc2626);
+
+	color: white;
+
+	font-size: 13px;
+	font-weight: 600;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+
+	cursor: pointer;
+
+	transition: 0.25s ease;
+}
+
+.user-delete-btn:hover {
+	transform: scale(1.02);
+	opacity: 0.92;
+}
+
+/* ========================================= */
+/* EMPTY */
+/* ========================================= */
+
+.empty-users {
+	grid-column: 1/-1;
+
+	background: white;
+
+	padding: 50px 20px;
+
+	border-radius: 18px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	border: 1px solid #e5e7eb;
+}
+
+.empty-users i {
+	font-size: 42px;
+
+	color: #9ca3af;
+
+	margin-bottom: 12px;
+}
+
+.empty-users p {
+	font-size: 16px;
+	font-weight: 600;
+	color: #6b7280;
+}
+
+/* ========================================= */
+/* MOBILE */
+/* ========================================= */
+
+@media (max-width: 600px) {
+	.users-page {
+		padding: 12px;
+	}
+
+	.users-header {
+		gap: 10px;
+
+		align-items: center;
+
+		justify-content: space-between;
+	}
+
+	.users-title {
+		font-size: 16px;
+	}
+
+	.users-search {
+		width: 200px;
+
+		height: 40px;
+
+		padding: 0 10px;
+	}
+
+	.users-search input {
+		font-size: 12px;
+	}
+
+	.users-grid {
+		grid-template-columns: 1fr;
+
+		gap: 16px;
+	}
+
+	.user-card {
+		padding: 16px;
+	}
+
+	.user-name {
+		font-size: 15px;
+	}
+
+	.user-email {
+		font-size: 12px;
+	}
+
+	.user-delete-btn {
+		font-size: 12px;
+
+		padding: 10px;
+	}
+}

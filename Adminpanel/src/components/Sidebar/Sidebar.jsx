@@ -56,6 +56,15 @@ const Sidebar = ({ sidebarVisible, setSidebarVisible }) => {
 						<i className="bi bi-cart me-2"></i>
 						Orders
 					</NavLink>
+					<NavLink
+						to="/users"
+						className={({ isActive }) =>
+							`sidebar-link ${isActive ? "active" : ""}`
+						}
+					>
+						<i className="bi bi-people me-2"></i>
+						Users
+					</NavLink>
 				</nav>
 			</div>
 		</>

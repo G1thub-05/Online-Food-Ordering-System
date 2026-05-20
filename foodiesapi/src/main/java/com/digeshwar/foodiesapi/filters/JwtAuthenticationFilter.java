@@ -38,9 +38,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                         || path.equals("/api/send-otp")
                         || path.equals("/api/register")
                         || path.equals("/api/login")
-                        || (request.getMethod().equals("DELETE") && path.startsWith("/api/orders")
-
-                )
+                        || (request.getMethod().equals("DELETE") && path.startsWith("/api/orders"))
+                        || path.startsWith("/api/users")
+                        || (request.getMethod().equals("DELETE") && path.startsWith("/api/orders"))
+                        || path.equals("/api/check-email")
         ) {
             filterChain.doFilter(request, response);
             return;
