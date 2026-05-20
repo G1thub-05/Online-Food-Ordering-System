@@ -33,7 +33,7 @@ body {
 
 	margin: auto;
 
-	padding: 1px 1px;
+	padding: 1px 40px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -296,8 +296,7 @@ body {
 
 @media (max-width: 768px) {
 	.minimal-navbar-container {
-		padding: 2px 5px;
-
+		padding: 2px 18px;
 		gap: 6px;
 	}
 
@@ -315,7 +314,7 @@ body {
 	}
 
 	.minimal-link {
-		font-size: 0.75rem;
+		font-size: 1rem;
 	}
 
 	/* BUTTONS */
@@ -345,7 +344,7 @@ body {
 	}
 
 	.minimal-cart svg {
-		font-size: 14px;
+		font-size: 12px;
 	}
 
 	/* PROFILE */
@@ -362,15 +361,15 @@ body {
 
 @media (max-width: 480px) {
 	.minimal-navbar-container {
-		padding: 2px 4px;
+		padding: 2px 20px;
 		gap: 5px;
 	}
 
 	/* LOGO */
 
 	.minimal-logo {
-		width: 60px;
-		height: 60px;
+		width: 85px;
+		height: 85px;
 	}
 
 	/* LINKS */
@@ -380,7 +379,7 @@ body {
 	}
 
 	.minimal-link {
-		font-size: 0.64rem;
+		font-size: 0.9rem;
 	}
 
 	/* ACTIONS */
@@ -393,12 +392,9 @@ body {
 
 	.minimal-login,
 	.minimal-register {
-		height: 30px;
-
+		height: 25px;
 		padding: 0 8px;
-
 		font-size: 0.55rem;
-
 		border-radius: 7px;
 	}
 
@@ -420,7 +416,7 @@ body {
 	}
 
 	.minimal-cart svg {
-		font-size: 13px;
+		font-size: 11px;
 	}
 
 	.minimal-cart-count {

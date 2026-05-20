@@ -129,7 +129,7 @@ const Cart = () => {
 					</div>
 					<div className="continue-btn-wrapper">
 						<Link to="/" className="continue-btn">
-							⬅ Continue Shopping
+							Continue To Shopping
 						</Link>
 					</div>
 				</div>
