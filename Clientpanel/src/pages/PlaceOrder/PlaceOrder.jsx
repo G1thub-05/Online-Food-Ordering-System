@@ -154,8 +154,7 @@ const PlaceOrder = () => {
 			console.error("Full Error:", error);
 			console.log("Response Data:", error.response?.data);
 			console.log("Status:", error.response?.status);
-
-			toast.error("Order submission error.");
+			toast.error("Order submission error");
 		}
 	};
 
