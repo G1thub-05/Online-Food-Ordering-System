@@ -151,7 +151,9 @@ const PlaceOrder = () => {
 				toast.error("Order failed.");
 			}
 		} catch (error) {
-			console.error(error);
+			console.error("Full Error:", error);
+			console.log("Response Data:", error.response?.data);
+			console.log("Status:", error.response?.status);
 
 			toast.error("Order submission error.");
 		}
@@ -189,7 +191,6 @@ const PlaceOrder = () => {
 			modal: {
 				ondismiss: async () => {
 					await deleteOrderHandler(order.id, token);
-					// await deleteOrderHandler(order._id, token); // for fake payment without backend order creation
 					toast.info("Payment cancelled");
 				},
 			},
