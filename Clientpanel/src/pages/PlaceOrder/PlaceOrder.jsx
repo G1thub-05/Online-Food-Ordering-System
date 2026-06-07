@@ -187,8 +187,11 @@ const PlaceOrder = () => {
 			},
 
 			modal: {
-				// ondismiss: () => deleteOrderHandler(order._id, token), for fake payment without backend order creation
-				ondismiss: () => deleteOrderHandler(order.id, token),
+				ondismiss: async () => {
+					await deleteOrderHandler(order.id, token);
+					// await deleteOrderHandler(order._id, token); // for fake payment without backend order creation
+					toast.info("Payment cancelled");
+				},
 			},
 		};
 		if (!window.Razorpay) {

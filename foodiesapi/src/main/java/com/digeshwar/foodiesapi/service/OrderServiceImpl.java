@@ -74,23 +74,29 @@ public class OrderServiceImpl implements OrderService{
     @Override
     public void verifyPayment(Map<String, String> paymentData, String status) {
         String razorpayOrderId = paymentData.get("razorpay_order_id");
-        OrderEntity existingOrder = orderRepository.findByRazorpayOrderId(razorpayOrderId)
+        OrderEntity existingOrder = orderRepository
+                .findByRazorpayOrderId(razorpayOrderId)
                 .orElseThrow(() -> new RuntimeException("Order not found"));
+
         existingOrder.setPaymentStatus(status);
         existingOrder.setRazorpaySignature(paymentData.get("razorpay_signature"));
         existingOrder.setRazorpayPaymentId(paymentData.get("razorpay_payment_id"));
-        orderRepository.save(existingOrder);
+
         if ("paid".equalsIgnoreCase(status)) {
+            existingOrder.setOrderStatus("Food Preparing");
             cartRespository.deleteByUserId(existingOrder.getUserId());
         }
+        orderRepository.save(existingOrder);
     }
 
     @Override
     public List<OrderResponse> getUserOrders() {
         String loggedInUserId = userService.findByUserId();
-        List<OrderEntity> list = orderRepository.findByUserId(loggedInUserId);
+//        List<OrderEntity> list = orderRepository.findByUserId(loggedInUserId);
+        List<OrderEntity> list = orderRepository.findByUserIdAndPaymentStatus(loggedInUserId, "paid");
         return list.stream().map(entity -> convertToResponse(entity)).collect(Collectors.toList());
     }
+
 
     @Override
     public void removeOrder(String orderId) {
@@ -160,7 +166,9 @@ public class OrderServiceImpl implements OrderService{
                 .orderedItems(request.getOrderedItems())
                 .email(request.getEmail())
                 .phoneNumber(request.getPhoneNumber())
-                .orderStatus(request.getOrderStatus())
+//                .orderStatus(request.getOrderStatus())
+                .orderStatus("Pending Payment")
+                .paymentStatus("unpaid")
                 .build();
     }
 }
