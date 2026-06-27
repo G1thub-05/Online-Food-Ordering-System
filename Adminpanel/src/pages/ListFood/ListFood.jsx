@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { deleteFood, getFoodList } from "../../services/foodService";
+import FoodSkeleton from "../../components/FoodSkeleton/FoodSkeleton";
 import "./ListFood.css";
 
 const ListFood = () => {
 	const [list, setList] = useState([]);
-
+	const [loading, setLoading] = useState(true);
 	const [selectedCategory, setSelectedCategory] = useState("All");
 
 	/* ========================================= */
@@ -14,11 +15,14 @@ const ListFood = () => {
 
 	const fetchList = async () => {
 		try {
+			setLoading(true);
 			const data = await getFoodList();
 
 			setList(data);
 		} catch (error) {
 			toast.error("Error while reading foods.");
+		} finally {
+			setLoading(false);
 		}
 	};
 
@@ -103,7 +107,7 @@ const ListFood = () => {
 			{/* GRID */}
 			{/* ========================================= */}
 
-			<div className="listfood-grid">
+			{/* <div className="listfood-grid">
 				{filteredList.map((item, index) => (
 					<div className="listfood-card" key={index}>
 						<img src={item.imageUrl} alt={item.name} className="listfood-img" />
@@ -124,6 +128,43 @@ const ListFood = () => {
 						</div>
 					</div>
 				))}
+			</div> */}
+
+			<div className="listfood-grid">
+				{loading ? (
+					Array.from({ length: 8 }).map((_, index) => (
+						<FoodSkeleton key={index} />
+					))
+				) : filteredList.length > 0 ? (
+					filteredList.map((item) => (
+						<div className="listfood-card" key={item.id}>
+							<img
+								src={item.imageUrl}
+								alt={item.name}
+								className="listfood-img"
+							/>
+
+							<div className="listfood-content">
+								<h3 className="listfood-title">{item.name}</h3>
+
+								<div className="badge listfood-category">{item.category}</div>
+
+								<div className="listfood-bottom">
+									<div className="listfood-price">₹{item.price}.00</div>
+
+									<i
+										className="bi bi-trash-fill listfood-delete"
+										onClick={() => removeFood(item.id)}
+									></i>
+								</div>
+							</div>
+						</div>
+					))
+				) : (
+					<h3 style={{ textAlign: "center", width: "100%" }}>
+						No Food Available
+					</h3>
+				)}
 			</div>
 		</div>
 	);
