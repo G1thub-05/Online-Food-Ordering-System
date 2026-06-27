@@ -14,6 +14,7 @@ export const StoreContextProvider = (props) => {
 	const [foodList, setFoodList] = useState([]);
 	const [quantities, setQuantities] = useState({});
 	const [token, setToken] = useState("");
+	const [loading, setLoading] = useState(true);
 
 	const increaseQty = async (foodId) => {
 		try {
@@ -68,6 +69,7 @@ export const StoreContextProvider = (props) => {
 	const contextValue = {
 		foodList,
 		increaseQty,
+		loading,
 		decreaseQty,
 		quantities,
 		removeFromCart,
@@ -80,6 +82,7 @@ export const StoreContextProvider = (props) => {
 	useEffect(() => {
 		async function loadData() {
 			try {
+				setLoading(true);
 				const data = await fetchFoodList();
 				console.log("FOOD API RESPONSE:", data);
 				setFoodList(Array.isArray(data) ? data : []);
@@ -93,6 +96,8 @@ export const StoreContextProvider = (props) => {
 				console.error("LOAD DATA ERROR:", error);
 				setFoodList([]);
 				setQuantities({});
+			} finally {
+				setLoading(false);
 			}
 		}
 		loadData();

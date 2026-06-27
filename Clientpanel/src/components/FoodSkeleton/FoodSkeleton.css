@@ -1,0 +1,53 @@
+.food-skeleton {
+	background: #fff;
+	border-radius: 12px;
+	overflow: hidden;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.food-skeleton-body {
+	padding: 15px;
+}
+
+.skeleton {
+	background: linear-gradient(90deg, #eeeeee 25%, #f7f7f7 50%, #eeeeee 75%);
+	background-size: 200% 100%;
+	animation: shimmer 1.4s infinite linear;
+	border-radius: 6px;
+}
+
+.skeleton-image {
+	height: 220px;
+	width: 100%;
+}
+
+.skeleton-title {
+	height: 20px;
+	width: 70%;
+	margin-bottom: 15px;
+}
+
+.skeleton-text {
+	height: 14px;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.skeleton-text.short {
+	width: 65%;
+}
+
+.skeleton-price {
+	height: 18px;
+	width: 35%;
+	margin-top: 18px;
+}
+
+@keyframes shimmer {
+	0% {
+		background-position: -200% 0;
+	}
+	100% {
+		background-position: 200% 0;
+	}
+}

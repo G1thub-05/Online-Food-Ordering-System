@@ -213,7 +213,6 @@ const Register = () => {
 													const prevInput = document.getElementById(
 														`otp-${idx - 1}`,
 													);
-
 													prevInput?.focus();
 												}
 											}
