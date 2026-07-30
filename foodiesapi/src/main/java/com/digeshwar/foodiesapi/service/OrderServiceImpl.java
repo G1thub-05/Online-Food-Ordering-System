@@ -92,7 +92,6 @@ public class OrderServiceImpl implements OrderService{
     @Override
     public List<OrderResponse> getUserOrders() {
         String loggedInUserId = userService.findByUserId();
-//        List<OrderEntity> list = orderRepository.findByUserId(loggedInUserId);
         List<OrderEntity> list = orderRepository.findByUserIdAndPaymentStatus(loggedInUserId, "paid");
         return list.stream().map(entity -> convertToResponse(entity)).collect(Collectors.toList());
     }
