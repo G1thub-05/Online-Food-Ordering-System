@@ -93,7 +93,7 @@ public class OrderServiceImpl implements OrderService{
     public List<OrderResponse> getUserOrders() {
         String loggedInUserId = userService.findByUserId();
 //        List<OrderEntity> list = orderRepository.findByUserId(loggedInUserId);
-        List<OrderEntity> list = orderRepository.findByUserIdAndPaymentStatus(loggedInUserId, "paid");
+        List<OrderEntity> list = orderRepository.findByUserIdAndPaymentStatus(loggedInUserId, "Paid");
         return list.stream().map(entity -> convertToResponse(entity)).collect(Collectors.toList());
     }
 
