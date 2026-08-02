@@ -2,6 +2,18 @@
 # mkdir .github\workflows
 # New-Item .github\workflows\keep-render-awake.yml -ItemType File
 
+# git add .github/workflows/keep-render-awake.yml
+# git commit -m "Add GitHub Action to keep Render app awake"
+# git push origin main
+
+
+# Phir GitHub me:
+
+# Actions tab open karo.
+# Keep Render App Awake workflow select karo.
+# Run workflow par click karo.
+# Logs check karo.
+
 name: Keep Render App Awake
 
 on:
