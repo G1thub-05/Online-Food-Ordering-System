@@ -1,0 +1,25 @@
+
+# mkdir .github\workflows
+# New-Item .github\workflows\keep-render-awake.yml -ItemType File
+
+name: Keep Render App Awake
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Ping Render App
+        run: |
+          STATUS=$(curl -o /dev/null -s -w "%{http_code}" https://online-food-ordering-system-y2kf.onrender.com)
+          echo "HTTP Status: $STATUS"
+
+          if [ "$STATUS" -ne 200 ]; then
+            echo "Application is not responding properly."
+            exit 1
+          fi
