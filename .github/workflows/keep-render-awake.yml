@@ -26,7 +26,7 @@ jobs:
     steps:
       - name: Ping Render App
         run: |
-          echo "Ping Time: $(date)"
+          echo "Ping Time: $(TZ='Asia/Kolkata' date '+%d-%m-%Y %I:%M:%S %p %Z')"
           STATUS=$(curl -o /dev/null -s -w "%{http_code}" https://online-food-ordering-system-y2kf.onrender.com/health)
 
           echo "HTTP Status: $STATUS"
