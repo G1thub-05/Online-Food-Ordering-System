@@ -26,7 +26,8 @@ jobs:
     steps:
       - name: Ping Render App
         run: |
-          STATUS=$(curl -o /dev/null -s -w "%{http_code}" https://online-food-ordering-system-y2kf.onrender.com)
+          STATUS=$(curl -o /dev/null -s -w "%{http_code}" https://online-food-ordering-system-y2kf.onrender.com/health)
+
           echo "HTTP Status: $STATUS"
 
           if [ "$STATUS" -ne 200 ]; then

@@ -22,7 +22,6 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 import org.springframework.http.HttpMethod;
 
-
 import java.util.List;
 
 @Configuration
@@ -34,23 +33,26 @@ public class SecurityConfig {
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-//                .addFilterBefore(corsFilter(), UsernamePasswordAuthenticationFilter.class)
-                 .cors(Customizer.withDefaults())
-                 .csrf(AbstractHttpConfigurer::disable)
-                 .authorizeHttpRequests(auth ->  auth
-                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // 👈 ADD THIS LINE
-                         .requestMatchers("/api/foods/**").permitAll()
-                         .requestMatchers("/api/reset").permitAll()
-                         .requestMatchers("/api/users/**").permitAll()
-                         .requestMatchers("/api/register", "/api/login", "/api/orders/all",
-                 "/api/orders/status/**", "/api/orders/**","/api/send-otp", "/api/check-email", "/api/verify-otp", "/api/forgot-password",
-                 "/api/reset-password").permitAll()
-                 .anyRequest().authenticated())
-                 .sessionManagement(session -> session
-                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+                // .addFilterBefore(corsFilter(), UsernamePasswordAuthenticationFilter.class)
+                .cors(Customizer.withDefaults())
+                .csrf(AbstractHttpConfigurer::disable)
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // 👈 ADD THIS LINE
+                        .requestMatchers("/health").permitAll()
+                        .requestMatchers("/api/foods/**").permitAll()
+                        .requestMatchers("/api/reset").permitAll()
+                        .requestMatchers("/api/users/**").permitAll()
+                        .requestMatchers("/api/register", "/api/login", "/api/orders/all",
+                                "/api/orders/status/**", "/api/orders/**", "/api/send-otp", "/api/check-email",
+                                "/api/verify-otp", "/api/forgot-password",
+                                "/api/reset-password")
+                        .permitAll()
+                        .anyRequest().authenticated())
+                .sessionManagement(session -> session
+                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 
@@ -59,29 +61,31 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-//    @Bean
-//    public CorsFilter corsFilter() {
-//        return new CorsFilter(corsConfigurationSource());
-//    }
+    // @Bean
+    // public CorsFilter corsFilter() {
+    // return new CorsFilter(corsConfigurationSource());
+    // }
 
     @Bean
     public UrlBasedCorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOriginPatterns(List.of("http://localhost:5173", "http://localhost:5174", "https://*.vercel.app", "https://admin-online-food-ordering-system.vercel.app", "https://client-online-food-ordering-system.vercel.app"));
+        config.setAllowedOriginPatterns(List.of("http://localhost:5173", "http://localhost:5174",
+                "https://*.vercel.app", "https://admin-online-food-ordering-system.vercel.app",
+                "https://client-online-food-ordering-system.vercel.app"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
         config.setAllowedHeaders(List.of("*"));
-//        config.setAllowedHeaders(List.of("Authorization", "Content-Type", "Origin", "Accept", "X-Requested-With"));
+        // config.setAllowedHeaders(List.of("Authorization", "Content-Type", "Origin",
+        // "Accept", "X-Requested-With"));
         config.setExposedHeaders(List.of("Authorization"));
         config.setAllowCredentials(false);
 
-//        config.addAllowedMethod("*"); // 👈 Allow all HTTP methods
-//        config.addAllowedHeader("*"); // 👈 Allow all headers
+        // config.addAllowedMethod("*"); // 👈 Allow all HTTP methods
+        // config.addAllowedHeader("*"); // 👈 Allow all headers
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
         return source;
     }
-
 
     @Bean
     public AuthenticationManager authenticationManager() {
