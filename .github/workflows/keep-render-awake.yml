@@ -12,7 +12,7 @@
 # GitHub
 # Actions → Keep Render App Awake → Run workflow → Logs
 
-name: Keep Render App Awake
+name: Keep My Render App Awake
 
 on:
   schedule:
